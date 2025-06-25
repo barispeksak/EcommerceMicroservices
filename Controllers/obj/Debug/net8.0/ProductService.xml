@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProductService</name>
+    </assembly>
+    <members>
+        <member name="M:ProductService.Controllers.ProductCategoryController.TumKategorileriGetir">
+            <summary>
+            Tüm ürün kategorilerini getirir.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductCategoryController.KategoriGetir(System.Int32)">
+            <summary>
+            Belirli bir kategori ID’sine göre kategoriyi getirir.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductCategoryController.KategoriOlustur(ProductService.Models.ProductCategory)">
+            <summary>
+            Yeni bir ürün kategorisi oluşturur.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductCategoryController.KategoriGuncelle(System.Int32,ProductService.Models.ProductCategory)">
+            <summary>
+            Mevcut bir kategori bilgisini günceller.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductCategoryController.KategoriSil(System.Int32)">
+            <summary>
+            Belirli bir kategori ID’sine göre kategoriyi siler.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductConfigurationController.GetAllConfigurations">
+            <summary>
+            Tüm ürün yapılandırmalarını getirir.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductConfigurationController.GetConfiguration(System.Int32)">
+            <summary>
+            Belirli bir ürün yapılandırmasını getirir.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductConfigurationController.CreateConfiguration(ProductService.Models.ProductConfiguration)">
+            <summary>
+            Yeni bir ürün yapılandırması oluşturur.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductConfigurationController.UpdateConfiguration(System.Int32,ProductService.Models.ProductConfiguration)">
+            <summary>
+            Var olan bir ürün yapılandırmasını günceller.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductConfigurationController.DeleteConfiguration(System.Int32)">
+            <summary>
+            Belirli bir ürün yapılandırmasını siler.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductController.GetAllProducts">
+            <summary>
+            Tüm ürünleri getirir.
+            </summary>
+            <returns>Ürün listesi</returns>
+        </member>
+        <member name="M:ProductService.Controllers.ProductController.GetProduct(System.Int32)">
+            <summary>
+            Belirli bir ürün bilgisini getirir.
+            </summary>
+            <param name="id">Ürün ID</param>
+            <returns>Ürün bilgisi</returns>
+        </member>
+        <member name="M:ProductService.Controllers.ProductController.CreateProduct(ProductService.Models.Product)">
+            <summary>
+            Yeni ürün oluşturur.
+            </summary>
+            <param name="product">Ürün nesnesi</param>
+            <returns>Oluşturulan ürün bilgisi</returns>
+        </member>
+        <member name="M:ProductService.Controllers.ProductController.UpdateProduct(System.Int32,ProductService.Models.Product)">
+            <summary>
+            Ürün günceller.
+            </summary>
+            <param name="id">Ürün ID</param>
+            <param name="product">Güncellenmiş ürün nesnesi</param>
+            <returns>HTTP sonucu</returns>
+        </member>
+        <member name="M:ProductService.Controllers.ProductController.DeleteProduct(System.Int32)">
+            <summary>
+            Ürün siler.
+            </summary>
+            <param name="id">Ürün ID</param>
+            <returns>HTTP sonucu</returns>
+        </member>
+        <member name="M:ProductService.Controllers.ProductItemController.TumUrunOgeleriniGetir">
+            <summary>
+            Tüm ürün öğelerini getirir.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductItemController.UrunOgesiGetir(System.Int32)">
+            <summary>
+            Belirli bir ürün öğesini ID'ye göre getirir.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductItemController.UrunOgesiOlustur(ProductService.Models.ProductItem)">
+            <summary>
+            Yeni bir ürün öğesi oluşturur.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductItemController.UrunOgesiGuncelle(System.Int32,ProductService.Models.ProductItem)">
+            <summary>
+            Var olan bir ürün öğesini günceller.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.ProductItemController.UrunOgesiSil(System.Int32)">
+            <summary>
+            Belirli bir ürün öğesini siler.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.VariationController.TumVaryasyonlariGetir">
+            <summary>
+            Tüm varyasyonları getirir.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.VariationController.VaryasyonGetir(System.Int32)">
+            <summary>
+            Belirli bir varyasyon ID’sine göre detay getirir.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.VariationController.VaryasyonOlustur(ProductService.Models.Variation)">
+            <summary>
+            Yeni bir varyasyon oluşturur.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.VariationController.VaryasyonGuncelle(System.Int32,ProductService.Models.Variation)">
+            <summary>
+            Varyasyonu günceller.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.VariationController.VaryasyonSil(System.Int32)">
+            <summary>
+            Belirli bir varyasyonu siler.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.VariationOptionController.TumSecenekleriGetir">
+            <summary>
+            Tüm varyasyon seçeneklerini getirir.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.VariationOptionController.SecenekGetir(System.Int32)">
+            <summary>
+            Belirli bir ID'ye sahip varyasyon seçeneğini getirir.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.VariationOptionController.SecenekOlustur(ProductService.Models.VariationOption)">
+            <summary>
+            Yeni bir varyasyon seçeneği oluşturur.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.VariationOptionController.SecenekGuncelle(System.Int32,ProductService.Models.VariationOption)">
+            <summary>
+            Varyasyon seçeneğini günceller.
+            </summary>
+        </member>
+        <member name="M:ProductService.Controllers.VariationOptionController.SecenekSil(System.Int32)">
+            <summary>
+            Belirli bir varyasyon seçeneğini siler.
+            </summary>
+        </member>
+        <member name="T:ProductService.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:ProductService.Migrations.InitialCreate2">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.InitialCreate2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.InitialCreate2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.InitialCreate2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:ProductService.Migrations.QuantityValidationUpdate">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.QuantityValidationUpdate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.QuantityValidationUpdate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:ProductService.Migrations.Update">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.Update.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.Update.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProductService.Migrations.Update.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
