@@ -2,7 +2,8 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace trendyolApi.Models{
-    public class User{
+    public class User
+    {
         public int Id { get; set; }
 
         public string? Fname { get; set; }
@@ -15,5 +16,7 @@ namespace trendyolApi.Models{
         public string Phone { get; set; } = string.Empty;
 
         public DateTime Dob { get; set; }
+        
+        public List<int> AddressIds { get; set; } = new();
     }
 }
