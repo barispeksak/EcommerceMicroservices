@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using AddressMicroservice.Data;
 using AddressMicroservice.Services;
+using Npgsql;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,8 @@ builder.Services.AddControllers();
 
 // Add Entity Framework
 builder.Services.AddDbContext<AddressDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 // Add custom services
 builder.Services.AddScoped<IAddressService, AddressService>();

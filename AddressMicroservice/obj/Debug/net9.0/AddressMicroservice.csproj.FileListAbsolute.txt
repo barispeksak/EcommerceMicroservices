@@ -191,3 +191,4 @@
 /Users/barispeksak/Desktop/EcommerceMicroservices/AddressMicroservice/obj/Debug/net9.0/ref/AddressMicroservice.dll
 /Users/barispeksak/Desktop/EcommerceMicroservices/AddressMicroservice/bin/Debug/net9.0/Npgsql.dll
 /Users/barispeksak/Desktop/EcommerceMicroservices/AddressMicroservice/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AddressMicroservice/obj/Debug/net9.0/AddressMicroservice.sourcelink.json
