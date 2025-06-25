@@ -91,5 +91,20 @@ namespace trendyolApi.Controllers
 
             return NoContent();
         }
+
+        // POST: api/user/5/add-address/12
+        [HttpPost("{userId}/add-address/{addressId}")]
+        public async Task<IActionResult> AddAddressToUser(int userId, int addressId)
+        {
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null) return NotFound();
+
+            if (!user.AddressIds.Contains(addressId))
+                user.AddressIds.Add(addressId);
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
