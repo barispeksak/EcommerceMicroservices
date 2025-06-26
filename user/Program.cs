@@ -12,6 +12,10 @@ builder.Services.AddControllers(); // RESTful API'de klasik controller yapısın
 builder.Services.AddEndpointsApiExplorer(); // Swagger dokümantasyonu için gerekli servisleri etkinleştirir.
 builder.Services.AddSwaggerGen(); // Swagger arayüzü (UI) için gerekli yapılandırmayı ekler.
 
+builder.Services.AddHttpClient("AddressService", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5001/"); // adres mikroservisinin base URL'si
+});
 
 var app = builder.Build(); // Uygulamayı başlatmak için builder nesnesinden bir app nesnesi oluşturur.
 
