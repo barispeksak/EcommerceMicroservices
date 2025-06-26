@@ -1,33 +1,39 @@
+// ShopOrderMicroservice/Data/ShopOrderDbContext.cs
 using Microsoft.EntityFrameworkCore;
 using ShopOrderMicroservice.Models;
 
 namespace ShopOrderMicroservice.Data
 {
-    public class ShopOrderDbContext : DbContext
+    /// <summary>
+    /// Uygulamadaki tüm tabloları yöneten DbContext.
+    /// </summary>
+    public sealed class ShopOrderDbContext : DbContext
     {
-        public ShopOrderDbContext(DbContextOptions<ShopOrderDbContext> options) : base(options)
-        {
-        }
+        public ShopOrderDbContext(DbContextOptions<ShopOrderDbContext> options)
+            : base(options) { }
 
-        public DbSet<ShopOrder> ShopOrders { get; set; }
-        public DbSet<ShippingType> ShippingTypes { get; set; }
-        public DbSet<OrderStatus> OrderStatuses { get; set; }
+        // === DbSet’ler =====================================================
+        public DbSet<ShopOrder>    ShopOrders     { get; set; }          // get-set  
+        public DbSet<OrderStatus>  OrderStatuses  { get; set; }          // get-set  
+        public DbSet<OrderSummary> OrderSummaries { get; set; }          // get-set  
 
+        public DbSet<ShippingType> ShippingTypes  => Set<ShippingType>(); // readonly
+        public DbSet<PaymentType>  PaymentTypes   => Set<PaymentType>();  // readonly
+
+        // === Model yapılandırması =========================================
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Tablo adları
             modelBuilder.Entity<ShopOrder>().ToTable("ShopOrder");
             modelBuilder.Entity<ShippingType>().ToTable("ShippingType");
             modelBuilder.Entity<OrderStatus>().ToTable("OrderStatus");
+            modelBuilder.Entity<OrderSummary>().ToTable("OrderSummary");
+            modelBuilder.Entity<PaymentType>().ToTable("PaymentType");
 
-            modelBuilder.Entity<ShopOrder>()
-                .HasOne(s => s.ShippingType)
-                .WithMany()
-                .HasForeignKey(s => s.ShippingTypeId);
 
-            modelBuilder.Entity<ShopOrder>()
-                .HasOne(s => s.OrderStatus)
-                .WithMany()
-                .HasForeignKey(s => s.OrderStatusId);
+            modelBuilder.Entity<OrderStatus>()
+                .HasIndex(s => s.Status)
+                .IsUnique();
         }
     }
 }

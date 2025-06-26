@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using ShopOrderMicroservice.Data;
-using ShopOrderMicroservice.Services;
 using Npgsql;
 
 
@@ -13,9 +12,21 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<ShopOrderDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
 // Add custom services
-builder.Services.AddScoped<IShopOrderService, ShopOrderService>();
+builder.Services.AddHttpClient("UserService", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5056/"); // User mikroservisinin portu
+});
+
+builder.Services.AddHttpClient("AddressService", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5001/"); // Address mikroservisi
+});
+
+builder.Services.AddHttpClient("ProductService", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5080/"); // product mikroservisi
+});
 
 // Add Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();

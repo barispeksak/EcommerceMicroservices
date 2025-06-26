@@ -9,6 +9,5 @@ namespace ShopOrderMicroservice.DTOs
         public int ShippingAddressId { get; set; }
         public int ShippingTypeId { get; set; }
         public decimal OrderTotal { get; set; }
-        public int OrderStatusId { get; set; }
     }
 }
