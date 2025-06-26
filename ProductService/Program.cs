@@ -2,6 +2,7 @@ using ProductService.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json.Serialization;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,18 +25,27 @@ builder.Services.Configure<ApiBehaviorOptions>(opt =>
     {
         var errors = ctx.ModelState
                         .Where(e => e.Value!.Errors.Any())
-                        .Select(e => new {
+                        .Select(e => new
+                        {
                             Field = e.Key,
                             Messages = e.Value!.Errors
                                               .Select(x => x.ErrorMessage)
                         });
 
-        return new BadRequestObjectResult(new {
+        return new BadRequestObjectResult(new
+        {
             message = "Model doğrulama hatası",
             errors
         });
     };
 });
+
+builder.Services
+       .AddControllers()
+       .AddJsonOptions(opt =>
+       {
+           opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+       });
 
 
 var app = builder.Build();

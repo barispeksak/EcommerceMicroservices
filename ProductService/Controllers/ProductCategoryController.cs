@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductService.Data;
 using ProductService.Models;
+using ProductService.DTOs;
 
 namespace ProductService.Controllers
 {
@@ -56,16 +57,40 @@ namespace ProductService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ProductCategory>> KategoriOlustur(ProductCategory kategori)
+        public async Task<ActionResult<ProductCategory>> KategoriOlustur(ProductCategoryDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            _context.Categories.Add(kategori);
+            var category = new ProductCategory
+            {
+                CategoryName = dto.CategoryName,
+                ParentCategoryId = dto.ParentCategoryId
+            };
+
+            int? parentId = null;
+
+            // 1) Parent ID geldiyse DB’de var mı?
+            if (dto.ParentCategoryId is not null)
+            {
+                var parent = await _context.Categories.FindAsync(dto.ParentCategoryId.Value);
+                if (parent is null)
+                {
+                    parent = new ProductCategory { CategoryName = "Genel" };
+                    _context.Categories.Add(parent);
+                    await _context.SaveChangesAsync();
+                    category.ParentCategoryId = parent.Id;
+                }
+
+                 parentId = parent.Id;
+
+            }
+
+            _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(KategoriGetir), new { id = kategori.Id }, kategori);
-        }
+            return StatusCode(StatusCodes.Status201Created, category);
+        }       
 
         /// <summary>
         /// Mevcut bir kategori bilgisini günceller.

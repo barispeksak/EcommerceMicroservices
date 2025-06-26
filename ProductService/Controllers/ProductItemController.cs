@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductService.Data;
 using ProductService.Models;
+using ProductService.DTOs;
 
 namespace ProductService.Controllers
 {
@@ -52,18 +53,23 @@ namespace ProductService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ProductItem>> UrunOgesiOlustur(ProductItem item)
+        public async Task<ActionResult<ProductItem>> UrunOgesiOlustur([FromBody] ProductItemDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (item.QuantityInStock <= 0)
-                return BadRequest("Stok 0 veya negatif olamaz.");
+            var item = new ProductItem
+            {
+                SKU             = dto.Sku,
+                QuantityInStock = dto.QuantityInStock,
+                Price           = dto.Price,
+                ProductImage    = dto.ProductImage
+            };
 
             _context.ProductItems.Add(item);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(UrunOgesiGetir), new { id = item.Id }, item);
+            return StatusCode(StatusCodes.Status201Created, item);
         }
 
         /// <summary>
