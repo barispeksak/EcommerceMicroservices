@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AddressMicroservice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd12c89b469a2a648fd42cd054f475ff1db4fbec")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb5d2c9ddd7b929bf71e9761fef7ec67ff938c54")]
 [assembly: System.Reflection.AssemblyProductAttribute("AddressMicroservice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AddressMicroservice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
