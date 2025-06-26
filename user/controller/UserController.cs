@@ -10,11 +10,14 @@ namespace trendyolApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public UserController(AppDbContext context)
+        public UserController(AppDbContext context, IHttpClientFactory httpClientFactory)
         {
             _context = context;
+            _httpClientFactory = httpClientFactory;
         }
+
 
         // GET: api/user/5
         [HttpGet("{id}")]
@@ -92,17 +95,69 @@ namespace trendyolApi.Controllers
             return NoContent();
         }
 
-        // POST: api/user/5/add-address/12
         [HttpPost("{userId}/add-address/{addressId}")]
         public async Task<IActionResult> AddAddressToUser(int userId, int addressId)
         {
             var user = await _context.Users.FindAsync(userId);
             if (user == null) return NotFound();
 
+            // Adres mikroservisini çağır
+            var client = _httpClientFactory.CreateClient("AddressService");
+            var addressResponse = await client.GetAsync($"api/address/{addressId}");
+
+            // Adres bulunamadıysa kullanıcıya ekleme
+            if (!addressResponse.IsSuccessStatusCode)
+                return BadRequest($"Adres {addressId} bulunamadı (Mikroservisten).");
+
+            // Zaten varsa tekrar ekleme
             if (!user.AddressIds.Contains(addressId))
                 user.AddressIds.Add(addressId);
 
             await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [HttpGet("{id}/with-addresses")]
+        public async Task<ActionResult<object>> GetUserWithAddresses(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null) return NotFound();
+
+            var client = _httpClientFactory.CreateClient("AddressService");
+
+            var addressTasks = user.AddressIds.Select(addrId =>
+                client.GetFromJsonAsync<object>($"api/address/{addrId}")
+            );
+
+            var addresses = await Task.WhenAll(addressTasks);
+
+            return new
+            {
+                user.Id,
+                user.Fname,
+                user.Lname,
+                user.Email,
+                user.Phone,
+                user.Dob,
+                Addresses = addresses
+            };
+        }
+
+        [HttpDelete("{userId}/remove-address/{addressId}")]
+        public async Task<IActionResult> RemoveAddressFromUser(int userId, int addressId)
+        {
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null) return NotFound();
+
+            if (user.AddressIds.Contains(addressId))
+            {
+                user.AddressIds.Remove(addressId);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                return BadRequest($"Adres {addressId} bulunamadı.");
+            }
 
             return NoContent();
         }
