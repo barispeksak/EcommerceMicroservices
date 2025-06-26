@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductService.Data;
 using ProductService.Models;
+using ProductService.DTOs;
 
 namespace ProductService.Controllers
 {
@@ -54,15 +55,21 @@ namespace ProductService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ProductConfiguration>> CreateConfiguration(ProductConfiguration config)
+        public async Task<ActionResult<ProductConfiguration>> UrunKonfigurasyonOlustur([FromBody] ProductConfigurationDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            var config = new ProductConfiguration
+            {
+                ProductItemId     = dto.ProductItemId,
+                VariationOptionId = dto.VariationOptionId
+            };
+
             _context.ProductConfigurations.Add(config);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetConfiguration), new { id = config.Id }, config);
+            return StatusCode(StatusCodes.Status201Created, config); 
         }
 
         /// <summary>

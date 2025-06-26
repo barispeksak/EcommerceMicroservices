@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductService.Data;
 using ProductService.Models;
+using ProductService.DTOs;
 
 namespace ProductService.Controllers
 {
@@ -54,15 +55,21 @@ namespace ProductService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Variation>> VaryasyonOlustur(Variation varyasyon)
+        public async Task<ActionResult<Variation>> VaryasyonOlustur([FromBody] VariationDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            _context.Variations.Add(varyasyon);
+            var variation = new Variation
+            {
+                VarTypeName = dto.VarTypeName,
+                CategoryId  = dto.CategoryId
+            };
+
+            _context.Variations.Add(variation);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(VaryasyonGetir), new { id = varyasyon.Id }, varyasyon);
+            return StatusCode(StatusCodes.Status201Created, variation);
         }
 
         /// <summary>

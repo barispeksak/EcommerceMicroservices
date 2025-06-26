@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductService.Data;
 using ProductService.Models;
+using ProductService.DTOs;
 
 namespace ProductService.Controllers
 {
@@ -52,15 +53,21 @@ namespace ProductService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<VariationOption>> SecenekOlustur(VariationOption secenek)
+        public async Task<ActionResult<VariationOption>> VaryasyonSecenegiOlustur([FromBody] VariationOptionDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            _context.VariationOptions.Add(secenek);
+            var option = new VariationOption
+            {
+                Value       = dto.Value,
+                VariationId = dto.VariationId
+            };
+
+            _context.VariationOptions.Add(option);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(SecenekGetir), new { id = secenek.Id }, secenek);
+            return StatusCode(StatusCodes.Status201Created, option);
         }
 
         /// <summary>

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductService.Data;
 using ProductService.Models;
+using ProductService.DTOs;
 
 namespace ProductService.Controllers
 {
@@ -56,16 +57,39 @@ namespace ProductService.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Product>> CreateProduct(Product product)
+        [HttpPost]
+        public async Task<IActionResult> AddProduct([FromBody] ProductDto dto)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+                return BadRequest(new
+                {
+                    message = "Model doğrulama hatası",
+                    errors = ModelState
+                });
+
+            var product = new Product
+            {
+                Name = dto.Name,
+                Description = dto.Description,
+                Brand = dto.Brand,
+                Image = dto.Image,
+                CategoryId = dto.CategoryId,
+                Items = dto.Items.Select(i => new ProductItem
+                {
+                    SKU = i.Sku,
+                    QuantityInStock = i.QuantityInStock,
+                    Price = i.Price,
+                    ProductImage = i.ProductImage
+                }).ToList()
+            };
 
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
+            return StatusCode(StatusCodes.Status201Created, product);
+
         }
+
 
         /// <summary>
         /// Ürün günceller.
