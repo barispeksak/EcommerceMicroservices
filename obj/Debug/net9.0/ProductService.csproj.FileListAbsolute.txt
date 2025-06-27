@@ -1,0 +1,9 @@
+/Users/barispeksak/Desktop/EcommerceMicroservices/obj/Debug/net9.0/ProductService.csproj.AssemblyReference.cache
+/Users/barispeksak/Desktop/EcommerceMicroservices/obj/Debug/net9.0/rpswa.dswa.cache.json
+/Users/barispeksak/Desktop/EcommerceMicroservices/obj/Debug/net9.0/ProductService.GeneratedMSBuildEditorConfig.editorconfig
+/Users/barispeksak/Desktop/EcommerceMicroservices/obj/Debug/net9.0/ProductService.AssemblyInfoInputs.cache
+/Users/barispeksak/Desktop/EcommerceMicroservices/obj/Debug/net9.0/ProductService.AssemblyInfo.cs
+/Users/barispeksak/Desktop/EcommerceMicroservices/obj/Debug/net9.0/ProductService.csproj.CoreCompileInputs.cache
+/Users/barispeksak/Desktop/EcommerceMicroservices/obj/Debug/net9.0/ProductService.MvcApplicationPartsAssemblyInfo.cs
+/Users/barispeksak/Desktop/EcommerceMicroservices/obj/Debug/net9.0/ProductService.MvcApplicationPartsAssemblyInfo.cache
+/Users/barispeksak/Desktop/EcommerceMicroservices/obj/Debug/net9.0/ProductService.sourcelink.json

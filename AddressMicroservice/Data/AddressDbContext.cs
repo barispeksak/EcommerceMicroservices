@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using AddressMicroservice.Models;
+using AddressMicroservice.Data.Entities;
 
 namespace AddressMicroservice.Data
 {
@@ -19,8 +19,10 @@ namespace AddressMicroservice.Data
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
                 entity.Property(e => e.AddressLine).IsRequired().HasMaxLength(500);
                 entity.Property(e => e.City).IsRequired().HasMaxLength(100);
-                entity.Property(e => e.Phone).IsRequired().HasMaxLength(15);
+                entity.Property(e => e.Phone).IsRequired().HasMaxLength(20);  
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("NOW()");
+                
+                entity.ToTable("Addresses");
             });
 
             base.OnModelCreating(modelBuilder);

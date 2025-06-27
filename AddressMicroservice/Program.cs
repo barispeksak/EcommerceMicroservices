@@ -1,18 +1,32 @@
 using Microsoft.EntityFrameworkCore;
 using AddressMicroservice.Data;
-using AddressMicroservice.Services;
-using Npgsql;
-
+using AddressMicroservice.Data.Repositories;
+using AddressMicroservice.Service.Interfaces;
+using AddressMicroservice.Service.Services;
+using AddressMicroservice.Service.Mapping;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using AddressMicroservice.Service.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
 builder.Services.AddControllers();
 
+// Add FluentValidation
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateAddressDtoValidator>();
+
 // Add Entity Framework
 builder.Services.AddDbContext<AddressDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Add AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+// Add Repository
+builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 
 // Add custom services
 builder.Services.AddScoped<IAddressService, AddressService>();
@@ -55,6 +69,7 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseHttpsRedirection();
 }
+
 app.UseCors("MicroservicePolicy");
 app.UseAuthorization();
 app.MapControllers();
