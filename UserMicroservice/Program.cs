@@ -1,32 +1,53 @@
-using trendyolApi.Data;
 using Microsoft.EntityFrameworkCore;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using UserMicroservice.Data;
+using UserMicroservice.Service;
+using UserMicroservice.Dtos;
+using UserMicroservice.Service.Mapping;
+using UserMicroservice.Service.Validation;
+using UserMicroservice.Service.Interfaces;
+using UserMicroservice.Service.Services;
+using UserMicroservice.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddDbContext<AppDbContext>(options => // EF Core’un AppDbContext sınıfını servislere tanıtır, böylece veritabanına erişim sağlar.
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));  // postgreSQL ***
+// --- EF Core ---
+builder.Services.AddDbContext<UserDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddControllers(); // RESTful API'de klasik controller yapısını kullanabilmek için gerekli altyapıyı sağlar.
-builder.Services.AddEndpointsApiExplorer(); // Swagger dokümantasyonu için gerekli servisleri etkinleştirir.
-builder.Services.AddSwaggerGen(); // Swagger arayüzü (UI) için gerekli yapılandırmayı ekler.
+// --- FluentValidation ---
+builder.Services.AddControllers()
+    .AddFluentValidation(fv =>
+    {
+        fv.RegisterValidatorsFromAssemblyContaining<UserDtoValidator>();
+        fv.RegisterValidatorsFromAssemblyContaining<CreateUserDtoValidator>();
+        fv.AutomaticValidationEnabled = true; // 🔍 Bu şart!
+    });
 
-builder.Services.AddHttpClient("AddressService", client =>
-{
-    client.BaseAddress = new Uri("http://localhost:5001/"); // adres mikroservisinin base URL'si
-});
+builder.Services.AddScoped<IValidator<UserDto>, UserDtoValidator>(); // Validator bağlanır
 
-var app = builder.Build(); // Uygulamayı başlatmak için builder nesnesinden bir app nesnesi oluşturur.
+// --- AutoMapper ---
+builder.Services.AddAutoMapper(typeof(UserProfile)); // AutoMapper yapılandırması (Profile sınıfı)
 
-// Configure the HTTP request pipeline.
+// --- Service katmanı ---
+builder.Services.AddScoped<IUserService, UserService>(); // Service katmanı bağlanır
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+
+// --- Swagger ---
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// --- HTTP Pipeline ---
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger(); // klasik Swagger yapısı
+    app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection(); // HTTP isteklerini otomatik olarak HTTPS’e yönlendirir.
+app.UseHttpsRedirection();
 app.MapControllers();
-
 app.Run();
