@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ShippingTypeMicroservice.Models;
+using ShippingTypeMicroservice.Entities;
 
 namespace ShippingTypeMicroservice.Data
 {

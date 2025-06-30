@@ -1,4 +1,4 @@
-using ShippingTypeMicroservice.Models;
+using ShippingTypeMicroservice.Entities;
 
 namespace ShippingTypeMicroservice.Data.Repositories
 {

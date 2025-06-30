@@ -1,6 +1,6 @@
 // Mapping/ShippingTypeProfile.cs
 using AutoMapper;
-using ShippingTypeMicroservice.Models;
+using ShippingTypeMicroservice.Entities;
 using ShippingTypeMicroservice.Data.Dtos;
 
 namespace ShippingTypeMicroservice.Mapping
@@ -9,9 +9,9 @@ namespace ShippingTypeMicroservice.Mapping
     {
         public ShippingTypeProfile()
         {
-            CreateMap<ShippingType, ShippingTypeDto>();
-            CreateMap<CreateShippingTypeDto, ShippingType>();
-            CreateMap<UpdateShippingTypeDto, ShippingType>();
+            CreateMap<ShippingType, ShippingTypeDto>().ReverseMap();;
+            CreateMap<CreateShippingTypeDto, ShippingType>().ReverseMap();;
+            CreateMap<UpdateShippingTypeDto, ShippingType>().ReverseMap();;
         }
     }
 }

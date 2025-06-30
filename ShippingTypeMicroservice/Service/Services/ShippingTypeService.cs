@@ -2,7 +2,7 @@
 using AutoMapper;
 using ShippingTypeMicroservice.Data.Dtos;
 using ShippingTypeMicroservice.Data.Repositories;
-using ShippingTypeMicroservice.Models;
+using ShippingTypeMicroservice.Entities;
 using ShippingTypeMicroservice.Services.Interfaces;
 
 namespace ShippingTypeMicroservice.Services
