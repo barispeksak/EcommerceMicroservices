@@ -1,0 +1,150 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice_Service/ProductMicroservice.Service.csproj": {}
+  },
+  "projects": {
+    "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/ProductMicroservice.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/ProductMicroservice.Data.csproj",
+        "projectName": "ProductMicroservice.Data",
+        "projectPath": "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/ProductMicroservice.Data.csproj",
+        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
+        "outputPath": "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice_Service/ProductMicroservice.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice_Service/ProductMicroservice.Service.csproj",
+        "projectName": "ProductMicroservice.Service",
+        "projectPath": "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice_Service/ProductMicroservice.Service.csproj",
+        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
+        "outputPath": "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice_Service/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/ProductMicroservice.Data.csproj": {
+                "projectPath": "/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/ProductMicroservice.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

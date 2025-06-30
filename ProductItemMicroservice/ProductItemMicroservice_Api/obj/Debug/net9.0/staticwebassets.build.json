@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "jb+5zOHnxfEykNJH+UdnjoNpvBMcDECg15mlvkNYP0k=",
+  "Source": "ProductItemMicroservice_Api",
+  "BasePath": "_content/ProductItemMicroservice_Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

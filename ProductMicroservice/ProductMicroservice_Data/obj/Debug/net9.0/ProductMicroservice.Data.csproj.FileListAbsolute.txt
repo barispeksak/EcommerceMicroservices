@@ -1,0 +1,12 @@
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/bin/Debug/net9.0/ProductMicroservice.Data.deps.json
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/bin/Debug/net9.0/ProductMicroservice.Data.dll
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/bin/Debug/net9.0/ProductMicroservice.Data.pdb
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/obj/Debug/net9.0/ProductMicroservice.Data.csproj.AssemblyReference.cache
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/obj/Debug/net9.0/ProductMicroservice.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/obj/Debug/net9.0/ProductMicroservice.Data.AssemblyInfoInputs.cache
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/obj/Debug/net9.0/ProductMicroservice.Data.AssemblyInfo.cs
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/obj/Debug/net9.0/ProductMicroservice.Data.csproj.CoreCompileInputs.cache
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/obj/Debug/net9.0/ProductMicroservice.Data.dll
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/obj/Debug/net9.0/refint/ProductMicroservice.Data.dll
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/obj/Debug/net9.0/ProductMicroservice.Data.pdb
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Data/obj/Debug/net9.0/ref/ProductMicroservice.Data.dll
