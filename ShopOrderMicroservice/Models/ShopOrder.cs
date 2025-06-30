@@ -26,8 +26,5 @@ namespace ShopOrderMicroservice.Models
 
         [Column("shipping_type_id")]
         public int ShippingTypeId { get; set; }
-
-        [Column("order_total")]
-        public decimal OrderTotal { get; set; }
     }
 }

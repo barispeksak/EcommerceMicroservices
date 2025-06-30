@@ -22,102 +22,6 @@ namespace ShopOrderMicroservice.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ShopOrderMicroservice.Models.OrderStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Status")
-                        .IsUnique();
-
-                    b.ToTable("OrderStatus", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOrderMicroservice.Models.OrderSummary", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("integer")
-                        .HasColumnName("order_id");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("numeric")
-                        .HasColumnName("price");
-
-                    b.Property<int>("ProductItemId")
-                        .HasColumnType("integer")
-                        .HasColumnName("product_item_id");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer")
-                        .HasColumnName("qty");
-
-                    b.Property<int>("ShopOrderId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ShopOrderId");
-
-                    b.ToTable("OrderSummary", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOrderMicroservice.Models.PaymentType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Method")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PaymentType", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOrderMicroservice.Models.ShippingType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("numeric");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ShippingType", (string)null);
-                });
-
             modelBuilder.Entity("ShopOrderMicroservice.Models.ShopOrder", b =>
                 {
                     b.Property<int>("Id")
@@ -130,10 +34,6 @@ namespace ShopOrderMicroservice.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("order_date");
-
-                    b.Property<decimal>("OrderTotal")
-                        .HasColumnType("numeric")
-                        .HasColumnName("order_total");
 
                     b.Property<int>("PaymentTypeId")
                         .HasColumnType("integer")
@@ -153,18 +53,7 @@ namespace ShopOrderMicroservice.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ShopOrder", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOrderMicroservice.Models.OrderSummary", b =>
-                {
-                    b.HasOne("ShopOrderMicroservice.Models.ShopOrder", "ShopOrder")
-                        .WithMany()
-                        .HasForeignKey("ShopOrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ShopOrder");
+                    b.ToTable("shop_order", (string)null);
                 });
 #pragma warning restore 612, 618
         }

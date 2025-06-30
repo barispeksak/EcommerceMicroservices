@@ -1,39 +1,30 @@
-// ShopOrderMicroservice/Data/ShopOrderDbContext.cs
 using Microsoft.EntityFrameworkCore;
 using ShopOrderMicroservice.Models;
 
 namespace ShopOrderMicroservice.Data
 {
-    /// <summary>
-    /// Uygulamadaki tüm tabloları yöneten DbContext.
-    /// </summary>
-    public sealed class ShopOrderDbContext : DbContext
+    public class ShopOrderDbContext : DbContext
     {
-        public ShopOrderDbContext(DbContextOptions<ShopOrderDbContext> options)
-            : base(options) { }
+        public ShopOrderDbContext(DbContextOptions<ShopOrderDbContext> options) : base(options) { }
 
-        // === DbSet’ler =====================================================
-        public DbSet<ShopOrder>    ShopOrders     { get; set; }          // get-set  
-        public DbSet<OrderStatus>  OrderStatuses  { get; set; }          // get-set  
-        public DbSet<OrderSummary> OrderSummaries { get; set; }          // get-set  
-
-        public DbSet<ShippingType> ShippingTypes  => Set<ShippingType>(); // readonly
-        public DbSet<PaymentType>  PaymentTypes   => Set<PaymentType>();  // readonly
-
-        // === Model yapılandırması =========================================
+        // Tablolar
+        public DbSet<ShopOrder> ShopOrders => Set<ShopOrder>();
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Tablo adları
-            modelBuilder.Entity<ShopOrder>().ToTable("ShopOrder");
-            modelBuilder.Entity<ShippingType>().ToTable("ShippingType");
-            modelBuilder.Entity<OrderStatus>().ToTable("OrderStatus");
-            modelBuilder.Entity<OrderSummary>().ToTable("OrderSummary");
-            modelBuilder.Entity<PaymentType>().ToTable("PaymentType");
+            // ShopOrder tablosu yapılandırması
+            modelBuilder.Entity<ShopOrder>(entity =>
+            {
+                entity.ToTable("shop_order");
 
+                entity.HasKey(x => x.Id);
 
-            modelBuilder.Entity<OrderStatus>()
-                .HasIndex(s => s.Status)
-                .IsUnique();
+                entity.Property(x => x.Id).HasColumnName("id");
+                entity.Property(x => x.UserId).HasColumnName("user_id");
+                entity.Property(x => x.OrderDate).HasColumnName("order_date");
+                entity.Property(x => x.PaymentTypeId).HasColumnName("payment_type_id");
+                entity.Property(x => x.ShippingAddressId).HasColumnName("shipping_address_id");
+                entity.Property(x => x.ShippingTypeId).HasColumnName("shipping_type_id");
+            });
         }
     }
 }

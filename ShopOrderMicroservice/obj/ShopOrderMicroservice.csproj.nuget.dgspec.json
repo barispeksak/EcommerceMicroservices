@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/barispeksak/Desktop/EcommerceMicroservices/ShopOrderMicroservice/ShopOrderMicroservice.csproj": {}
+    "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices-main\\ShopOrderMicroservice\\ShopOrderMicroservice.csproj": {}
   },
   "projects": {
-    "/Users/barispeksak/Desktop/EcommerceMicroservices/ShopOrderMicroservice/ShopOrderMicroservice.csproj": {
+    "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices-main\\ShopOrderMicroservice\\ShopOrderMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/barispeksak/Desktop/EcommerceMicroservices/ShopOrderMicroservice/ShopOrderMicroservice.csproj",
+        "projectUniqueName": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices-main\\ShopOrderMicroservice\\ShopOrderMicroservice.csproj",
         "projectName": "ShopOrderMicroservice",
-        "projectPath": "/Users/barispeksak/Desktop/EcommerceMicroservices/ShopOrderMicroservice/ShopOrderMicroservice.csproj",
-        "packagesPath": "/Users/barispeksak/.nuget/packages/",
-        "outputPath": "/Users/barispeksak/Desktop/EcommerceMicroservices/ShopOrderMicroservice/obj/",
+        "projectPath": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices-main\\ShopOrderMicroservice\\ShopOrderMicroservice.csproj",
+        "packagesPath": "C:\\Users\\Mehmet Ali\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices-main\\ShopOrderMicroservice\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Mehmet Ali\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -44,6 +44,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.6, )"
@@ -96,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
