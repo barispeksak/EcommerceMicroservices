@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VariationMicroservice</name>
+    </assembly>
+    <members>
+        <member name="T:VariationMicroservice.Migrations.UpdatePhoneMaxLength3">
+            <inheritdoc />
+        </member>
+        <member name="M:VariationMicroservice.Migrations.UpdatePhoneMaxLength3.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:VariationMicroservice.Migrations.UpdatePhoneMaxLength3.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:VariationMicroservice.Migrations.UpdatePhoneMaxLength3.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
