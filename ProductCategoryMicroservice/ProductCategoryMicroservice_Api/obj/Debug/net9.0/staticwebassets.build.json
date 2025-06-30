@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "jUW4RWw3lYCDzes8m67zzfgKFrbu/I9XDCvxI64pIys=",
+  "Source": "ProductCategoryMicroservice_Api",
+  "BasePath": "_content/ProductCategoryMicroservice_Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

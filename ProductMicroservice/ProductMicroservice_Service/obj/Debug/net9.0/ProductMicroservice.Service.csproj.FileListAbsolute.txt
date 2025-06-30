@@ -1,0 +1,15 @@
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/bin/Debug/net9.0/ProductMicroservice.Service.deps.json
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/bin/Debug/net9.0/ProductMicroservice.Service.dll
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/bin/Debug/net9.0/ProductMicroservice.Service.pdb
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/bin/Debug/net9.0/ProductMicroservice.Data.dll
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/bin/Debug/net9.0/ProductMicroservice.Data.pdb
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/obj/Debug/net9.0/ProductMicroservice.Service.csproj.AssemblyReference.cache
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/obj/Debug/net9.0/ProductMicroservice.Service.GeneratedMSBuildEditorConfig.editorconfig
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/obj/Debug/net9.0/ProductMicroservice.Service.AssemblyInfoInputs.cache
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/obj/Debug/net9.0/ProductMicroservice.Service.AssemblyInfo.cs
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/obj/Debug/net9.0/ProductMicroservice.Service.csproj.CoreCompileInputs.cache
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/obj/Debug/net9.0/ProductM.2C4F5465.Up2Date
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/obj/Debug/net9.0/ProductMicroservice.Service.dll
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/obj/Debug/net9.0/refint/ProductMicroservice.Service.dll
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/obj/Debug/net9.0/ProductMicroservice.Service.pdb
+/Users/fatmaakyildiz/ProductMicroservice/ProductMicroservice.Service/obj/Debug/net9.0/ref/ProductMicroservice.Service.dll
