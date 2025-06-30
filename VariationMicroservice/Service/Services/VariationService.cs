@@ -1,4 +1,6 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using VariationMicroservice.Data;
 using VariationMicroservice.Data.Entities;
 using VariationMicroservice.Data.Repositories;
 using VariationMicroservice.Service.DTOs;
@@ -10,11 +12,13 @@ namespace VariationMicroservice.Service.Services
     {
         private readonly IVariationRepository _repository;
         private readonly IMapper _mapper;
+        private readonly VariationDbContext _context;
 
-        public VariationService(IVariationRepository repository, IMapper mapper)
+        public VariationService(IVariationRepository repository, IMapper mapper, VariationDbContext context)
         {
             _repository = repository;
             _mapper = mapper;
+            _context = context;
         }
 
         public async Task<IEnumerable<VariationDto>> GetAllVariationsAsync()

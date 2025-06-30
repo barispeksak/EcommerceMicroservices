@@ -11,7 +11,7 @@ using VariationMicroservice.Data;
 namespace VariationMicroservice.Migrations
 {
     [DbContext(typeof(VariationDbContext))]
-    [Migration("20250627125436_UpdatePhoneMaxLength")]
+    [Migration("20250630060114_UpdatePhoneMaxLength")]
     partial class UpdatePhoneMaxLength
     {
         /// <inheritdoc />

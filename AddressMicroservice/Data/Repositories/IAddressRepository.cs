@@ -6,7 +6,7 @@ namespace AddressMicroservice.Data.Repositories
     {
         Task<IEnumerable<Address>> GetAllAsync();
         Task<Address?> GetByIdAsync(int id);
-        Task<Address> AddAsync(Address address);  // This should return Task<Address>
+        Task<Address> AddAsync(Address address);  
         Task UpdateAsync(Address address);
         Task DeleteAsync(Address address);
         Task<bool> ExistsAsync(int id);

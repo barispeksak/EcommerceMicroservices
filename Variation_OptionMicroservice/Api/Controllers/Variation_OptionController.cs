@@ -9,10 +9,12 @@ namespace Variation_OptionMicroservice.Api.Controllers
     public class Variation_OptionController : ControllerBase
     {
         private readonly IVariationOptionService _variationOptionService;
+        private readonly IVariationService _variationService;
 
-        public Variation_OptionController(IVariationOptionService variationOptionService)
+        public Variation_OptionController(IVariationOptionService variationOptionService, IVariationService variationService)
         {
             _variationOptionService = variationOptionService;
+            _variationService = variationService;
         }
 
         /// <summary>
@@ -61,6 +63,12 @@ namespace Variation_OptionMicroservice.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<VariationOptionDto>> VaryasyonSecenegiOlustur([FromBody] CreateVariationOptionDto dto)
         {
+            var variation = await _variationService.GetVariationByIdAsync(dto.VariationId);
+            if (variation == null)
+            {
+                return BadRequest("Invalid Variation ID");
+            }
+
             try
             {
                 var option = await _variationOptionService.CreateOptionAsync(dto);
@@ -83,6 +91,12 @@ namespace Variation_OptionMicroservice.Api.Controllers
         {
             if (id != secenek.Id)
                 return BadRequest("ID'ler uyuşmuyor.");
+
+            var variation = await _variationService.GetVariationByIdAsync(secenek.VariationId);
+            if (variation == null)
+            {
+                return BadRequest("Invalid Variation ID");
+            }
 
             try
             {

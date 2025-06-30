@@ -29,6 +29,7 @@ builder.Services.AddScoped<IVariationOptionRepository, VariationOptionRepository
 
 // Service
 builder.Services.AddScoped<IVariationOptionService, VariationOptionService>();
+builder.Services.AddHttpClient<IVariationService, VariationService>();
 
 // Controllers
 builder.Services.AddControllers()
