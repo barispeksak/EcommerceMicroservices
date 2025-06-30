@@ -8,13 +8,9 @@ namespace VariationMicroservice.Service.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Variation, VariationDto>()
-                .ForMember(dest => dest.CategoryName, 
-                    opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : null));
-            
+            CreateMap<Variation, VariationDto>();
             CreateMap<CreateVariationDto, Variation>();
             CreateMap<UpdateVariationDto, Variation>();
-            CreateMap<VariationOption, VariationOptionDto>();
         }
     }
 }

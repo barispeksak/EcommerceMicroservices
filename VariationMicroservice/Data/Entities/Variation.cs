@@ -1,22 +1,15 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace VariationMicroservice.Data.Entities
+namespace VariationMicroservice.Data.Entities;
+
+public class Variation
 {
-    public class Variation
-    {
-        [Key]
-        public int Id { get; set; }
+    [Key]
+    public int Id { get; set; }
 
-        [Required]
-        public string VarTypeName { get; set; } = null!;  // Örn: Renk, Beden, Numara
+    [Required]
+    public string VarTypeName { get; set; } = null!;
 
-        // Bu varyasyon hangi kategoriye ait?
-        [ForeignKey("ProductCategory")]
-        public int CategoryId { get; set; }
-        public ProductCategory Category { get; set; } = null!;
-
-        // Navigation: Seçenekler
-        public ICollection<VariationOption> Options { get; set; } = new List<VariationOption>();
-    }
+    // Sadece CategoryId tut, navigation yok!
+    public int CategoryId { get; set; }
 }

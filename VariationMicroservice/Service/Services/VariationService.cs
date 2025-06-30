@@ -1,6 +1,5 @@
 using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using VariationMicroservice.Data;
+using FluentValidation;
 using VariationMicroservice.Data.Entities;
 using VariationMicroservice.Data.Repositories;
 using VariationMicroservice.Service.DTOs;
@@ -11,58 +10,84 @@ namespace VariationMicroservice.Service.Services
     public class VariationService : IVariationService
     {
         private readonly IVariationRepository _repository;
+        private readonly IValidator<CreateVariationDto> _createValidator;
+        private readonly IValidator<UpdateVariationDto> _updateValidator;
         private readonly IMapper _mapper;
-        private readonly VariationDbContext _context;
+        private readonly CategoryApiClient _categoryApiClient;
 
-        public VariationService(IVariationRepository repository, IMapper mapper, VariationDbContext context)
+        public VariationService(
+            IVariationRepository repository, 
+            IMapper mapper, 
+            CategoryApiClient categoryApiClient,
+            IValidator<CreateVariationDto> createValidator,
+            IValidator<UpdateVariationDto> updateValidator)
         {
             _repository = repository;
             _mapper = mapper;
-            _context = context;
+            _categoryApiClient = categoryApiClient;
+            _createValidator = createValidator;
+            _updateValidator = updateValidator;
         }
 
-        public async Task<IEnumerable<VariationDto>> GetAllVariationsAsync()
+        public async Task<IEnumerable<VariationDto>> GetAllAsync()
         {
             var variations = await _repository.GetAllAsync();
             return _mapper.Map<IEnumerable<VariationDto>>(variations);
         }
 
-        public async Task<VariationDto?> GetVariationByIdAsync(int id)
+        public async Task<VariationDto> GetAsync(int id)
         {
             var variation = await _repository.GetByIdAsync(id);
-            return variation == null ? null : _mapper.Map<VariationDto>(variation);
+            if (variation == null)
+            {
+                throw new KeyNotFoundException($"Variation {id} not found");
+            }
+            return _mapper.Map<VariationDto>(variation);
         }
 
-        public async Task<VariationDto> CreateVariationAsync(CreateVariationDto createDto)
+        public async Task<VariationDto> CreateAsync(CreateVariationDto createDto)
         {
-            // Kategori var mı kontrol et
-            var categoryExists = await _context.ProductCategories.AnyAsync(c => c.Id == createDto.CategoryId);
+            var categoryExists = await _categoryApiClient.CategoryExists(createDto.CategoryId);
             if (!categoryExists)
             {
-                throw new InvalidOperationException($"CategoryId {createDto.CategoryId} bulunamadı.");
+                throw new Exception("Girilen kategori bulunamadı!");
             }
-            
+
+            await _createValidator.ValidateAndThrowAsync(createDto);
+
             var variation = _mapper.Map<Variation>(createDto);
-            var createdVariation = await _repository.CreateAsync(variation);
-            return _mapper.Map<VariationDto>(createdVariation);
+            await _repository.AddAsync(variation);
+            await _repository.SaveAsync();
+
+            return _mapper.Map<VariationDto>(variation);
         }
 
-        public async Task<bool> UpdateVariationAsync(UpdateVariationDto updateDto)
+        public async Task<bool> UpdateAsync(int id, UpdateVariationDto updateDto)
         {
-            var exists = await _repository.ExistsAsync(updateDto.Id);
-            if (!exists) return false;
+            var variation = await _repository.GetByIdAsync(id);
+            if (variation == null)
+            {
+                return false;
+            }
 
-            var variation = _mapper.Map<Variation>(updateDto);
-            await _repository.UpdateAsync(variation);
+            await _updateValidator.ValidateAndThrowAsync(updateDto);
+            _mapper.Map(updateDto, variation);
+            await _repository.SaveAsync();
+
             return true;
         }
 
-        public async Task<bool> DeleteVariationAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            var exists = await _repository.ExistsAsync(id);
-            if (!exists) return false;
+            var variation = await _repository.GetByIdAsync(id);
+            if (variation == null)
+            {
+                return false;
+            }
 
-            await _repository.DeleteAsync(id);
+            await _repository.DeleteAsync(variation);
+            await _repository.SaveAsync();
+
             return true;
         }
     }

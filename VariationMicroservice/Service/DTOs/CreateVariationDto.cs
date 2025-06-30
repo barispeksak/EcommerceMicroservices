@@ -1,3 +1,5 @@
+using Swashbuckle.AspNetCore.Annotations;
+
 namespace VariationMicroservice.Service.DTOs
 {
     public class CreateVariationDto

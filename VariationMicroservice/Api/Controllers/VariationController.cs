@@ -15,77 +15,71 @@ namespace VariationMicroservice.Api.Controllers
             _variationService = variationService;
         }
 
-        /// <summary>
-        /// Tüm varyasyonları getirir.
-        /// </summary>
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<VariationDto>>> TumVaryasyonlariGetir()
+        public async Task<ActionResult<IEnumerable<VariationDto>>> GetAll()
         {
-            var variations = await _variationService.GetAllVariationsAsync();
+            var variations = await _variationService.GetAllAsync();
             return Ok(variations);
         }
 
-        /// <summary>
-        /// Belirli bir varyasyon ID'sine göre detay getirir.
-        /// </summary>
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<VariationDto>> VaryasyonGetir(int id)
+        public async Task<ActionResult<VariationDto>> GetById(int id)
         {
-            var variation = await _variationService.GetVariationByIdAsync(id);
-            
-            if (variation == null)
-                return NotFound("Varyasyon bulunamadı.");
-
-            return Ok(variation);
+            try
+            {
+                var variation = await _variationService.GetAsync(id);
+                return Ok(variation);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
         }
 
-        /// <summary>
-        /// Yeni bir varyasyon oluşturur.
-        /// </summary>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<VariationDto>> VaryasyonOlustur([FromBody] CreateVariationDto dto)
+        public async Task<ActionResult<VariationDto>> Create([FromBody] CreateVariationDto createDto)
         {
-            var variation = await _variationService.CreateVariationAsync(dto);
-            return CreatedAtAction(nameof(VaryasyonGetir), new { id = variation.Id }, variation);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var variation = await _variationService.CreateAsync(createDto);
+                return CreatedAtAction(nameof(GetById), new { id = variation.Id }, variation);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        /// <summary>
-        /// Varyasyonu günceller.
-        /// </summary>
         [HttpPut("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> VaryasyonGuncelle(int id, [FromBody] UpdateVariationDto varyasyon)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateVariationDto updateDto)
         {
-            if (id != varyasyon.Id)
-                return BadRequest("ID'ler uyuşmuyor.");
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            var result = await _variationService.UpdateVariationAsync(varyasyon);
-            
+            var result = await _variationService.UpdateAsync(id, updateDto);
             if (!result)
-                return NotFound("Varyasyon güncellenemedi çünkü mevcut değil.");
+            {
+                return NotFound();
+            }
 
             return NoContent();
         }
 
-        /// <summary>
-        /// Belirli bir varyasyonu siler.
-        /// </summary>
         [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> VaryasyonSil(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var result = await _variationService.DeleteVariationAsync(id);
-            
+            var result = await _variationService.DeleteAsync(id);
             if (!result)
-                return NotFound("Silinecek varyasyon bulunamadı.");
+            {
+                return NotFound();
+            }
 
             return NoContent();
         }

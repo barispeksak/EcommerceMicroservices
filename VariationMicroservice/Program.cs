@@ -9,6 +9,7 @@ using VariationMicroservice.Data.Repositories;
 using VariationMicroservice.Service.Interfaces;
 using VariationMicroservice.Service.Services;
 using VariationMicroservice.Service.Mapping;
+ // ✅ CategoryApiClient için ekledik
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,21 +17,24 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<VariationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// AutoMapper
+// 🔁 HttpClient (Category API için)
+builder.Services.AddHttpClient<CategoryApiClient>();
+
+// 🔁 AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// FluentValidation
+// 🔁 FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
-// Repository
+// 🔁 Repository
 builder.Services.AddScoped<IVariationRepository, VariationRepository>();
 
-// Service
+// 🔁 Service
 builder.Services.AddScoped<IVariationService, VariationService>();
 
-// Controllers
+// 🔁 Controllers
 builder.Services.AddControllers()
     .AddJsonOptions(opt =>
     {
@@ -38,7 +42,7 @@ builder.Services.AddControllers()
         opt.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     });
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// 🔁 Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -50,7 +54,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// API Behavior Options
+// 🔁 FluentValidation özelleştirilmiş hata çıktısı
 builder.Services.Configure<ApiBehaviorOptions>(opt =>
 {
     opt.InvalidModelStateResponseFactory = ctx =>
@@ -73,7 +77,7 @@ builder.Services.Configure<ApiBehaviorOptions>(opt =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// 🔁 Geliştirme ortamı için Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -83,7 +87,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-// app.UseHttpsRedirection(); // HTTPS yönlendirmesini kaldırdık
+// app.UseHttpsRedirection(); // HTTPS yönlendirmesini kaldırdık (geliştirme ortamı için mantıklı)
 
 app.UseAuthorization();
 
