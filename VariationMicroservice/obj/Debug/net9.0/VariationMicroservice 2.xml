@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VariationMicroservice</name>
+    </assembly>
+    <members>
+        <member name="M:VariationMicroservice.Api.Controllers.VariationController.TumVaryasyonlariGetir">
+            <summary>
+            Tüm varyasyonları getirir.
+            </summary>
+        </member>
+        <member name="M:VariationMicroservice.Api.Controllers.VariationController.VaryasyonGetir(System.Int32)">
+            <summary>
+            Belirli bir varyasyon ID'sine göre detay getirir.
+            </summary>
+        </member>
+        <member name="M:VariationMicroservice.Api.Controllers.VariationController.VaryasyonOlustur(VariationMicroservice.Service.DTOs.CreateVariationDto)">
+            <summary>
+            Yeni bir varyasyon oluşturur.
+            </summary>
+        </member>
+        <member name="M:VariationMicroservice.Api.Controllers.VariationController.VaryasyonGuncelle(System.Int32,VariationMicroservice.Service.DTOs.UpdateVariationDto)">
+            <summary>
+            Varyasyonu günceller.
+            </summary>
+        </member>
+        <member name="M:VariationMicroservice.Api.Controllers.VariationController.VaryasyonSil(System.Int32)">
+            <summary>
+            Belirli bir varyasyonu siler.
+            </summary>
+        </member>
+        <member name="T:VariationMicroservice.Migrations.UpdatePhoneMaxLength">
+            <inheritdoc />
+        </member>
+        <member name="M:VariationMicroservice.Migrations.UpdatePhoneMaxLength.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:VariationMicroservice.Migrations.UpdatePhoneMaxLength.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:VariationMicroservice.Migrations.UpdatePhoneMaxLength.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
