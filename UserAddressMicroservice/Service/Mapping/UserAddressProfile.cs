@@ -10,6 +10,7 @@ namespace UserAddressMicroservice.Service.Mapping
         {
             CreateMap<UserAddress, UserAddressDto>().ReverseMap();
             CreateMap<CreateUserAddressDto, UserAddress>();
+            CreateMap<UpdateUserAddressDto, UserAddress>();
         }
     }
 
