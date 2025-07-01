@@ -17,11 +17,11 @@ builder.Services.AddScoped<IShopOrderService, ShopOrderService>();
 // HttpClient (diğer mikroservisler için)
 builder.Services.AddHttpClient("UserService", c =>
 {
-    c.BaseAddress = new Uri("https://localhost:5056/");
+    c.BaseAddress = new Uri("http://localhost:5056/");
 });
 builder.Services.AddHttpClient("AddressService", c =>
 {
-    c.BaseAddress = new Uri("https://localhost:5002/");
+    c.BaseAddress = new Uri("http://localhost:5001/");
 });
 builder.Services.AddHttpClient("ShippingService", c =>
 {
@@ -29,7 +29,7 @@ builder.Services.AddHttpClient("ShippingService", c =>
 });
 builder.Services.AddHttpClient("PaymentService", c =>
 {
-    c.BaseAddress = new Uri("http://localhost:5060/");
+    c.BaseAddress = new Uri("http://localhost:5065/");
 });
 builder.Services.AddHttpClient("ShoppingCartService", c =>
 {
