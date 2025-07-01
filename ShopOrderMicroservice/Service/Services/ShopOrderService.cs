@@ -40,6 +40,7 @@ namespace ShopOrderMicroservice.Services
             var addressClient = _httpClientFactory.CreateClient("AddressService");
             var shippingClient = _httpClientFactory.CreateClient("ShippingService");
             var paymentClient = _httpClientFactory.CreateClient("PaymentService");
+            var summaryClient = _httpClientFactory.CreateClient("ShoppingCartService");
 
             // Validasyonlar
             if (!(await userClient.GetAsync($"api/user/{dto.UserId}")).IsSuccessStatusCode)
@@ -54,12 +55,30 @@ namespace ShopOrderMicroservice.Services
             if (!(await paymentClient.GetAsync($"api/paymenttype/{dto.PaymentTypeId}")).IsSuccessStatusCode)
                 return null;
 
+            // ShoppingCart nesnesinden shipping fiyatını al
+            var cartResponse = await summaryClient.GetFromJsonAsync<ShoppingCartDto>($"api/shoppingcart/{dto.ShopId}");
+            if (cartResponse == null)
+                return null;
+
+            decimal productTotal = cartResponse.TotalPrice;
+
+            // ShippingType nesnesinden shipping fiyatını al
+            var shippingResponse = await shippingClient.GetFromJsonAsync<ShippingTypeDto>($"api/shippingtype/{dto.ShippingTypeId}");
+            if (shippingResponse == null)
+                return null;
+
+            decimal shippingPrice = shippingResponse.Price;
+
+            // Sipariş oluşturma
             var order = _mapper.Map<ShopOrder>(dto);
             order.OrderDate = DateTime.UtcNow;
+            order.OrderTotal = productTotal + shippingPrice;
 
             await _repository.AddAsync(order);
             return _mapper.Map<ShopOrderDto>(order);
         }
+
+
 
         public async Task<bool> UpdateAsync(int id, UpdateShopOrderDto dto)
         {

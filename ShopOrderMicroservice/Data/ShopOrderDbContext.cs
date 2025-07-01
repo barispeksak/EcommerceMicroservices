@@ -24,6 +24,8 @@ namespace ShopOrderMicroservice.Data
                 entity.Property(x => x.PaymentTypeId).HasColumnName("payment_type_id");
                 entity.Property(x => x.ShippingAddressId).HasColumnName("shipping_address_id");
                 entity.Property(x => x.ShippingTypeId).HasColumnName("shipping_type_id");
+                entity.Property(x => x.ShopId).HasColumnName("shopping_cart_id");
+                entity.Property(x => x.OrderTotal).HasColumnName("total_price");
             });
         }
     }

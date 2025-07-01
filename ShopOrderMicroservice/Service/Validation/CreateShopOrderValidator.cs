@@ -11,7 +11,7 @@ namespace ShopOrderMicroservice.Data.Validators
             RuleFor(x => x.PaymentTypeId).GreaterThan(0).WithMessage("Geçerli bir ödeme tipi seçilmelidir.");
             RuleFor(x => x.ShippingAddressId).GreaterThan(0).WithMessage("Geçerli bir adres ID girilmelidir.");
             RuleFor(x => x.ShippingTypeId).GreaterThan(0).WithMessage("Geçerli bir kargo tipi ID girilmelidir.");
-            RuleFor(x => x.OrderTotal).GreaterThan(0).WithMessage("Sipariş tutarı sıfırdan büyük olmalıdır.");
+            RuleFor(x => x.ShopId).GreaterThan(0).WithMessage("Geçerli bir shop ID girilmelidir.");
         }
     }
 }

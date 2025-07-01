@@ -26,5 +26,11 @@ namespace ShopOrderMicroservice.Data.Entities
 
         [Column("shipping_type_id")]
         public int ShippingTypeId { get; set; }
+
+        [Column("shopping_cart_id")]
+        public int ShopId { get; set; }
+
+        [Column("total_price")]
+        public decimal OrderTotal { get; set; }
     }
 }
