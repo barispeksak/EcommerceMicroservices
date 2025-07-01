@@ -8,6 +8,6 @@ namespace PaymentTypeMicroservice.Models
         public int Id { get; set; }
 
         [Required]
-        public string Method { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
     }
 }
