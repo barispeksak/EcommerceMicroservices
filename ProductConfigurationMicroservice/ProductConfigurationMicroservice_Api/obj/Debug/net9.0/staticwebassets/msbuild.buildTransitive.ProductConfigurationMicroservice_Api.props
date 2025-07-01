@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/ProductConfigurationMicroservice_Api.props" />
-</Project>
