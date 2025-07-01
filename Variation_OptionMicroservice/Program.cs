@@ -29,7 +29,8 @@ builder.Services.AddScoped<IVariationOptionRepository, VariationOptionRepository
 
 // Service
 builder.Services.AddScoped<IVariationOptionService, VariationOptionService>();
-builder.Services.AddHttpClient<IVariationService, VariationService>();
+
+builder.Services.AddHttpClient<CategoryApiClient>();
 
 // Controllers
 builder.Services.AddControllers()
@@ -91,19 +92,6 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<Variation_OptionDbContext>();
     await context.Database.MigrateAsync();
     
-    // Test verisi ekle
-    if (!context.Variations.Any())
-    {
-        var variations = new[]
-        {
-            new Variation_OptionMicroservice.Data.Entities.Variation { VarTypeName = "Renk", CategoryId = 1 },
-            new Variation_OptionMicroservice.Data.Entities.Variation { VarTypeName = "Beden", CategoryId = 1 },
-            new Variation_OptionMicroservice.Data.Entities.Variation { VarTypeName = "Numara", CategoryId = 2 }
-        };
-        
-        context.Variations.AddRange(variations);
-        await context.SaveChangesAsync();
-    }
 }
 
 // Configure the HTTP request pipeline.

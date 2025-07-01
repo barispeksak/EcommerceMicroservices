@@ -9,12 +9,11 @@ namespace Variation_OptionMicroservice.Api.Controllers
     public class Variation_OptionController : ControllerBase
     {
         private readonly IVariationOptionService _variationOptionService;
-        private readonly IVariationService _variationService;
+    
 
-        public Variation_OptionController(IVariationOptionService variationOptionService, IVariationService variationService)
+        public Variation_OptionController(IVariationOptionService variationOptionService)
         {
             _variationOptionService = variationOptionService;
-            _variationService = variationService;
         }
 
         /// <summary>
@@ -24,7 +23,7 @@ namespace Variation_OptionMicroservice.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<VariationOptionDto>>> TumSecenekleriGetir()
         {
-            var options = await _variationOptionService.GetAllOptionsAsync();
+            var options = await _variationOptionService.GetAllAsync();
             return Ok(options);
         }
 
@@ -36,23 +35,12 @@ namespace Variation_OptionMicroservice.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<VariationOptionDto>> SecenekGetir(int id)
         {
-            var option = await _variationOptionService.GetOptionByIdAsync(id);
+            var option = await _variationOptionService.GetAsync(id);
             
             if (option == null)
                 return NotFound("Varyasyon seçeneği bulunamadı.");
 
             return Ok(option);
-        }
-
-        /// <summary>
-        /// Belirli bir varyasyona ait tüm seçenekleri getirir.
-        /// </summary>
-        [HttpGet("variation/{variationId}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<VariationOptionDto>>> VaryasyonaGoreSecenekleriGetir(int variationId)
-        {
-            var options = await _variationOptionService.GetOptionsByVariationIdAsync(variationId);
-            return Ok(options);
         }
 
         /// <summary>
@@ -63,15 +51,10 @@ namespace Variation_OptionMicroservice.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<VariationOptionDto>> VaryasyonSecenegiOlustur([FromBody] CreateVariationOptionDto dto)
         {
-            var variation = await _variationService.GetVariationByIdAsync(dto.VariationId);
-            if (variation == null)
-            {
-                return BadRequest("Invalid Variation ID");
-            }
 
             try
             {
-                var option = await _variationOptionService.CreateOptionAsync(dto);
+                var option = await _variationOptionService.CreateAsync(dto);
                 return CreatedAtAction(nameof(SecenekGetir), new { id = option.Id }, option);
             }
             catch (InvalidOperationException ex)
@@ -92,15 +75,9 @@ namespace Variation_OptionMicroservice.Api.Controllers
             if (id != secenek.Id)
                 return BadRequest("ID'ler uyuşmuyor.");
 
-            var variation = await _variationService.GetVariationByIdAsync(secenek.VariationId);
-            if (variation == null)
-            {
-                return BadRequest("Invalid Variation ID");
-            }
-
             try
             {
-                var result = await _variationOptionService.UpdateOptionAsync(secenek);
+                var result = await _variationOptionService.UpdateAsync(id, secenek);
                 
                 if (!result)
                     return NotFound("Varyasyon seçeneği güncellenemedi çünkü mevcut değil.");
@@ -121,7 +98,7 @@ namespace Variation_OptionMicroservice.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> SecenekSil(int id)
         {
-            var result = await _variationOptionService.DeleteOptionAsync(id);
+            var result = await _variationOptionService.DeleteAsync(id);
             
             if (!result)
                 return NotFound("Silinecek varyasyon seçeneği bulunamadı.");

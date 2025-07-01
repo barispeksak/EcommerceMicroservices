@@ -11,8 +11,8 @@ using Variation_OptionMicroservice.Data;
 namespace Variation_OptionMicroservice.Migrations
 {
     [DbContext(typeof(Variation_OptionDbContext))]
-    [Migration("20250630060310_UpdatePhoneMaxLength")]
-    partial class UpdatePhoneMaxLength
+    [Migration("20250701055642_UpdatePhoneMaxLength4")]
+    partial class UpdatePhoneMaxLength4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,26 +23,6 @@ namespace Variation_OptionMicroservice.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("Variation_OptionMicroservice.Data.Entities.Variation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("VarTypeName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Variations");
-                });
 
             modelBuilder.Entity("Variation_OptionMicroservice.Data.Entities.VariationOption", b =>
                 {
@@ -64,25 +44,7 @@ namespace Variation_OptionMicroservice.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("VariationId");
-
                     b.ToTable("VariationOptions");
-                });
-
-            modelBuilder.Entity("Variation_OptionMicroservice.Data.Entities.VariationOption", b =>
-                {
-                    b.HasOne("Variation_OptionMicroservice.Data.Entities.Variation", "Variation")
-                        .WithMany("Options")
-                        .HasForeignKey("VariationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Variation");
-                });
-
-            modelBuilder.Entity("Variation_OptionMicroservice.Data.Entities.Variation", b =>
-                {
-                    b.Navigation("Options");
                 });
 #pragma warning restore 612, 618
         }

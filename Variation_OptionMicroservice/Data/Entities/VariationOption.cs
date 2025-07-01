@@ -13,9 +13,6 @@ namespace Variation_OptionMicroservice.Data.Entities
 
         public string? AdditionalInfo { get; set; } // Örn: Renk kodu, stok kodu vs.
 
-        [ForeignKey("Variation")]
         public int VariationId { get; set; }
-
-        public virtual Variation? Variation { get; set; }
     }
 }

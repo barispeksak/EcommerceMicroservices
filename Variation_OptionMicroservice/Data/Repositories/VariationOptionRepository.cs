@@ -14,58 +14,31 @@ namespace Variation_OptionMicroservice.Data.Repositories
 
         public async Task<IEnumerable<VariationOption>> GetAllAsync()
         {
-            return await _context.VariationOptions
-                .Include(vo => vo.Variation)
-                .ToListAsync();
+            return await _context.VariationOptions.ToListAsync();
         }
 
         public async Task<VariationOption?> GetByIdAsync(int id)
         {
-            return await _context.VariationOptions
-                .Include(vo => vo.Variation)
-                .FirstOrDefaultAsync(vo => vo.Id == id);
+            return await _context.VariationOptions.FindAsync(id);
         }
 
-        public async Task<IEnumerable<VariationOption>> GetByVariationIdAsync(int variationId)
+        public async Task AddAsync(VariationOption variationOptions)
         {
-            return await _context.VariationOptions
-                .Where(vo => vo.VariationId == variationId)
-                .Include(vo => vo.Variation)
-                .ToListAsync();
+            await _context.VariationOptions.AddAsync(variationOptions);
         }
 
-        public async Task<VariationOption> CreateAsync(VariationOption variationOption)
+        public Task DeleteAsync(VariationOption variationOption)
         {
-            _context.VariationOptions.Add(variationOption);
-            await _context.SaveChangesAsync();
-            
-            return await GetByIdAsync(variationOption.Id) ?? variationOption;
+            _context.VariationOptions.Remove(variationOption);
+            return Task.CompletedTask;
         }
 
-        public async Task UpdateAsync(VariationOption variationOption)
+        public async Task SaveAsync()
         {
-            _context.Entry(variationOption).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
-        {
-            var variationOption = await _context.VariationOptions.FindAsync(id);
-            if (variationOption != null)
-            {
-                _context.VariationOptions.Remove(variationOption);
-                await _context.SaveChangesAsync();
-            }
-        }
 
-        public async Task<bool> ExistsAsync(int id)
-        {
-            return await _context.VariationOptions.AnyAsync(vo => vo.Id == id);
-        }
 
-        public async Task<bool> VariationExistsAsync(int variationId)
-        {
-            return await _context.Variations.AnyAsync(v => v.Id == variationId);
-        }
     }
 }

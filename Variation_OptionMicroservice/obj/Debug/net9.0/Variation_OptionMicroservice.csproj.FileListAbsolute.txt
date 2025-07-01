@@ -127,3 +127,4 @@
 /Users/barispeksak/Desktop/EcommerceMicroservices/Variation_OptionMicroservice/obj/Debug/net9.0/Variation_OptionMicroservice.pdb
 /Users/barispeksak/Desktop/EcommerceMicroservices/Variation_OptionMicroservice/obj/Debug/net9.0/Variation_OptionMicroservice.genruntimeconfig.cache
 /Users/barispeksak/Desktop/EcommerceMicroservices/Variation_OptionMicroservice/obj/Debug/net9.0/ref/Variation_OptionMicroservice.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/Variation_OptionMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.Annotations.dll
