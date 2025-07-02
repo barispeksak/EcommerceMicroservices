@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/ShoppingCartMicroservice_Api.props" />
-</Project>
