@@ -22,6 +22,8 @@ services:
       - "5001:8080" # Host makinesinde 5004 portundan, container içinde 8080 portuna yönlendirme
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
+  
       # Veritabanı bağlantısı veya diğer ortam değişkenleri:
       # ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=AddressDB;User Id=sa;Password=yourStrong(!)Password"
       # JWT doğrulama için AuthMicroservice'e bağımlıysa, Auth'un adresini de buraya eklemeniz gerekebilir.
@@ -40,7 +42,8 @@ services:
     environment:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
-      JwtSettings__Secret: "m5T9$u2eA7bK!sL0@wQzD1rXcVmNgHjY"
+      Jwt__Key: "m5T9$u2eA7bK!sL0@wQzD1rXcVmNgHjY"
+      
     depends_on:
       - postgresql
 
@@ -52,6 +55,7 @@ services:
       - "5000:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      
     depends_on:
       - authservice
       - addressservice
@@ -89,6 +93,7 @@ services:
       - "5003:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
@@ -101,6 +106,7 @@ services:
       - "5004:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
@@ -113,6 +119,7 @@ services:
       - "5005:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
@@ -125,6 +132,7 @@ services:
       - "5006:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
@@ -137,6 +145,7 @@ services:
       - "5007:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
@@ -149,6 +158,7 @@ services:
       - "5008:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
@@ -161,6 +171,7 @@ services:
       - "5009:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
@@ -185,6 +196,7 @@ services:
       - "5011:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
@@ -197,6 +209,7 @@ services:
       - "5012:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
@@ -209,6 +222,7 @@ services:
       - "5013:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
@@ -221,6 +235,7 @@ services:
       - "5014:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
       - postgresql
       - authservice
