@@ -8,6 +8,11 @@ services:
       POSTGRES_DB: "trendyolDb" # Veritabanı adı (isteğe bağlı, varsayılan 'postgres' olur)
       POSTGRES_USER: "postgres"   # Veritabanı kullanıcısı
       POSTGRES_PASSWORD: "123456" # Veritabanı parolası
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: always
 
   addressservice:
     build:
@@ -34,11 +39,8 @@ services:
       - "5100:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
-      # PostgreSQL bağlantı dizesi
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
-      JwtSettings__Secret: "your_super_secret_jwt_key_that_is_at_least_32_chars_long_and_very_complex_for_security"
-      JwtSettings__Issuer: "EcommerceMicroservices"
-      JwtSettings__Audience: "EcommerceClients"
+      JwtSettings__Secret: "m5T9$u2eA7bK!sL0@wQzD1rXcVmNgHjY"
     depends_on:
       - postgresql
 
@@ -171,8 +173,8 @@ services:
       - "5010:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      Redis__ConnectionString: "redis:6379"
     depends_on:
-      - postgresql
       - authservice
 
   useraddressmicroservice:
