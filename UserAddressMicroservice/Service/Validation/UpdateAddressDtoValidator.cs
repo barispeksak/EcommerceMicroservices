@@ -3,9 +3,9 @@ using UserAddressMicroservice.Data.Dtos;
 
 namespace UserAddressMicroservice.Service.Validation
 {
-    public class UpdateAddressDtoValidator : AbstractValidator<UpdateAddressDto>
+    public class UpdateUserAddressDtoValidator : AbstractValidator<UpdateUserAddressDto>
     {
-        public UpdateAddressDtoValidator()
+        public UpdateUserAddressDtoValidator()
         {
             RuleFor(x => x.AddressLine)
                 .NotEmpty().WithMessage("Address line is required")

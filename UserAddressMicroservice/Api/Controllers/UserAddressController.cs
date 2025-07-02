@@ -72,7 +72,7 @@ public class UserAddressController : ControllerBase
     }
 
     [HttpPut("{userId}/update-address/{addressId}")]
-    public async Task<IActionResult> UpdateUserAddress(int userId, int addressId, [FromBody] UpdateAddressDto updatedAddressDto)
+    public async Task<IActionResult> UpdateUserAddress(int userId, int addressId, UpdateUserAddressDto updatedUserAddressDto)
     {
         // Kullanıcı kontrolü (User mikroservisinden)
         var userClient = _httpClientFactory.CreateClient("UserService");
@@ -87,7 +87,7 @@ public class UserAddressController : ControllerBase
 
         // Adres mikroservisine PUT isteği gönder
         var addressClient = _httpClientFactory.CreateClient("AddressService");
-        var response = await addressClient.PutAsJsonAsync($"api/address/{addressId}", updatedAddressDto);
+        var response = await addressClient.PutAsJsonAsync($"api/address/{addressId}", updatedUserAddressDto);
 
         if (!response.IsSuccessStatusCode)
             return BadRequest("Adres güncellenemedi. Adres mikroservisinden hata döndü.");

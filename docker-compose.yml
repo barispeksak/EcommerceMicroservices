@@ -1,0 +1,224 @@
+services:
+  # ... (Diğer servisleriniz: sqlserver, authservice, productservice, orderservice, customerservice, apigateway)
+  postgresql: # Servis adını "postgresql" olarak belirliyoruz
+    image: postgres:15-alpine # Kullanacağınız PostgreSQL imajı (15-alpine hafif bir imajdır)
+    ports:
+      - "5432:5432" # Host portu:Container portu (varsayılan PostgreSQL portu)
+    environment:
+      POSTGRES_DB: "trendyolDb" # Veritabanı adı (isteğe bağlı, varsayılan 'postgres' olur)
+      POSTGRES_USER: "postgres"   # Veritabanı kullanıcısı
+      POSTGRES_PASSWORD: "123456" # Veritabanı parolası
+
+  addressservice:
+    build:
+      context: ./AddressMicroservice # Dockerfile'ın bulunduğu kök klasör
+      dockerfile: Dockerfile       # AdresMicroservice klasörünün içindeki Dockerfile'ı işaret et
+    ports:
+      - "5001:8080" # Host makinesinde 5004 portundan, container içinde 8080 portuna yönlendirme
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      # Veritabanı bağlantısı veya diğer ortam değişkenleri:
+      # ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=AddressDB;User Id=sa;Password=yourStrong(!)Password"
+      # JWT doğrulama için AuthMicroservice'e bağımlıysa, Auth'un adresini de buraya eklemeniz gerekebilir.
+      # AuthMicroserviceUrl: "http://authservice:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  # AuthMicroservice
+  authservice:
+    build:
+      context: ./AuthMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "5100:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      # PostgreSQL bağlantı dizesi
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
+      JwtSettings__Secret: "your_super_secret_jwt_key_that_is_at_least_32_chars_long_and_very_complex_for_security"
+      JwtSettings__Issuer: "EcommerceMicroservices"
+      JwtSettings__Audience: "EcommerceClients"
+    depends_on:
+      - postgresql
+
+  apigatewayservice:
+    build:
+      context: ./ApiGatewayMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - authservice
+      - addressservice
+      - orderstatusmicroservice
+      - paymenttypemicroservice
+      - productcategorymicroservice
+      - productconfigurationmicroservice
+      - productitemmicroservice
+      - productmicroservice
+      - shippingtypemicroservice
+      - shopordermicroservice
+      - shoppingcartmicroservice
+      - useraddressmicroservice
+      - usermicroservice
+      - variationmicroservice
+      - variationoptionmicroservice
+
+  orderstatusmicroservice:
+    build:
+      context: ./OrderStatusMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "5002:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  paymenttypemicroservice:
+    build:
+      context: ./PaymentTypeMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "5003:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  productcategorymicroservice:
+    build:
+      context: ./ProductCategoryMicroservice
+      dockerfile: ProductCategoryMicroservice_Api/Dockerfile
+    ports:
+      - "5004:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  productconfigurationmicroservice:
+    build:
+      context: ./ProductConfigurationMicroservice
+      dockerfile: ProductConfigurationMicroservice_Api/Dockerfile
+    ports:
+      - "5005:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  productitemmicroservice:
+    build:
+      context: ./ProductItemMicroservice
+      dockerfile: ProductItemMicroservice_Api/Dockerfile
+    ports:
+      - "5006:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  productmicroservice:
+    build:
+      context: ./ProductMicroservice
+      dockerfile: ProductMicroservice_Api/Dockerfile
+    ports:
+      - "5007:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  shippingtypemicroservice:
+    build:
+      context: ./ShippingTypeMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "5008:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  shopordermicroservice:
+    build:
+      context: ./ShopOrderMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "5009:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  shoppingcartmicroservice:
+    build:
+      context: ./ShoppingCartMicroservice
+      dockerfile: ShoppingCartMicroservice_Api/Dockerfile
+    ports:
+      - "5010:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  useraddressmicroservice:
+    build:
+      context: ./UserAddressMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "5011:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  usermicroservice:
+    build:
+      context: ./UserMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "5012:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  variationmicroservice:
+    build:
+      context: ./VariationMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "5013:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
+
+  variationoptionmicroservice:
+    build:
+      context: ./VariationOptionMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "5014:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    depends_on:
+      - postgresql
+      - authservice
