@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ShoppingCartMicroservice_Api</name>
+    </assembly>
+    <members>
+        <member name="M:ShoppingCartMicroservice_Api.Controllers.ShoppingCartController.AddOrUpdateItem(ShoppingCartMicroservice_Service.DTOs.CreateShoppingCartDto)">
+            <summary>
+            Sepete ürün ekler veya var olan ürünün adedini günceller.
+            </summary>
+            <param name="dto">Sepete eklenecek ürün bilgileri</param>
+            <returns>Başarı veya hata mesajı</returns>
+        </member>
+        <member name="M:ShoppingCartMicroservice_Api.Controllers.ShoppingCartController.RemoveItem(System.Int32)">
+            <summary>
+            Sepetten ürün siler.
+            </summary>
+            <param name="productItemId">Silinecek ürünün ID'si</param>
+            <returns>Başarı mesajı</returns>
+        </member>
+        <member name="M:ShoppingCartMicroservice_Api.Controllers.ShoppingCartController.ClearCart">
+            <summary>
+            Sepeti temizler.
+            </summary>
+            <remarks>
+            Bu endpoint, giriş yapmış kullanıcının kendi sepetini tamamen temizler.  
+            Sepetteki tüm ürünler silinir ve sepet boş hale gelir.
+            </remarks>
+            <returns>
+            Başarı durumunda, işlemin başarılı olduğunu belirten mesaj döner.
+            </returns>
+        </member>
+        <member name="M:ShoppingCartMicroservice_Api.Controllers.ShoppingCartController.GetCartDetails">
+            <summary>
+            Kullanıcıya ait detaylı sepet bilgisini getirir.
+            </summary>
+            <remarks>
+            Sadece giriş yapmış kullanıcının kendi sepetindeki ürünlerin tam detaylarını döner.  
+            Ürünlerin adı, görseli, fiyatı, stok durumu ve sepetteki miktar bilgileriyle birlikte.
+            </remarks>
+            <returns>
+            Sepetteki ürünlerin detaylarını içeren liste döner.
+            </returns>
+        </member>
+    </members>
+</doc>
