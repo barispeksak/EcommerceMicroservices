@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices\\AuthMicroservice\\AuthMicroservice.csproj": {}
+    "/app/AuthMicroservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices\\AuthMicroservice\\AuthMicroservice.csproj": {
+    "/app/AuthMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices\\AuthMicroservice\\AuthMicroservice.csproj",
+        "projectUniqueName": "/app/AuthMicroservice.csproj",
         "projectName": "AuthMicroservice",
-        "projectPath": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices\\AuthMicroservice\\AuthMicroservice.csproj",
-        "packagesPath": "C:\\Users\\Mehmet Ali\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices\\AuthMicroservice\\obj\\",
+        "projectPath": "/app/AuthMicroservice.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/app/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mehmet Ali\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

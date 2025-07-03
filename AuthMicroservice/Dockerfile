@@ -14,6 +14,7 @@ RUN dotnet publish "AuthMicroservice.csproj" -c Release -o /app/publish
 
 # --- İkinci Aşama: Çalıştırma Ortamı ---
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
+RUN apt-get update && apt-get install -y curl
 WORKDIR /app
 COPY --from=build /app/publish .
 EXPOSE 8080

@@ -1,132 +1,395 @@
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\AuthMicroservice.exe
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\AuthMicroservice.deps.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\AuthMicroservice.runtimeconfig.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\AuthMicroservice.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\AuthMicroservice.pdb
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\AutoMapper.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\BCrypt.Net-Next.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\FluentValidation.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Humanizer.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Build.Locator.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Microsoft.OpenApi.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Mono.TextTemplating.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Npgsql.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\System.CodeDom.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\System.Composition.AttributedModel.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\System.Composition.Convention.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\System.Composition.Hosting.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\System.Composition.Runtime.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\System.Composition.TypedParts.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\AuthMicroservice.csproj.AssemblyReference.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\AuthMicroservice.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\AuthMicroservice.AssemblyInfoInputs.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\AuthMicroservice.AssemblyInfo.cs
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\AuthMicroservice.csproj.CoreCompileInputs.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\AuthMicroservice.sourcelink.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\AuthMicr.C7A129F7.Up2Date
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\AuthMicroservice.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\refint\AuthMicroservice.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\AuthMicroservice.pdb
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\AuthMicroservice.genruntimeconfig.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\AuthMicroservice\obj\Debug\net9.0\ref\AuthMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AuthMicroservice.exe
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AuthMicroservice.deps.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AuthMicroservice.runtimeconfig.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AuthMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AuthMicroservice.pdb
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AutoMapper.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/BCrypt.Net-Next.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/FluentValidation.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/FluentValidation.AspNetCore.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Humanizer.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Build.Locator.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Design.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.DependencyModel.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.OpenApi.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Mono.TextTemplating.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Npgsql.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.CodeDom.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.Composition.AttributedModel.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.Composition.Convention.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.Composition.Hosting.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.Composition.Runtime.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.Composition.TypedParts.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.csproj.AssemblyReference.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.AssemblyInfoInputs.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.AssemblyInfo.cs
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.csproj.CoreCompileInputs.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.sourcelink.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicr.C7A129F7.Up2Date
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/refint/AuthMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.pdb
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.genruntimeconfig.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/ref/AuthMicroservice.dll
+/app/bin/Debug/net9.0/AuthMicroservice
+/app/bin/Debug/net9.0/AuthMicroservice.deps.json
+/app/bin/Debug/net9.0/AuthMicroservice.runtimeconfig.json
+/app/bin/Debug/net9.0/AuthMicroservice.dll
+/app/bin/Debug/net9.0/AuthMicroservice.pdb
+/app/bin/Debug/net9.0/AutoMapper.dll
+/app/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/app/bin/Debug/net9.0/BCrypt.Net-Next.dll
+/app/bin/Debug/net9.0/FluentValidation.dll
+/app/bin/Debug/net9.0/FluentValidation.AspNetCore.dll
+/app/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
+/app/bin/Debug/net9.0/Humanizer.dll
+/app/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/app/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
+/app/bin/Debug/net9.0/Microsoft.Build.Locator.dll
+/app/bin/Debug/net9.0/Microsoft.CodeAnalysis.dll
+/app/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.dll
+/app/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+/app/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.dll
+/app/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+/app/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+/app/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+/app/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/app/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Design.dll
+/app/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.DependencyModel.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
+/app/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/app/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/app/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/app/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/app/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/app/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/app/bin/Debug/net9.0/Microsoft.OpenApi.dll
+/app/bin/Debug/net9.0/Mono.TextTemplating.dll
+/app/bin/Debug/net9.0/Npgsql.dll
+/app/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/app/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+/app/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/app/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/app/bin/Debug/net9.0/System.CodeDom.dll
+/app/bin/Debug/net9.0/System.Composition.AttributedModel.dll
+/app/bin/Debug/net9.0/System.Composition.Convention.dll
+/app/bin/Debug/net9.0/System.Composition.Hosting.dll
+/app/bin/Debug/net9.0/System.Composition.Runtime.dll
+/app/bin/Debug/net9.0/System.Composition.TypedParts.dll
+/app/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/app/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+/app/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+/app/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/app/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/app/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/app/obj/Debug/net9.0/AuthMicroservice.csproj.AssemblyReference.cache
+/app/obj/Debug/net9.0/AuthMicroservice.GeneratedMSBuildEditorConfig.editorconfig
+/app/obj/Debug/net9.0/AuthMicroservice.AssemblyInfoInputs.cache
+/app/obj/Debug/net9.0/AuthMicroservice.AssemblyInfo.cs
+/app/obj/Debug/net9.0/AuthMicroservice.csproj.CoreCompileInputs.cache
+/app/obj/Debug/net9.0/AuthMicr.C7A129F7.Up2Date
+/app/obj/Debug/net9.0/AuthMicroservice.dll
+/app/obj/Debug/net9.0/refint/AuthMicroservice.dll
+/app/obj/Debug/net9.0/AuthMicroservice.pdb
+/app/obj/Debug/net9.0/AuthMicroservice.genruntimeconfig.cache
+/app/obj/Debug/net9.0/ref/AuthMicroservice.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AuthMicroservice
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AuthMicroservice.deps.json
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AuthMicroservice.runtimeconfig.json
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AuthMicroservice.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AuthMicroservice.pdb
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AutoMapper.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/BCrypt.Net-Next.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/FluentValidation.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/FluentValidation.AspNetCore.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Humanizer.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Build.Locator.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.DependencyModel.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Microsoft.OpenApi.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Mono.TextTemplating.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Npgsql.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.CodeDom.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.Composition.AttributedModel.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.Composition.Convention.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.Composition.Hosting.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.Composition.Runtime.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.Composition.TypedParts.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.csproj.AssemblyReference.cache
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.GeneratedMSBuildEditorConfig.editorconfig
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.AssemblyInfoInputs.cache
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.AssemblyInfo.cs
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.csproj.CoreCompileInputs.cache
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.sourcelink.json
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicr.C7A129F7.Up2Date
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/refint/AuthMicroservice.dll
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.pdb
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/AuthMicroservice.genruntimeconfig.cache
+/Users/barispeksak/Desktop/EcommerceMicroservices/AuthMicroservice/obj/Debug/net9.0/ref/AuthMicroservice.dll

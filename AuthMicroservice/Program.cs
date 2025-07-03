@@ -1,9 +1,10 @@
-﻿using AuthMicroservice.Data;
+using AuthMicroservice.Data;
 using AuthMicroservice.Data.Repositories;
 using AuthMicroservice.Service.Interfaces;
 using AuthMicroservice.Service.Services;
 using AuthMicroservice.Service.Validation;
 using FluentValidation;
+using Microsoft.Extensions.Logging;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -64,15 +65,28 @@ builder.Services.AddAuthentication(options =>
 // Swagger (dev için)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
-// Middleware pipeline
-if (app.Environment.IsDevelopment())
+// Apply migrations
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<AuthDbContext>();
+        context.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred while migrating the database.");
+    }
 }
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
@@ -80,4 +94,5 @@ app.UseAuthentication(); // JWT önce
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHealthChecks("/healthz");
 app.Run();

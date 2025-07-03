@@ -1,13 +1,17 @@
 services:
-  # ... (Diğer servisleriniz: sqlserver, authservice, productservice, orderservice, customerservice, apigateway)
-  postgresql: # Servis adını "postgresql" olarak belirliyoruz
-    image: postgres:15-alpine # Kullanacağınız PostgreSQL imajı (15-alpine hafif bir imajdır)
+  postgresql:
+    image: postgres:15-alpine
     ports:
-      - "5432:5432" # Host portu:Container portu (varsayılan PostgreSQL portu)
+      - "5432:5432"
     environment:
-      POSTGRES_DB: "trendyolDb" # Veritabanı adı (isteğe bağlı, varsayılan 'postgres' olur)
-      POSTGRES_USER: "postgres"   # Veritabanı kullanıcısı
-      POSTGRES_PASSWORD: "123456" # Veritabanı parolası
+      POSTGRES_DB: "trendyolDb"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "123456"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
   redis:
     image: redis:7-alpine
     ports:
@@ -16,23 +20,19 @@ services:
 
   addressservice:
     build:
-      context: ./AddressMicroservice # Dockerfile'ın bulunduğu kök klasör
-      dockerfile: Dockerfile       # AdresMicroservice klasörünün içindeki Dockerfile'ı işaret et
+      context: ./AddressMicroservice
+      dockerfile: Dockerfile
     ports:
-      - "5001:8080" # Host makinesinde 5004 portundan, container içinde 8080 portuna yönlendirme
+      - "5001:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
-  
-      # Veritabanı bağlantısı veya diğer ortam değişkenleri:
-      # ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=AddressDB;User Id=sa;Password=yourStrong(!)Password"
-      # JWT doğrulama için AuthMicroservice'e bağımlıysa, Auth'un adresini de buraya eklemeniz gerekebilir.
-      # AuthMicroserviceUrl: "http://authservice:8080"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
-  # AuthMicroservice
   authservice:
     build:
       context: ./AuthMicroservice
@@ -42,10 +42,16 @@ services:
     environment:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
-      Jwt__Key: "m5T9$u2eA7bK!sL0@wQzD1rXcVmNgHjY"
-      
+      Jwt__Key: 'C#fTjWnZr4u7x!A%D*G-KaPdSgVkYp3s'
     depends_on:
-      - postgresql
+      postgresql:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/healthz || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
   apigatewayservice:
     build:
@@ -55,23 +61,37 @@ services:
       - "5000:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
-      
     depends_on:
-      - authservice
-      - addressservice
-      - orderstatusmicroservice
-      - paymenttypemicroservice
-      - productcategorymicroservice
-      - productconfigurationmicroservice
-      - productitemmicroservice
-      - productmicroservice
-      - shippingtypemicroservice
-      - shopordermicroservice
-      - shoppingcartmicroservice
-      - useraddressmicroservice
-      - usermicroservice
-      - variationmicroservice
-      - variationoptionmicroservice
+      authservice:
+        condition: service_healthy
+      addressservice:
+        condition: service_started
+      orderstatusmicroservice:
+        condition: service_started
+      paymenttypemicroservice:
+        condition: service_started
+      productcategorymicroservice:
+        condition: service_started
+      productconfigurationmicroservice:
+        condition: service_started
+      productitemmicroservice:
+        condition: service_started
+      productmicroservice:
+        condition: service_started
+      shippingtypemicroservice:
+        condition: service_started
+      shopordermicroservice:
+        condition: service_started
+      shoppingcartmicroservice:
+        condition: service_started
+      useraddressmicroservice:
+        condition: service_started
+      usermicroservice:
+        condition: service_started
+      variationmicroservice:
+        condition: service_started
+      variationoptionmicroservice:
+        condition: service_started
 
   orderstatusmicroservice:
     build:
@@ -82,8 +102,10 @@ services:
     environment:
       ASPNETCORE_URLS: "http://+:8080"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   paymenttypemicroservice:
     build:
@@ -95,8 +117,10 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   productcategorymicroservice:
     build:
@@ -108,8 +132,10 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   productconfigurationmicroservice:
     build:
@@ -121,8 +147,10 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   productitemmicroservice:
     build:
@@ -134,8 +162,10 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   productmicroservice:
     build:
@@ -147,8 +177,10 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   shippingtypemicroservice:
     build:
@@ -160,8 +192,10 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   shopordermicroservice:
     build:
@@ -173,8 +207,10 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   shoppingcartmicroservice:
     build:
@@ -186,7 +222,8 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       Redis__ConnectionString: "redis:6379"
     depends_on:
-      - authservice
+      authservice:
+        condition: service_healthy
 
   useraddressmicroservice:
     build:
@@ -198,8 +235,10 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   usermicroservice:
     build:
@@ -211,8 +250,10 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   variationmicroservice:
     build:
@@ -224,8 +265,10 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
 
   variationoptionmicroservice:
     build:
@@ -237,5 +280,7 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
     depends_on:
-      - postgresql
-      - authservice
+      postgresql:
+        condition: service_healthy
+      authservice:
+        condition: service_healthy
