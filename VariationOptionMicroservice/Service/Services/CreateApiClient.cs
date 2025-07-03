@@ -10,7 +10,7 @@ public class CategoryApiClient
 
     public async Task<bool> VariationExists(int variationId)
     {
-        var response = await _client.GetAsync($"http://localhost:5000/api/Variation/{variationId}");
+        var response = await _client.GetAsync($"http://variationmicroservice:8080/api/Variation/{variationId}");
         return response.IsSuccessStatusCode;
     }
 }

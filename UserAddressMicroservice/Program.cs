@@ -28,13 +28,14 @@ builder.Services.AddControllers()
 
 builder.Services.AddHttpClient("UserService", c =>
 {
-    c.BaseAddress = new Uri("http://localhost:5056/"); // user servis adresi
+    c.BaseAddress = new Uri("http://usermicroservice:8080/"); // user servis container adı ve port
 });
 
 builder.Services.AddHttpClient("AddressService", c =>
 {
-    c.BaseAddress = new Uri("http://localhost:5001/"); // address servis adresi
+    c.BaseAddress = new Uri("http://addressservice:8080/"); // address servis container adı ve port
 });
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

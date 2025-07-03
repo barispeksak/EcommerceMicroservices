@@ -17,24 +17,25 @@ builder.Services.AddScoped<IShopOrderService, ShopOrderService>();
 // HttpClient (diğer mikroservisler için)
 builder.Services.AddHttpClient("UserService", c =>
 {
-    c.BaseAddress = new Uri("http://localhost:5056/");
+    c.BaseAddress = new Uri("http://usermicroservice:8080/");  // Örnek container adı ve port
 });
 builder.Services.AddHttpClient("AddressService", c =>
 {
-    c.BaseAddress = new Uri("http://localhost:5001/");
+    c.BaseAddress = new Uri("http://addressservice:8080/");
 });
 builder.Services.AddHttpClient("ShippingService", c =>
 {
-    c.BaseAddress = new Uri("http://localhost:5059/");
+    c.BaseAddress = new Uri("http://shippingtypemicroservice:8080/");
 });
 builder.Services.AddHttpClient("PaymentService", c =>
 {
-    c.BaseAddress = new Uri("http://localhost:5065/");
+    c.BaseAddress = new Uri("http://paymenttypemicroservice:8080/");
 });
 builder.Services.AddHttpClient("ShoppingCartService", c =>
 {
-    c.BaseAddress = new Uri("http://localhost:5161/");
+    c.BaseAddress = new Uri("http://shoppingcartmicroservice:8080/");
 });
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

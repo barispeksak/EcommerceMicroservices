@@ -9,7 +9,7 @@ public class ProductClient
     // ProductItem - TEK
     public async Task<ProductItemDto?> GetProductItemByIdAsync(int productItemId)
     {
-        var r = await _client.GetAsync($"http://localhost:5127/api/ProductItems/{productItemId}");
+        var r = await _client.GetAsync($"http://productitemmicroservice:8080/api/ProductItems/{productItemId}");
         return r.IsSuccessStatusCode
             ? await r.Content.ReadFromJsonAsync<ProductItemDto>()
             : null;
@@ -21,7 +21,7 @@ public class ProductClient
         var arr = ids?.Distinct().ToArray() ?? Array.Empty<int>();
         if (arr.Length == 0) return new();
 
-        var url = $"http://localhost:5127/api/ProductItems?ids={string.Join(',', arr)}";
+        var url = $"http://productitemmicroservice:8080/api/ProductItems?ids={string.Join(',', arr)}";
         var r = await _client.GetAsync(url);
         return r.IsSuccessStatusCode
             ? await r.Content.ReadFromJsonAsync<List<ProductItemDto>>() ?? new()
@@ -31,7 +31,7 @@ public class ProductClient
     // Product - TEK
     public async Task<ProductDto?> GetProductByIdAsync(int productId)
     {
-        var r = await _client.GetAsync($"http://localhost:5190/api/Products/{productId}");
+        var r = await _client.GetAsync($"http://productmicroservice:8080/api/Products/{productId}");
         return r.IsSuccessStatusCode
             ? await r.Content.ReadFromJsonAsync<ProductDto>()
             : null;
@@ -43,7 +43,7 @@ public class ProductClient
         var arr = ids?.Distinct().ToArray() ?? Array.Empty<int>();
         if (arr.Length == 0) return new();
 
-        var url = $"http://localhost:5190/api/Products?ids={string.Join(',', arr)}";
+        var url = $"http://productmicroservice:8080/api/Products?ids={string.Join(',', arr)}";
         var r = await _client.GetAsync(url);
         return r.IsSuccessStatusCode
             ? await r.Content.ReadFromJsonAsync<List<ProductDto>>() ?? new()

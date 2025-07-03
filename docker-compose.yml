@@ -1,6 +1,8 @@
 services:
   postgresql:
     image: postgres:15-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     environment:
@@ -58,7 +60,7 @@ services:
       context: ./ApiGatewayMicroservice
       dockerfile: Dockerfile
     ports:
-      - "5000:8080"
+      - "5050:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
     depends_on:
@@ -284,3 +286,7 @@ services:
         condition: service_healthy
       authservice:
         condition: service_healthy
+
+        
+volumes:
+  pgdata:

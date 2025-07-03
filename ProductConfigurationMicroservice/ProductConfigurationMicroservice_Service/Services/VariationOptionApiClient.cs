@@ -9,7 +9,7 @@ public class VariationOptionApiClient
 
     public async Task<(bool ok, string value)> TryGetAsync(int optionId)
     {
-        var resp = await _client.GetAsync($"http://localhost:5002/api/VariationOptions/{optionId}");
+        var resp = await _client.GetAsync($"http://variationoptionmicroservice:8080/api/VariationOptions/{optionId}");
         if (!resp.IsSuccessStatusCode) return (false, "");
         var dto = await resp.Content.ReadFromJsonAsync<OptionLite>();
         return (true, dto?.Value ?? "");

@@ -19,8 +19,9 @@ builder.Services.AddDbContext<OrderStatusDbContext>(options =>
 
 builder.Services.AddHttpClient("ShopOrderService", c =>
 {
-    c.BaseAddress = new Uri("http://localhost:5058/"); // ShopOrderMicroservice’in adresi
+    c.BaseAddress = new Uri("http://shopordermicroservice:8080/"); // Docker container adı + port
 });
+
 
 
 

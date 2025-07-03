@@ -7,8 +7,15 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // JWT Ayarı
-var jwtKey = builder.Configuration["Jwt:Key"];
-var keyBytes = Encoding.UTF8.GetBytes(jwtKey!);
+var jwtKey = builder.Configuration["Jwt:Key"] ?? builder.Configuration["Jwt__Key"] ?? Environment.GetEnvironmentVariable("Jwt__Key");
+
+if (string.IsNullOrEmpty(jwtKey))
+{
+    throw new Exception("JWT anahtarı bulunamadı! Ortam değişkenini veya appsettings'i kontrol et.");
+}
+
+var keyBytes = Encoding.UTF8.GetBytes(jwtKey);
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

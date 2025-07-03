@@ -702,14 +702,7 @@
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
-      "System.Text.Json/9.0.6": {
-        "runtime": {
-          "lib/net9.0/System.Text.Json.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.625.26613"
-          }
-        }
-      },
+      "System.Text.Json/9.0.6": {},
       "System.Threading.Channels/7.0.0": {},
       "ProductConfigurationMicroservice_Data/1.0.0": {
         "dependencies": {
@@ -718,7 +711,7 @@
         },
         "runtime": {
           "ProductConfigurationMicroservice_Data.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -731,7 +724,7 @@
         },
         "runtime": {
           "ProductConfigurationMicroservice_Service.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }

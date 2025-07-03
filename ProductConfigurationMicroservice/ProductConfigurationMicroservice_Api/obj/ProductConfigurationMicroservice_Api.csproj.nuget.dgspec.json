@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Api/ProductConfigurationMicroservice_Api.csproj": {}
+    "/src/ProductConfigurationMicroservice_Api/ProductConfigurationMicroservice_Api.csproj": {}
   },
   "projects": {
-    "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Api/ProductConfigurationMicroservice_Api.csproj": {
+    "/src/ProductConfigurationMicroservice_Api/ProductConfigurationMicroservice_Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Api/ProductConfigurationMicroservice_Api.csproj",
+        "projectUniqueName": "/src/ProductConfigurationMicroservice_Api/ProductConfigurationMicroservice_Api.csproj",
         "projectName": "ProductConfigurationMicroservice_Api",
-        "projectPath": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Api/ProductConfigurationMicroservice_Api.csproj",
-        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
-        "outputPath": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Api/obj/",
+        "projectPath": "/src/ProductConfigurationMicroservice_Api/ProductConfigurationMicroservice_Api.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/src/ProductConfigurationMicroservice_Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Service/ProductConfigurationMicroservice_Service.csproj": {
-                "projectPath": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Service/ProductConfigurationMicroservice_Service.csproj"
+              "/src/ProductConfigurationMicroservice_Service/ProductConfigurationMicroservice_Service.csproj": {
+                "projectPath": "/src/ProductConfigurationMicroservice_Service/ProductConfigurationMicroservice_Service.csproj"
               }
             }
           }
@@ -42,7 +42,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -86,21 +86,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Data/ProductConfigurationMicroservice_Data.csproj": {
+    "/src/ProductConfigurationMicroservice_Data/ProductConfigurationMicroservice_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Data/ProductConfigurationMicroservice_Data.csproj",
+        "projectUniqueName": "/src/ProductConfigurationMicroservice_Data/ProductConfigurationMicroservice_Data.csproj",
         "projectName": "ProductConfigurationMicroservice_Data",
-        "projectPath": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Data/ProductConfigurationMicroservice_Data.csproj",
-        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
-        "outputPath": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Data/obj/",
+        "projectPath": "/src/ProductConfigurationMicroservice_Data/ProductConfigurationMicroservice_Data.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/src/ProductConfigurationMicroservice_Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -124,7 +124,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -155,21 +155,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Service/ProductConfigurationMicroservice_Service.csproj": {
+    "/src/ProductConfigurationMicroservice_Service/ProductConfigurationMicroservice_Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Service/ProductConfigurationMicroservice_Service.csproj",
+        "projectUniqueName": "/src/ProductConfigurationMicroservice_Service/ProductConfigurationMicroservice_Service.csproj",
         "projectName": "ProductConfigurationMicroservice_Service",
-        "projectPath": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Service/ProductConfigurationMicroservice_Service.csproj",
-        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
-        "outputPath": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Service/obj/",
+        "projectPath": "/src/ProductConfigurationMicroservice_Service/ProductConfigurationMicroservice_Service.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/src/ProductConfigurationMicroservice_Service/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -181,8 +181,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Data/ProductConfigurationMicroservice_Data.csproj": {
-                "projectPath": "/Users/fatmaakyildiz/ProductConfigurationMicroservice/ProductConfigurationMicroservice_Data/ProductConfigurationMicroservice_Data.csproj"
+              "/src/ProductConfigurationMicroservice_Data/ProductConfigurationMicroservice_Data.csproj": {
+                "projectPath": "/src/ProductConfigurationMicroservice_Data/ProductConfigurationMicroservice_Data.csproj"
               }
             }
           }
@@ -197,7 +197,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -228,7 +228,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

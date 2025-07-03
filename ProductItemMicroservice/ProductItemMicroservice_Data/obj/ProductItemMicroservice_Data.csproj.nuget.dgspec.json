@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/fatmaakyildiz/ProductItemMicroservice/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj": {}
+    "/src/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj": {}
   },
   "projects": {
-    "/Users/fatmaakyildiz/ProductItemMicroservice/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj": {
+    "/src/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fatmaakyildiz/ProductItemMicroservice/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj",
+        "projectUniqueName": "/src/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj",
         "projectName": "ProductItemMicroservice_Data",
-        "projectPath": "/Users/fatmaakyildiz/ProductItemMicroservice/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj",
-        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
-        "outputPath": "/Users/fatmaakyildiz/ProductItemMicroservice/ProductItemMicroservice_Data/obj/",
+        "projectPath": "/src/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/src/ProductItemMicroservice_Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

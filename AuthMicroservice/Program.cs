@@ -20,6 +20,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container:
 
+// 5️⃣ JWT Authentication
+var jwtKey = builder.Configuration["Jwt:Key"] ?? builder.Configuration["Jwt__Key"] ?? Environment.GetEnvironmentVariable("Jwt__Key");
+
+if (string.IsNullOrEmpty(jwtKey))
+{
+    throw new Exception("JWT anahtarı bulunamadı! Ortam değişkenini veya appsettings'i kontrol et.");
+}
+
+var keyBytes = Encoding.UTF8.GetBytes(jwtKey);
+
+
 // 1️⃣ DbContext (PostgreSQL veya SQLite vs. olabilir)
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -39,10 +50,6 @@ builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
 
 
-// 5️⃣ JWT Authentication
-var jwtKey = builder.Configuration["Jwt:Key"];
-var key = Encoding.UTF8.GetBytes(jwtKey!);
-
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -58,7 +65,7 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = false, // audience yoksa
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key)
+        IssuerSigningKey = new SymmetricSecurityKey(keyBytes)
     };
 });
 
@@ -84,6 +91,7 @@ using (var scope = app.Services.CreateScope())
         logger.LogError(ex, "An error occurred while migrating the database.");
     }
 }
+
 
 app.UseSwagger();
 app.UseSwaggerUI();

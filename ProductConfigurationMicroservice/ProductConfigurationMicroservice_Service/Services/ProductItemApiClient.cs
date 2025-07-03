@@ -9,7 +9,7 @@ public class ProductItemApiClient
 
     public async Task<(bool ok, string sku)> TryGetAsync(int productItemId)
     {
-        var resp = await _client.GetAsync($"http://localhost:5127/api/ProductItems/{productItemId}");
+        var resp = await _client.GetAsync($"http://productitemmicroservice:8080/api/ProductItems/{productItemId}");
         if (!resp.IsSuccessStatusCode) return (false, "");
         var dto = await resp.Content.ReadFromJsonAsync<ItemLite>();
         return (true, dto?.Sku ?? "");

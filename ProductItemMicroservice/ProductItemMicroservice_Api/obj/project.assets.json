@@ -3368,19 +3368,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/fatmaakyildiz/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/fatmaakyildiz/ProductItemMicroservice/ProductItemMicroservice_Api/ProductItemMicroservice_Api.csproj",
+      "projectUniqueName": "/src/ProductItemMicroservice_Api/ProductItemMicroservice_Api.csproj",
       "projectName": "ProductItemMicroservice_Api",
-      "projectPath": "/Users/fatmaakyildiz/ProductItemMicroservice/ProductItemMicroservice_Api/ProductItemMicroservice_Api.csproj",
-      "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
-      "outputPath": "/Users/fatmaakyildiz/ProductItemMicroservice/ProductItemMicroservice_Api/obj/",
+      "projectPath": "/src/ProductItemMicroservice_Api/ProductItemMicroservice_Api.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/src/ProductItemMicroservice_Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -3392,8 +3392,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/fatmaakyildiz/ProductItemMicroservice/ProductItemMicroservice_Service/ProductItemMicroservice_Service.csproj": {
-              "projectPath": "/Users/fatmaakyildiz/ProductItemMicroservice/ProductItemMicroservice_Service/ProductItemMicroservice_Service.csproj"
+            "/src/ProductItemMicroservice_Service/ProductItemMicroservice_Service.csproj": {
+              "projectPath": "/src/ProductItemMicroservice_Service/ProductItemMicroservice_Service.csproj"
             }
           }
         }
@@ -3408,7 +3408,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -3464,7 +3464,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

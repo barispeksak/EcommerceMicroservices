@@ -10,7 +10,7 @@ public class CategoryApiClient
 
     public async Task<bool> CategoryExists(int categoryId)
     {
-        var response = await _client.GetAsync($"http://localhost:5220/api/Categories/{categoryId}");
+        var response = await _client.GetAsync($"http://productcategorymicroservice:8080/api/Categories/{categoryId}");
         return response.IsSuccessStatusCode;
     }
 }
