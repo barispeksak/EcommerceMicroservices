@@ -146,5 +146,15 @@ namespace AuthMicroservice.Service.Services
                 PasswordHash = u.PasswordHash
             }).ToList();
         }
+
+        public async Task<bool> DeleteUserAsync(int userId)
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null)
+                return false;
+
+            await _userRepository.DeleteAsync(userId);
+            return true;
+        }
     }
 }
