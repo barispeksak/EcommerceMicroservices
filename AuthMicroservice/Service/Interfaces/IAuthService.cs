@@ -10,5 +10,6 @@ namespace AuthMicroservice.Service.Interfaces
         Task<bool> LogoutAsync(string refreshToken);
         bool IsTokenValid(string token);
         Task<List<UserDto>> GetUsersAsync();
+        Task<bool> DeleteUserAsync(int userId);
     }
 }
