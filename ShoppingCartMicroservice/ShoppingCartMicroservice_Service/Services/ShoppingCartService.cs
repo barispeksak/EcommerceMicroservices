@@ -1,110 +1,152 @@
 using ShoppingCartMicroservice_Service.DTOs;
 using ShoppingCartMicroservice_Service.Interfaces;
-// ProductClient adını senin client dosyanla eşleştir!
-using ShoppingCartMicroservice_Service.Services; // ProductClient burada olmalı
 using StackExchange.Redis;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace ShoppingCartMicroservice_Service.Services
 {
+    /// <summary>
+    /// Redis tabanlı sepet servisinin TAMAMEN güncellenmiş sürümü.
+    /// - ShoppingCartItemDto artık Price + get-only LineTotal içerir.
+    /// - CartItemDetailsDto ekstra TotalPrice & TotalQuantity alanlarına sahiptir.
+    /// - Bu servis: ekleme, güncelleme, silme, temizleme ve detay sorgusu yapar.
+    /// - Detay sorgusu listenin sonuna özet satırı ekler (TotalPrice & TotalQuantity).
+    /// </summary>
     public class ShoppingCartService : IShoppingCartService
     {
         private readonly IDatabase _redis;
-        private readonly ProductClient _productClient; // Yeni client
+        private readonly ProductClient _productClient; // dış API client
 
-        public ShoppingCartService(IConnectionMultiplexer redis,
-                                   ProductClient productClient)
+        public ShoppingCartService(IConnectionMultiplexer redis, ProductClient productClient)
         {
-            _redis        = redis.GetDatabase();
+            _redis = redis.GetDatabase();
             _productClient = productClient;
         }
 
+        /* ============================================================ */
+        /*  Private Helpers                                             */
+        /* ============================================================ */
+
         private static string CartKey(string userId) => $"cart:{userId}";
 
-        private async Task<List<ShoppingCartItemDto>> LoadCartRawAsync(string userId)
+        private async Task<List<ShoppingCartItemDto>> LoadCartAsync(string userId)
         {
             var json = await _redis.StringGetAsync(CartKey(userId));
             return json.IsNullOrEmpty
-                ? new()
-                : JsonConvert.DeserializeObject<List<ShoppingCartItemDto>>(json) ?? new();
+                ? new List<ShoppingCartItemDto>()
+                : JsonConvert.DeserializeObject<List<ShoppingCartItemDto>>(json) ?? new List<ShoppingCartItemDto>();
         }
+
+        private Task SaveCartAsync(string userId, List<ShoppingCartItemDto> cart)
+            => _redis.StringSetAsync(CartKey(userId), JsonConvert.SerializeObject(cart), TimeSpan.FromHours(1));
+
+        private async Task<ProductItemDto> FetchProductItemAsync(int productItemId)
+            => await _productClient.GetProductItemByIdAsync(productItemId)
+                  ?? throw new Exception("Ürün bulunamadı!");
+
+        /* ============================================================ */
+        /*  Public API (IShoppingCartService)                           */
+        /* ============================================================ */
 
         public async Task AddOrUpdateItemAsync(string userId, CreateShoppingCartDto dto)
         {
-            // 1. Önce ProductItem çek (stok, fiyat, productId)
-            var productItem = await _productClient.GetProductItemByIdAsync(dto.ProductItemId)
-                              ?? throw new Exception("Ürün bulunamadı!");
+            if (dto.Quantity < 1)
+                throw new ArgumentException("Quantity pozitif olmalı");
+
+            var productItem = await FetchProductItemAsync(dto.ProductItemId);
 
             if (dto.Quantity > productItem.QuantityInStock)
                 throw new Exception("Stokta yeterli ürün yok!");
 
-            var items    = await LoadCartRawAsync(userId);
-            var existing = items.FirstOrDefault(x => x.Id == dto.ProductItemId);
-            var mevcut   = existing?.Quantity ?? 0;
+            var cart = await LoadCartAsync(userId);
+            var item = cart.FirstOrDefault(i => i.Id == dto.ProductItemId);
 
-            if (mevcut + dto.Quantity > productItem.QuantityInStock)
-                throw new Exception($"Sepetteki toplam miktar stoktan ({productItem.QuantityInStock}) fazla olamaz!");
-
-            if (existing != null)
-                existing.Quantity += dto.Quantity;
+            if (item == null)
+            {
+                cart.Add(new ShoppingCartItemDto
+                {
+                    Id       = dto.ProductItemId,
+                    Quantity = dto.Quantity,
+                    Price    = productItem.Price // LineTotal getter'ı otomatik
+                });
+            }
             else
-                items.Add(new ShoppingCartItemDto { Id = dto.ProductItemId, Quantity = dto.Quantity });
+            {
+                item.Quantity = dto.Quantity;
+                item.Price    = productItem.Price; // fiyat güncellemesi
+            }
 
-            await _redis.StringSetAsync(CartKey(userId), JsonConvert.SerializeObject(items),TimeSpan.FromMinutes(10));
+            await SaveCartAsync(userId, cart);
         }
 
         public async Task RemoveItemAsync(string userId, int productItemId)
         {
-            var items = await LoadCartRawAsync(userId);
-            var target = items.FirstOrDefault(x => x.Id == productItemId)
-                      ?? throw new Exception("Sepette böyle bir ürün yok!");
-
-            items.Remove(target);
-            await _redis.StringSetAsync(CartKey(userId), JsonConvert.SerializeObject(items),TimeSpan.FromMinutes(10));
+            var cart = await LoadCartAsync(userId);
+            cart.RemoveAll(i => i.Id == productItemId);
+            await SaveCartAsync(userId, cart);
         }
 
-        public async Task ClearAsync(string userId) =>
-            await _redis.KeyDeleteAsync(CartKey(userId));
+        public async Task ClearAsync(string userId)
+            => await _redis.KeyDeleteAsync(CartKey(userId));
 
         public async Task<List<CartItemDetailsDto>> GetCartDetailsForUser(string userId)
         {
-            var cartItems = await LoadCartRawAsync(userId);
-            if (!cartItems.Any()) return new();
+            var cart = await LoadCartAsync(userId);
+            if (!cart.Any()) return new List<CartItemDetailsDto>();
 
-            // 1. Sepetteki item Id’leriyle ProductItem çek (stok, fiyat, productId, sku)
-            var productItemIds = cartItems.Select(ci => ci.Id);
-            var productItems   = await _productClient.GetProductItemsByIdsAsync(productItemIds);
-            var itemMap        = productItems.ToDictionary(pi => pi.Id);
+            // 1️⃣ ProductItem & Product verilerini topla
+            var productItemIds = cart.Select(c => c.Id).ToList();
+            var productItems = await _productClient.GetProductItemsByIdsAsync(productItemIds);
+            var productItemMap = productItems.ToDictionary(pi => pi.Id);
 
-            // 2. Gelen ProductItem'lardan productId kümesiyle Product çek (name, image)
-            var productIds = productItems.Select(pi => pi.ProductId).Distinct();
-            var products   = await _productClient.GetProductsByIdsAsync(productIds);
-            var prodMap    = products.ToDictionary(p => p.Id);
+            var productIds = productItems.Select(pi => pi.ProductId).Distinct().ToList();
+            var products = await _productClient.GetProductsByIdsAsync(productIds);
+            var productMap = products.ToDictionary(p => p.Id);
 
-            // 3. Merge (ProductItem + Product)
-            var result = new List<CartItemDetailsDto>();
+            // 2️⃣ DTO listesi oluştur
+            var details = new List<CartItemDetailsDto>();
 
-            foreach (var ci in cartItems)
+            foreach (var ci in cart)
             {
-                if (!itemMap.TryGetValue(ci.Id, out var pi)) continue;        // item bulunamazsa atla
-                if (!prodMap.TryGetValue(pi.ProductId, out var p)) continue;  // ana ürün bulunamazsa atla
+                if (!productItemMap.TryGetValue(ci.Id, out var pi)) continue;
+                if (!productMap.TryGetValue(pi.ProductId, out var prod)) continue;
 
-                result.Add(new CartItemDetailsDto
+                details.Add(new CartItemDetailsDto
                 {
-                    Id       = ci.Id,
-                    Sku      = pi.Sku,
-                    Quantity = ci.Quantity,
-                    Price    = pi.Price,
-                    Currency = pi.Currency,
-                    Name     = p.Name,
-                    Image    = p.Image
+                    Id            = ci.Id,
+                    Sku           = pi.Sku,
+                    Quantity      = ci.Quantity,
+                    Price         = ci.Price,
+                    Currency      = pi.Currency,
+                    Name          = prod.Name,
+                    Image         = prod.Image,
+                    TotalPrice    = null,
+                    TotalQuantity = null
                 });
             }
 
-            return result;
+            // 3️⃣ Özet satırı ekle
+            var totalPrice = details.Sum(d => d.LineTotal);
+            var totalQty   = details.Sum(d => d.Quantity);
+
+            details.Add(new CartItemDetailsDto
+            {
+                Id            = 0,
+                Sku           = "TOTAL",
+                Quantity      = 0,
+                Price         = 0,
+                Currency      = details.First().Currency,
+                Name          = null,
+                Image         = null,
+                TotalPrice    = totalPrice,
+                TotalQuantity = totalQty
+            });
+
+            return details;
         }
     }
 }
