@@ -3,8 +3,15 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Yarp.ReverseProxy;
 using Microsoft.OpenApi.Models;
+using MongoDB.Driver;
+
+using ApiGateway.Middleware;
+using ApiGateway.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add MongoDB log service
+builder.Services.AddSingleton<LogService>();
 
 // JWT Ayarı
 var jwtKey = builder.Configuration["Jwt:Key"] ?? builder.Configuration["Jwt__Key"] ?? Environment.GetEnvironmentVariable("Jwt__Key");
@@ -73,10 +80,20 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+{
+    var config = sp.GetRequiredService<IConfiguration>();
+    var connectionString = config.GetSection("MongoDb:ConnectionString").Value!;
+    var databaseName = config.GetSection("MongoDb:Database").Value!;
+
+    var client = new MongoClient(connectionString);
+    return client.GetDatabase(databaseName);
+});
+
 var app = builder.Build();
 
+app.UseMiddleware<LoggingMiddleware>();
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
