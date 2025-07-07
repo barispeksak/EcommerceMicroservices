@@ -80,5 +80,15 @@ namespace AuthMicroservice.Api.Controllers
             var users = await _authService.GetUsersAsync();
             return Ok(users);
         }
+
+                [HttpDelete("delete/{userId}")]
+        public async Task<IActionResult> DeleteUser(int userId)
+        {
+            var result = await _authService.DeleteUserAsync(userId);
+            if (!result)
+                return NotFound("Kullanıcı bulunamadı.");
+
+            return Ok("Kullanıcı silindi.");
+        }
     }
 }
