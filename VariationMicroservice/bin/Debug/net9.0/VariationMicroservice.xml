@@ -4,16 +4,16 @@
         <name>VariationMicroservice</name>
     </assembly>
     <members>
-        <member name="T:VariationMicroservice.Migrations.UpdatePhoneMaxLength3">
+        <member name="T:VariationMicroservice.Migrations.InitialMigration">
             <inheritdoc />
         </member>
-        <member name="M:VariationMicroservice.Migrations.UpdatePhoneMaxLength3.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:VariationMicroservice.Migrations.InitialMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:VariationMicroservice.Migrations.UpdatePhoneMaxLength3.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:VariationMicroservice.Migrations.InitialMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:VariationMicroservice.Migrations.UpdatePhoneMaxLength3.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:VariationMicroservice.Migrations.InitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

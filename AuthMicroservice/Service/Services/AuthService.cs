@@ -142,6 +142,7 @@ namespace AuthMicroservice.Service.Services
                 FirstName = u.FirstName,
                 LastName = u.LastName,
                 Email = u.Email,
+                RefreshToken = u.RefreshToken,
                 PasswordHash = u.PasswordHash
             }).ToList();
         }

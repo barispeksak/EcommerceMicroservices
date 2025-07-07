@@ -5556,19 +5556,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mehmet Ali\\.nuget\\packages\\": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices-main\\ShopOrderMicroservice\\ShopOrderMicroservice.csproj",
+      "projectUniqueName": "/src/ShopOrderMicroservice.csproj",
       "projectName": "ShopOrderMicroservice",
-      "projectPath": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices-main\\ShopOrderMicroservice\\ShopOrderMicroservice.csproj",
-      "packagesPath": "C:\\Users\\Mehmet Ali\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices-main\\ShopOrderMicroservice\\obj\\",
+      "projectPath": "/src/ShopOrderMicroservice.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/src/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Mehmet Ali\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -5658,7 +5658,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

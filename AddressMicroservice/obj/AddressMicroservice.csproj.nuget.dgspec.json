@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/barispeksak/Desktop/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj": {}
+    "/Users/fatmaakyildiz/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj": {}
   },
   "projects": {
-    "/Users/barispeksak/Desktop/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj": {
+    "/Users/fatmaakyildiz/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/barispeksak/Desktop/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj",
+        "projectUniqueName": "/Users/fatmaakyildiz/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj",
         "projectName": "AddressMicroservice",
-        "projectPath": "/Users/barispeksak/Desktop/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj",
-        "packagesPath": "/Users/barispeksak/.nuget/packages/",
-        "outputPath": "/Users/barispeksak/Desktop/EcommerceMicroservices/AddressMicroservice/obj/",
+        "projectPath": "/Users/fatmaakyildiz/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj",
+        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
+        "outputPath": "/Users/fatmaakyildiz/EcommerceMicroservices/AddressMicroservice/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
+          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -76,6 +76,26 @@
               "target": "Package",
               "version": "[9.0.4, )"
             },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Enrichers.Environment": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Serilog.Sinks.MongoDB": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[9.0.1, )"
@@ -100,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

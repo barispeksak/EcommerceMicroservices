@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj": {}
+    "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj": {}
   },
   "projects": {
-    "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj": {
+    "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj",
+        "projectUniqueName": "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj",
         "projectName": "ShoppingCartMicroservice_Api",
-        "projectPath": "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj",
+        "projectPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj",
         "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
-        "outputPath": "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/obj/",
+        "outputPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj": {
-                "projectPath": "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj"
+              "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj": {
+                "projectPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj"
               }
             }
           }
@@ -118,14 +118,14 @@
         }
       }
     },
-    "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj": {
+    "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj",
+        "projectUniqueName": "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj",
         "projectName": "ShoppingCartMicroservice_Service",
-        "projectPath": "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj",
+        "projectPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj",
         "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
-        "outputPath": "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/obj/",
+        "outputPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Service/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"

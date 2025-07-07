@@ -3626,11 +3626,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/app/AuthMicroservice.csproj",
+      "projectUniqueName": "/src/AuthMicroservice.csproj",
       "projectName": "AuthMicroservice",
-      "projectPath": "/app/AuthMicroservice.csproj",
+      "projectPath": "/src/AuthMicroservice.csproj",
       "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/app/obj/",
+      "outputPath": "/src/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/root/.nuget/NuGet/NuGet.Config"

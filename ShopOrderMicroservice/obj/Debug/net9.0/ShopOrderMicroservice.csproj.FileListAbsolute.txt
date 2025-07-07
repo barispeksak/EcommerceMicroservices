@@ -1,199 +1,397 @@
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.csproj.AssemblyReference.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\rpswa.dswa.cache.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.AssemblyInfoInputs.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.AssemblyInfo.cs
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.csproj.CoreCompileInputs.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.sourcelink.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\appsettings.Development.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\appsettings.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ShopOrderMicroservice.staticwebassets.endpoints.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ShopOrderMicroservice.exe
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ShopOrderMicroservice.deps.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ShopOrderMicroservice.runtimeconfig.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ShopOrderMicroservice.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ShopOrderMicroservice.pdb
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\AutoMapper.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Azure.Core.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Azure.Identity.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\FluentValidation.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Humanizer.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Build.Locator.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Data.Sqlite.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Sqlite.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Identity.Client.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.OpenApi.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Mono.TextTemplating.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Npgsql.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\SQLitePCLRaw.batteries_v2.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\SQLitePCLRaw.core.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.ClientModel.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.CodeDom.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Composition.AttributedModel.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Composition.Convention.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Composition.Hosting.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Composition.Runtime.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Composition.TypedParts.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Drawing.Common.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Memory.Data.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Runtime.Caching.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Security.Permissions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\System.Windows.Extensions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\browser-wasm\nativeassets\net9.0\e_sqlite3.a
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-arm\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-arm64\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-armel\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-mips64\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-musl-arm\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-musl-arm64\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-musl-s390x\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-musl-x64\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-ppc64le\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-s390x\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-x64\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\linux-x86\native\libe_sqlite3.so
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\osx-arm64\native\libe_sqlite3.dylib
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\osx-x64\native\libe_sqlite3.dylib
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win-arm\native\e_sqlite3.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win-arm64\native\e_sqlite3.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win-x64\native\e_sqlite3.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\rjimswa.dswa.cache.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\scopedcss\bundle\ShopOrderMicroservice.styles.css
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\staticwebassets.build.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\staticwebassets.build.json.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\staticwebassets.development.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrde.144C6B1D.Up2Date
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\refint\ShopOrderMicroservice.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.pdb
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ShopOrderMicroservice.genruntimeconfig.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices-main\ShopOrderMicroservice\obj\Debug\net9.0\ref\ShopOrderMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.csproj.AssemblyReference.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/rpswa.dswa.cache.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.AssemblyInfoInputs.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.AssemblyInfo.cs
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.csproj.CoreCompileInputs.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.sourcelink.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/appsettings.Development.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/appsettings.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ShopOrderMicroservice.staticwebassets.endpoints.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ShopOrderMicroservice.exe
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ShopOrderMicroservice.deps.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ShopOrderMicroservice.runtimeconfig.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ShopOrderMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ShopOrderMicroservice.pdb
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/AutoMapper.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Azure.Core.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Azure.Identity.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/FluentValidation.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/FluentValidation.AspNetCore.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Humanizer.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Build.Locator.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Data.SqlClient.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Data.Sqlite.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Design.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Extensions.DependencyModel.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Identity.Client.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Identity.Client.Extensions.Msal.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.OpenApi.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.SqlServer.Server.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Mono.TextTemplating.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Npgsql.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/SQLitePCLRaw.batteries_v2.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/SQLitePCLRaw.core.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/SQLitePCLRaw.provider.e_sqlite3.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.ClientModel.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.CodeDom.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Composition.AttributedModel.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Composition.Convention.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Composition.Hosting.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Composition.Runtime.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Composition.TypedParts.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Configuration.ConfigurationManager.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Drawing.Common.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Memory.Data.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Runtime.Caching.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Security.Permissions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/System.Windows.Extensions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/browser-wasm/nativeassets/net9.0/e_sqlite3.a
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-arm/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-arm64/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-armel/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-mips64/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-musl-arm/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-musl-arm64/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-musl-s390x/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-ppc64le/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-s390x/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-x64/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/linux-x86/native/libe_sqlite3.so
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/maccatalyst-x64/native/libe_sqlite3.dylib
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/osx-arm64/native/libe_sqlite3.dylib
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win-arm/native/e_sqlite3.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win-arm64/native/e_sqlite3.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win-x64/native/e_sqlite3.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win-x86/native/e_sqlite3.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/rjimswa.dswa.cache.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/scopedcss/bundle/ShopOrderMicroservice.styles.css
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/staticwebassets.build.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/staticwebassets.build.json.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/staticwebassets.development.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrde.144C6B1D.Up2Date
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/refint/ShopOrderMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.pdb
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ShopOrderMicroservice.genruntimeconfig.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/ShopOrderMicroservice/obj/Debug/net9.0/ref/ShopOrderMicroservice.dll
+/src/bin/Debug/net9.0/appsettings.Development.json
+/src/bin/Debug/net9.0/appsettings.json
+/src/bin/Debug/net9.0/ShopOrderMicroservice.staticwebassets.endpoints.json
+/src/bin/Debug/net9.0/ShopOrderMicroservice
+/src/bin/Debug/net9.0/ShopOrderMicroservice.deps.json
+/src/bin/Debug/net9.0/ShopOrderMicroservice.runtimeconfig.json
+/src/bin/Debug/net9.0/ShopOrderMicroservice.dll
+/src/bin/Debug/net9.0/ShopOrderMicroservice.pdb
+/src/bin/Debug/net9.0/AutoMapper.dll
+/src/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/src/bin/Debug/net9.0/Azure.Core.dll
+/src/bin/Debug/net9.0/Azure.Identity.dll
+/src/bin/Debug/net9.0/FluentValidation.dll
+/src/bin/Debug/net9.0/FluentValidation.AspNetCore.dll
+/src/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
+/src/bin/Debug/net9.0/Humanizer.dll
+/src/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
+/src/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
+/src/bin/Debug/net9.0/Microsoft.Build.Locator.dll
+/src/bin/Debug/net9.0/Microsoft.CodeAnalysis.dll
+/src/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.dll
+/src/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+/src/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.dll
+/src/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+/src/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+/src/bin/Debug/net9.0/Microsoft.Data.SqlClient.dll
+/src/bin/Debug/net9.0/Microsoft.Data.Sqlite.dll
+/src/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+/src/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/src/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Design.dll
+/src/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
+/src/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Sqlite.dll
+/src/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/src/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+/src/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+/src/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/src/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/src/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/src/bin/Debug/net9.0/Microsoft.Extensions.DependencyModel.dll
+/src/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+/src/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/src/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+/src/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
+/src/bin/Debug/net9.0/Microsoft.Identity.Client.dll
+/src/bin/Debug/net9.0/Microsoft.Identity.Client.Extensions.Msal.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/src/bin/Debug/net9.0/Microsoft.OpenApi.dll
+/src/bin/Debug/net9.0/Microsoft.SqlServer.Server.dll
+/src/bin/Debug/net9.0/Microsoft.Win32.SystemEvents.dll
+/src/bin/Debug/net9.0/Mono.TextTemplating.dll
+/src/bin/Debug/net9.0/Npgsql.dll
+/src/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/src/bin/Debug/net9.0/SQLitePCLRaw.batteries_v2.dll
+/src/bin/Debug/net9.0/SQLitePCLRaw.core.dll
+/src/bin/Debug/net9.0/SQLitePCLRaw.provider.e_sqlite3.dll
+/src/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+/src/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/src/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/src/bin/Debug/net9.0/System.ClientModel.dll
+/src/bin/Debug/net9.0/System.CodeDom.dll
+/src/bin/Debug/net9.0/System.Composition.AttributedModel.dll
+/src/bin/Debug/net9.0/System.Composition.Convention.dll
+/src/bin/Debug/net9.0/System.Composition.Hosting.dll
+/src/bin/Debug/net9.0/System.Composition.Runtime.dll
+/src/bin/Debug/net9.0/System.Composition.TypedParts.dll
+/src/bin/Debug/net9.0/System.Configuration.ConfigurationManager.dll
+/src/bin/Debug/net9.0/System.Drawing.Common.dll
+/src/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/src/bin/Debug/net9.0/System.Memory.Data.dll
+/src/bin/Debug/net9.0/System.Runtime.Caching.dll
+/src/bin/Debug/net9.0/System.Security.Cryptography.ProtectedData.dll
+/src/bin/Debug/net9.0/System.Security.Permissions.dll
+/src/bin/Debug/net9.0/System.Windows.Extensions.dll
+/src/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+/src/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+/src/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/src/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/src/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/src/bin/Debug/net9.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+/src/bin/Debug/net9.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
+/src/bin/Debug/net9.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+/src/bin/Debug/net9.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+/src/bin/Debug/net9.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+/src/bin/Debug/net9.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+/src/bin/Debug/net9.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
+/src/bin/Debug/net9.0/runtimes/browser-wasm/nativeassets/net9.0/e_sqlite3.a
+/src/bin/Debug/net9.0/runtimes/linux-arm/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-arm64/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-armel/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-mips64/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-musl-arm/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-musl-arm64/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-musl-s390x/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-musl-x64/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-ppc64le/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-s390x/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-x64/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/linux-x86/native/libe_sqlite3.so
+/src/bin/Debug/net9.0/runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib
+/src/bin/Debug/net9.0/runtimes/maccatalyst-x64/native/libe_sqlite3.dylib
+/src/bin/Debug/net9.0/runtimes/osx-arm64/native/libe_sqlite3.dylib
+/src/bin/Debug/net9.0/runtimes/osx-x64/native/libe_sqlite3.dylib
+/src/bin/Debug/net9.0/runtimes/win-arm/native/e_sqlite3.dll
+/src/bin/Debug/net9.0/runtimes/win-arm64/native/e_sqlite3.dll
+/src/bin/Debug/net9.0/runtimes/win-x64/native/e_sqlite3.dll
+/src/bin/Debug/net9.0/runtimes/win-x86/native/e_sqlite3.dll
+/src/bin/Debug/net9.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
+/src/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
+/src/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+/src/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+/src/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/src/obj/Debug/net9.0/ShopOrderMicroservice.csproj.AssemblyReference.cache
+/src/obj/Debug/net9.0/rpswa.dswa.cache.json
+/src/obj/Debug/net9.0/ShopOrderMicroservice.GeneratedMSBuildEditorConfig.editorconfig
+/src/obj/Debug/net9.0/ShopOrderMicroservice.AssemblyInfoInputs.cache
+/src/obj/Debug/net9.0/ShopOrderMicroservice.AssemblyInfo.cs
+/src/obj/Debug/net9.0/ShopOrderMicroservice.csproj.CoreCompileInputs.cache
+/src/obj/Debug/net9.0/ShopOrderMicroservice.MvcApplicationPartsAssemblyInfo.cs
+/src/obj/Debug/net9.0/ShopOrderMicroservice.MvcApplicationPartsAssemblyInfo.cache
+/src/obj/Debug/net9.0/rjimswa.dswa.cache.json
+/src/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
+/src/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
+/src/obj/Debug/net9.0/scopedcss/bundle/ShopOrderMicroservice.styles.css
+/src/obj/Debug/net9.0/staticwebassets.build.json
+/src/obj/Debug/net9.0/staticwebassets.build.json.cache
+/src/obj/Debug/net9.0/staticwebassets.development.json
+/src/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+/src/obj/Debug/net9.0/ShopOrde.144C6B1D.Up2Date
+/src/obj/Debug/net9.0/ShopOrderMicroservice.dll
+/src/obj/Debug/net9.0/refint/ShopOrderMicroservice.dll
+/src/obj/Debug/net9.0/ShopOrderMicroservice.pdb
+/src/obj/Debug/net9.0/ShopOrderMicroservice.genruntimeconfig.cache
+/src/obj/Debug/net9.0/ref/ShopOrderMicroservice.dll

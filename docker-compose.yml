@@ -19,6 +19,12 @@ services:
     ports:
       - "6379:6379"
     restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+ 
 
   addressservice:
     build:
@@ -222,10 +228,13 @@ services:
       - "5010:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
-      Redis__ConnectionString: "redis:6379"
+      ConnectionStrings__Redis: "redis:6379"
     depends_on:
       authservice:
         condition: service_healthy
+      redis:
+        condition: service_healthy
+
 
   useraddressmicroservice:
     build:

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CFP3MCdZ/dA=",
+  "dgSpecHash": "30Cv/LH0DZI=",
   "success": true,
-  "projectFilePath": "/Users/fatmaakyildiz/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj",
+  "projectFilePath": "/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj",
   "expectedPackageFiles": [
     "/Users/fatmaakyildiz/.nuget/packages/automapper/14.0.0/automapper.14.0.0.nupkg.sha512",
     "/Users/fatmaakyildiz/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512",

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mehmet Ali\\Desktop\\staj\\c#\\trendyolApi\\trendyolApi.csproj": {}
+    "/src/trendyolApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mehmet Ali\\Desktop\\staj\\c#\\trendyolApi\\trendyolApi.csproj": {
+    "/src/trendyolApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\c#\\trendyolApi\\trendyolApi.csproj",
+        "projectUniqueName": "/src/trendyolApi.csproj",
         "projectName": "trendyolApi",
-        "projectPath": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\c#\\trendyolApi\\trendyolApi.csproj",
-        "packagesPath": "C:\\Users\\Mehmet Ali\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\c#\\trendyolApi\\obj\\",
+        "projectPath": "/src/trendyolApi.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/src/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mehmet Ali\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -44,6 +44,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.6, )"
@@ -82,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

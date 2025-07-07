@@ -32,6 +32,9 @@ namespace UserMicroservice.Service.Services
         public async Task<UserDto> CreateUserAsync(CreateUserDto createUserDto)
         {
             var user = _mapper.Map<User>(createUserDto);
+
+            user.Dob = DateTime.SpecifyKind(user.Dob, DateTimeKind.Utc);
+
             await _repo.AddAsync(user);
             return _mapper.Map<UserDto>(user);
         }
