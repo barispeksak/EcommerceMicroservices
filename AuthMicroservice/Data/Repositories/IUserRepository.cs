@@ -10,6 +10,8 @@ namespace AuthMicroservice.Data.Repositories
         Task UpdateAsync(User user);
         Task<User?> GetByRefreshTokenAsync(string refreshToken);
         Task<List<User>> GetAllAsync();
+        Task<User> GetByIdAsync(int userId);
+
         Task DeleteAsync(int id);
     }
 }

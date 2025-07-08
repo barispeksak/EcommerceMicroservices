@@ -1,4 +1,4 @@
-@trendyolApi_HostAddress = http://localhost:5056
+@trendyolApi_HostAddress = http://localhost:5012
 
 GET {{trendyolApi_HostAddress}}/weatherforecast/
 Accept: application/json

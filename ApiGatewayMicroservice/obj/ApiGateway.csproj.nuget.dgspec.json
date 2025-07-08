@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/barispeksak/Desktop/EcommerceMicroservices/ApiGateway/ApiGateway.csproj": {}
+    "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGateway.csproj": {}
   },
   "projects": {
-    "/Users/barispeksak/Desktop/EcommerceMicroservices/ApiGateway/ApiGateway.csproj": {
+    "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGateway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/barispeksak/Desktop/EcommerceMicroservices/ApiGateway/ApiGateway.csproj",
+        "projectUniqueName": "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGateway.csproj",
         "projectName": "ApiGateway",
-        "projectPath": "/Users/barispeksak/Desktop/EcommerceMicroservices/ApiGateway/ApiGateway.csproj",
-        "packagesPath": "/Users/barispeksak/.nuget/packages/",
-        "outputPath": "/Users/barispeksak/Desktop/EcommerceMicroservices/ApiGateway/obj/",
+        "projectPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGateway.csproj",
+        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
+        "outputPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
+          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,15 +38,35 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
             "Yarp.ReverseProxy": {
               "target": "Package",
-              "version": "[2.3.0, )"
+              "version": "[2.0.0, )"
             }
           },
           "imports": [
@@ -68,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

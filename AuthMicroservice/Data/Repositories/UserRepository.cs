@@ -35,6 +35,12 @@ namespace AuthMicroservice.Data.Repositories
         {
             return await _context.Users.ToListAsync();
         }
+
+        public async Task<User> GetByIdAsync(int userId)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+        }
+
         public async Task DeleteAsync(int id)
         {
             var user = await _context.Users.FindAsync(id);

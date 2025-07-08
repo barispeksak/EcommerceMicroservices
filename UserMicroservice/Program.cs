@@ -2,52 +2,83 @@ using Microsoft.EntityFrameworkCore;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using UserMicroservice.Data;
-using UserMicroservice.Service;
 using UserMicroservice.Dtos;
 using UserMicroservice.Service.Mapping;
 using UserMicroservice.Service.Validation;
 using UserMicroservice.Service.Interfaces;
 using UserMicroservice.Service.Services;
 using UserMicroservice.Data.Repositories;
+using Serilog;
+using UserMicroservice.Api;
+using UserMicroservice.Http;
+using UserMicroservice.Middleware;
+using MongoDB.Driver; // <-- Ekle!
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- EF Core ---
-builder.Services.AddDbContext<UserDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+// ---------- DB ----------
+builder.Services.AddDbContext<UserDbContext>(opt =>
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// --- FluentValidation ---
-builder.Services.AddControllers()
-    .AddFluentValidation(fv =>
-    {
-        fv.RegisterValidatorsFromAssemblyContaining<UserDtoValidator>();
-        fv.RegisterValidatorsFromAssemblyContaining<CreateUserDtoValidator>();
-        fv.AutomaticValidationEnabled = true; // 🔍 Bu şart!
-    });
+// ---------- Validation ----------
+builder.Services.AddControllers();
+builder.Services.AddFluentValidationAutoValidation()
+                .AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateUserDtoValidator>();
+builder.Services.AddScoped<IValidator<UserDto>, UserDtoValidator>();
 
-builder.Services.AddScoped<IValidator<UserDto>, UserDtoValidator>(); // Validator bağlanır
+// ---------- AutoMapper ----------
+builder.Services.AddAutoMapper(typeof(UserProfile));
 
-// --- AutoMapper ---
-builder.Services.AddAutoMapper(typeof(UserProfile)); // AutoMapper yapılandırması (Profile sınıfı)
-
-// --- Service katmanı ---
-builder.Services.AddScoped<IUserService, UserService>(); // Service katmanı bağlanır
+// ---------- Services & Repos ----------
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+// ---------- MongoDB (UserActionLogger için DI) ----------
+builder.Services.AddSingleton<IMongoClient>(sp =>
+    new MongoClient("mongodb://mongo:27017")); // <-- Burada docker-compose'da container adı "mongo", localde çalıştırıyorsan "localhost" yapabilirsin
 
-// --- Swagger ---
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+    sp.GetRequiredService<IMongoClient>().GetDatabase("ECommerceLogs")); // <-- Burada doğru DB adını yaz
+
+builder.Services.AddSingleton<UserActionLogger>(); // <-- Logger servisini ekle
+
+// ---------- HttpClient (UserAddress) ----------
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<CorrelationIdDelegatingHandler>();
+builder.Services.AddHttpClient<IUserAddressApiClient, UserAddressApiClient>(c =>
+{
+    c.BaseAddress = new Uri("http://useraddressmicroservice");
+})
+.AddHttpMessageHandler<CorrelationIdDelegatingHandler>();
+
+// ---------- Swagger ----------
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+// ---------- Serilog ----------
+const string serviceName = "UserMicroservice";
+builder.Host.UseSerilog((ctx, svc, cfg) => cfg
+    .ReadFrom.Configuration(ctx.Configuration)
+    .Enrich.FromLogContext()
+    .Enrich.WithProperty("ServiceName", serviceName)
+    .WriteTo.Console());
 
-// --- HTTP Pipeline ---
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// ---------- Build ----------
+Console.WriteLine(">>> 1. Program dosyası başladı");
+var app = builder.Build();
+Console.WriteLine(">>> 2. Host build bitti");
+
+// ---------- Pipeline ----------
+app.UseMiddleware<CorrelationIdMiddleware>();
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+app.UseRouting(); // ekle
+app.UseSerilogRequestLogging();
+app.UseAuthorization();
 app.MapControllers();
+
 app.Run();

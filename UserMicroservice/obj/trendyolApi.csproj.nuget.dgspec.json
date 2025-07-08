@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/src/trendyolApi.csproj": {}
+    "/Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/trendyolApi.csproj": {}
   },
   "projects": {
-    "/src/trendyolApi.csproj": {
+    "/Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/trendyolApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/src/trendyolApi.csproj",
+        "projectUniqueName": "/Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/trendyolApi.csproj",
         "projectName": "trendyolApi",
-        "projectPath": "/src/trendyolApi.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/src/obj/",
+        "projectPath": "/Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/trendyolApi.csproj",
+        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
+        "outputPath": "/Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -62,9 +62,25 @@
               "target": "Package",
               "version": "[9.0.6, )"
             },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Sinks.MongoDB": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -90,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

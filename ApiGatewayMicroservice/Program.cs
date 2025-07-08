@@ -4,8 +4,8 @@ using System.Text;
 using Yarp.ReverseProxy;
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
+using ApiGatewayMicroservice.Middleware;
 
-using ApiGateway.Middleware;
 using ApiGateway.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -92,7 +92,8 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
 
 var app = builder.Build();
 
-app.UseMiddleware<LoggingMiddleware>();
+app.UseMiddleware<GatewayLogMiddleware>();
+
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

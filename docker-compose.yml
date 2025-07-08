@@ -24,7 +24,16 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
- 
+
+  mongo:
+    image: mongo:7
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/data/db 
+    environment:
+      - TZ=Europe/Istanbul
 
   addressservice:
     build:
@@ -260,6 +269,7 @@ services:
     environment:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
+      MongoDbSettings__ConnectionString : mongodb://mongo:27017
     depends_on:
       postgresql:
         condition: service_healthy
@@ -299,3 +309,4 @@ services:
         
 volumes:
   pgdata:
+  mongo-data:
