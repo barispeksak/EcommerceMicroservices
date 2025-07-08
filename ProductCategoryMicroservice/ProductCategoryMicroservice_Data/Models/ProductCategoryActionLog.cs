@@ -19,7 +19,6 @@ public class ProductCategoryActionLog
     public string? ProductCategoryId { get; set; }
     public string? Name { get; set; }
     public string? ParentCategoryId { get; set; }
-    public DateTime? UserDob { get; set; }
     public BsonDocument? Description { get; set; }
 }
 
