@@ -46,7 +46,6 @@ services:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
       MongoDbSettings__ConnectionString : mongodb://mongo:27017
-
     depends_on:
       postgresql:
         condition: service_healthy

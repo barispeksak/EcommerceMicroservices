@@ -7,71 +7,83 @@ using AddressMicroservice.Service.Mapping;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using AddressMicroservice.Service.Validation;
+using Serilog;
+using MongoDB.Driver; 
+using AddressMicroservice.Middleware;
+using AddressMicroservice.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ───── Serilog ─────────────────────────────────────────────
+const string serviceName = "AddressMicroservice";
+builder.Host.UseSerilog((ctx, lc) => lc
+    .ReadFrom.Configuration(ctx.Configuration)
+    .Enrich.FromLogContext()
+    .Enrich.WithProperty("ServiceName", serviceName)
+    .WriteTo.Console());
 
-// Add services to the container
+builder.Services.AddSingleton<IMongoClient>(_ =>
+    new MongoClient("mongodb://mongo:27017"));          // docker-compose'da "mongo"
+
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+    sp.GetRequiredService<IMongoClient>()
+      .GetDatabase("ECommerceLogs"));
+
+builder.Services.AddSingleton<AddressActionLogger>();
+
+// ───── Controllers / Validation ────────────────────────────
 builder.Services.AddControllers();
-
-// Add FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateAddressDtoValidator>();
 
-// Add Entity Framework
+// ───── Entity Framework ────────────────────────────────────
 builder.Services.AddDbContext<AddressDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add AutoMapper
+// ───── AutoMapper & DI ─────────────────────────────────────
 builder.Services.AddAutoMapper(typeof(MappingProfile));
-
-// Add Repository
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+builder.Services.AddScoped<IAddressService,    AddressService>();
 
-// Add custom services
-builder.Services.AddScoped<IAddressService, AddressService>();
+// ───── Correlation-Id için altyapı ─────────────────────────
+builder.Services.AddHttpContextAccessor();                      // ← gerekli
+builder.Services.AddTransient<CorrelationIdDelegatingHandler>(); // (isteğe bağlı)
 
-// Add Swagger/OpenAPI
+// örnek outbound HttpClient — başka servise çağrı yapıyorsanız
+//builder.Services.AddHttpClient("SomeOtherService", c =>
+//{
+//    c.BaseAddress = new Uri("http://otherservice");
+//})
+//.AddHttpMessageHandler<CorrelationIdDelegatingHandler>();
+
+// ───── Swagger / CORS ───────────────────────────────────────
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
-    {
-        Title = "Address Microservice API",
-        Version = "v1",
-        Description = "A microservice for managing addresses with full CRUD operations"
-    });
-});
-
-// Add CORS for microservices communication
+builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("MicroservicePolicy",
-        policy =>
-        {
-            policy.AllowAnyOrigin()
-                   .AllowAnyMethod()
-                   .AllowAnyHeader();
-        });
+        policy => policy.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
+// ───── Pipeline ────────────────────────────────────────────
+app.UseMiddleware<CorrelationIdMiddleware>();   // ❶ ilk loglayıcı bu olsun
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// Only use HTTPS redirection in production
 if (!app.Environment.IsDevelopment())
-{
     app.UseHttpsRedirection();
-}
 
 app.UseCors("MicroservicePolicy");
+app.UseSerilogRequestLogging();                 // ❷ Serilog’un request log’u
 app.UseAuthorization();
 app.MapControllers();
 

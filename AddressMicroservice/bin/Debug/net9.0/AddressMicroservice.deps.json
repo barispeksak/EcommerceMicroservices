@@ -970,14 +970,7 @@
         }
       },
       "System.Security.Principal.Windows/5.0.0": {},
-      "System.Text.Json/9.0.6": {
-        "runtime": {
-          "lib/net9.0/System.Text.Json.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.625.26613"
-          }
-        }
-      },
+      "System.Text.Json/9.0.6": {},
       "System.Threading.Channels/7.0.0": {},
       "ZstdSharp.Port/0.7.3": {
         "runtime": {
