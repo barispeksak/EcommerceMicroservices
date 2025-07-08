@@ -4461,19 +4461,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/fatmaakyildiz/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/trendyolApi.csproj",
+      "projectUniqueName": "/src/trendyolApi.csproj",
       "projectName": "trendyolApi",
-      "projectPath": "/Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/trendyolApi.csproj",
-      "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
-      "outputPath": "/Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/obj/",
+      "projectPath": "/src/trendyolApi.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/src/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -4497,7 +4497,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -4565,7 +4565,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
