@@ -15,9 +15,7 @@ public class ProductCategoryActionLog
     public string? Level { get; set; }        // "Info", "Error", "Warn" vs.
     public string? Message { get; set; }
     public string? CorrelationId { get; set; }
-    public string? PerformedById { get; set; }
     public string? PerformedByEmail { get; set; }
-    public string? PerformedByName { get; set; }
     public string? ProductCategoryId { get; set; }
     public string? Name { get; set; }
     public string? ParentCategoryId { get; set; }
