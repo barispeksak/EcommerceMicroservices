@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Variation_OptionMicroservice.Data.Entities
+namespace VariationOptionMicroservice.Data.Entities
 {
     public class VariationOption
     {

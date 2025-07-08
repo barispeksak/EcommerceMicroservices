@@ -1,4 +1,4 @@
-namespace Variation_OptionMicroservice.Service.Services;
+namespace VariationOptionMicroservice.Service.Services;
 
 public class CategoryApiClient
 {

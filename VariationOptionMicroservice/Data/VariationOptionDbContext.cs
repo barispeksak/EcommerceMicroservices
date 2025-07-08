@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using Variation_OptionMicroservice.Data.Entities;
+using VariationOptionMicroservice.Data.Entities;
 
-namespace Variation_OptionMicroservice.Data
+namespace VariationOptionMicroservice.Data
 {
-    public class Variation_OptionDbContext : DbContext
+    public class VariationOptionDbContext : DbContext
     {
-        public Variation_OptionDbContext(DbContextOptions<Variation_OptionDbContext> options) : base(options) { }
+        public VariationOptionDbContext(DbContextOptions<VariationOptionDbContext> options) : base(options) { }
 
         public DbSet<VariationOption> VariationOptions { get; set; }
 

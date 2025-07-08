@@ -1,7 +1,7 @@
 using Swashbuckle.AspNetCore.Annotations;
 
 
-namespace Variation_OptionMicroservice.Service.DTOs
+namespace VariationOptionMicroservice.Service.DTOs
 {
     public class VariationOptionDto
     {

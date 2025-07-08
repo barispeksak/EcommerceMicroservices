@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/src/AddressMicroservice.csproj": {}
+    "/Users/barispeksak/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj": {}
   },
   "projects": {
-    "/src/AddressMicroservice.csproj": {
+    "/Users/barispeksak/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/src/AddressMicroservice.csproj",
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj",
         "projectName": "AddressMicroservice",
-        "projectPath": "/src/AddressMicroservice.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/src/obj/",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/AddressMicroservice/AddressMicroservice.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/AddressMicroservice/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -120,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

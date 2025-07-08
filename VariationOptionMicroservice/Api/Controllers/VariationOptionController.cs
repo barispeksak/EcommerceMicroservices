@@ -1,17 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
-using Variation_OptionMicroservice.Service.DTOs;
-using Variation_OptionMicroservice.Service.Interfaces;
+using VariationOptionMicroservice.Service.DTOs;
+using VariationOptionMicroservice.Service.Interfaces;
 
-namespace Variation_OptionMicroservice.Api.Controllers
+namespace VariationOptionMicroservice.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Variation_OptionController : ControllerBase
+    public class VariationOptionController : ControllerBase
     {
         private readonly IVariationOptionService _variationOptionService;
     
 
-        public Variation_OptionController(IVariationOptionService variationOptionService)
+        public VariationOptionController(IVariationOptionService variationOptionService)
         {
             _variationOptionService = variationOptionService;
         }

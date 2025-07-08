@@ -1,6 +1,6 @@
-using Variation_OptionMicroservice.Service.DTOs;
+using VariationOptionMicroservice.Service.DTOs;
 
-namespace Variation_OptionMicroservice.Service.Interfaces
+namespace VariationOptionMicroservice.Service.Interfaces
 {
     public interface IVariationOptionService
     {

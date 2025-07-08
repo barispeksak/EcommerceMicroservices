@@ -1,11 +1,11 @@
 using AutoMapper;
 using FluentValidation;
-using Variation_OptionMicroservice.Data.Entities;
-using Variation_OptionMicroservice.Data.Repositories;
-using Variation_OptionMicroservice.Service.DTOs;
-using Variation_OptionMicroservice.Service.Interfaces;
+using VariationOptionMicroservice.Data.Entities;
+using VariationOptionMicroservice.Data.Repositories;
+using VariationOptionMicroservice.Service.DTOs;
+using VariationOptionMicroservice.Service.Interfaces;
 
-namespace Variation_OptionMicroservice.Service.Services
+namespace VariationOptionMicroservice.Service.Services
 {
     public class VariationOptionService : IVariationOptionService
     {

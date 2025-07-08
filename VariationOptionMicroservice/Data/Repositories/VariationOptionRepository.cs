@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
-using Variation_OptionMicroservice.Data.Entities;
+using VariationOptionMicroservice.Data.Entities;
 
-namespace Variation_OptionMicroservice.Data.Repositories
+namespace VariationOptionMicroservice.Data.Repositories
 {
     public class VariationOptionRepository : IVariationOptionRepository
     {
-        private readonly Variation_OptionDbContext _context;
+        private readonly VariationOptionDbContext _context;
 
-        public VariationOptionRepository(Variation_OptionDbContext context)
+        public VariationOptionRepository(VariationOptionDbContext context)
         {
             _context = context;
         }

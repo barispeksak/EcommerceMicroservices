@@ -1,7 +1,7 @@
 using FluentValidation;
-using Variation_OptionMicroservice.Service.DTOs;
+using VariationOptionMicroservice.Service.DTOs;
 
-namespace Variation_OptionMicroservice.Service.Validation
+namespace VariationOptionMicroservice.Service.Validation
 {
     public class CreateVariationOptionDtoValidator : AbstractValidator<CreateVariationOptionDto>
     {

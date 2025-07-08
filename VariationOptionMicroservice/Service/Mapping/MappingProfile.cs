@@ -1,8 +1,8 @@
 using AutoMapper;
-using Variation_OptionMicroservice.Data.Entities;
-using Variation_OptionMicroservice.Service.DTOs;
+using VariationOptionMicroservice.Data.Entities;
+using VariationOptionMicroservice.Service.DTOs;
 
-namespace Variation_OptionMicroservice.Service.Mapping
+namespace VariationOptionMicroservice.Service.Mapping
 {
     public class MappingProfile : Profile
     {

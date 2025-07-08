@@ -1,6 +1,6 @@
-using Variation_OptionMicroservice.Data.Entities;
+using VariationOptionMicroservice.Data.Entities;
 
-namespace Variation_OptionMicroservice.Data.Repositories
+namespace VariationOptionMicroservice.Data.Repositories
 {
     public interface IVariationOptionRepository
     {
