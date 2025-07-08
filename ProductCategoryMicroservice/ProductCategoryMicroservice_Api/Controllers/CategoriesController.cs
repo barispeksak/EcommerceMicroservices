@@ -6,7 +6,7 @@ using ProductCategoryMicroservice_Service.Interfaces;
 namespace ProductCategoryMicroservice_Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/productcategory")]
 public sealed class CategoriesController : ControllerBase
 {
     private readonly ICategoryService _service;

@@ -1,26 +1,37 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
+  <!--──────────── Temel ayarlar ────────────-->
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <!--──────────── NuGet paketleri ────────────-->
   <ItemGroup>
+    <!-- Web / OpenAPI -->
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi"                Version="9.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore"                      Version="9.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations"          Version="9.0.1" />
+
+    <!-- AutoMapper / FluentValidation -->
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
+    <PackageReference Include="FluentValidation.AspNetCore"                 Version="11.3.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.6">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.1" />
+
+    <!-- Serilog -->
+    <PackageReference Include="Serilog.AspNetCore"              Version="9.0.0" />
+    <PackageReference Include="Serilog.Settings.Configuration"  Version="9.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console"           Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.MongoDB"           Version="7.0.0" />
+
+    <!-- MongoDB -->
   </ItemGroup>
 
+  <!--──────────── Proje referansları ────────────-->
   <ItemGroup>
     <ProjectReference Include="..\ProductCategoryMicroservice_Service\ProductCategoryMicroservice_Service.csproj" />
+    <ProjectReference Include="..\ProductCategoryMicroservice_Data\ProductCategoryMicroservice_Data.csproj" />
   </ItemGroup>
 
 </Project>
