@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer; 
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using UserMicroservice.Data;
@@ -14,8 +15,8 @@ using UserMicroservice.Http;
 using UserMicroservice.Middleware;
 using MongoDB.Driver; // <-- Ekle!
 
-var builder = WebApplication.CreateBuilder(args);
 
+var builder = WebApplication.CreateBuilder(args);
 // ---------- DB ----------
 builder.Services.AddDbContext<UserDbContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -37,15 +38,42 @@ builder.Services.AddAutoMapper(typeof(UserProfile));
 // ---------- Services & Repos ----------
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<UserActionLogger>();
 
-// ---------- MongoDB (UserActionLogger için DI) ----------
+/* ---------- Serilog ---------- */
+builder.Host.UseSerilog((ctx, lc) => lc
+    .ReadFrom.Configuration(ctx.Configuration)
+    .Enrich.FromLogContext()
+    .Enrich.WithProperty("ServiceName", "UserMicroservice")
+    .WriteTo.Console());
+
+/* ---------- MongoDB DI ---------- */
 builder.Services.AddSingleton<IMongoClient>(sp =>
-    new MongoClient("mongodb://mongo:27017")); // <-- Burada docker-compose'da container adı "mongo", localde çalıştırıyorsan "localhost" yapabilirsin
+{
+    var cfg = sp.GetRequiredService<IConfiguration>();
+    var cs  = cfg["MongoDb:ConnectionString"]
+              ?? throw new InvalidOperationException("MongoDb:ConnectionString not found!");
+    return new MongoClient(cs);
+});
 
 builder.Services.AddSingleton<IMongoDatabase>(sp =>
-    sp.GetRequiredService<IMongoClient>().GetDatabase("ECommerceLogs")); // <-- Burada doğru DB adını yaz
+{
+    var cfg = sp.GetRequiredService<IConfiguration>();
+    var db  = cfg["MongoDb:Database"]
+              ?? throw new InvalidOperationException("MongoDb:Database not found!");
+    return sp.GetRequiredService<IMongoClient>().GetDatabase(db);
+});
 
-builder.Services.AddSingleton<UserActionLogger>(); // <-- Logger servisini ekle
+/* ---------- JWT Authentication ---------- */
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+       .AddJwtBearer(o =>
+       {
+           // Authority: token’ı basan AuthService’in URL’i
+           o.Authority = "http://authmicroservice"; // docker internal DNS
+           o.RequireHttpsMetadata = false;          // dev ortamı
+           // Eğer ek Audience kontrolü istersen:
+           // o.Audience = "usermicroservice";
+       });
 
 // ---------- HttpClient (UserAddress) ----------
 builder.Services.AddHttpContextAccessor();
@@ -56,31 +84,30 @@ builder.Services.AddHttpClient<IUserAddressApiClient, UserAddressApiClient>(c =>
 })
 .AddHttpMessageHandler<CorrelationIdDelegatingHandler>();
 
-// ---------- Swagger ----------
+
+builder.Services.AddAuthorization();
+
+
+/* ---------- Swagger (dev) ---------- */
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// ---------- Serilog ----------
-const string serviceName = "UserMicroservice";
-builder.Host.UseSerilog((ctx, svc, cfg) => cfg
-    .ReadFrom.Configuration(ctx.Configuration)
-    .Enrich.FromLogContext()
-    .Enrich.WithProperty("ServiceName", serviceName)
-    .WriteTo.Console());
-
-// ---------- Build ----------
 var app = builder.Build();
 
-// ---------- Pipeline ----------
+/* ---------- Middleware Pipeline ---------- */
+// Correlation-Id ekle / kopyala
 app.UseMiddleware<CorrelationIdMiddleware>();
+
+app.UseRouting();
+app.UseSerilogRequestLogging();
+app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
-app.UseRouting(); // ekle
-app.UseSerilogRequestLogging();
-app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();

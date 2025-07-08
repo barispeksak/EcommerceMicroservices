@@ -52,14 +52,10 @@ namespace ApiGatewayMicroservice.Middleware
                 }
             }
 
-            var userId = jwt?.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
             var userEmail = jwt?.Claims.FirstOrDefault(c => c.Type == "email")?.Value;
-            var userName = jwt?.Claims.FirstOrDefault(c => c.Type == "name")?.Value;
 
             // 3. User bilgilerini downstream servislere header olarak ekle (isteğe bağlı)
-            context.Request.Headers["X-User-Id"] = userId ?? "";
             context.Request.Headers["X-User-Email"] = userEmail ?? "";
-            context.Request.Headers["X-User-Name"] = userName ?? "";
 
             // 4. İstek pipeline içinde işleniyor
             await _next(context);
@@ -100,9 +96,7 @@ namespace ApiGatewayMicroservice.Middleware
             {
                 Timestamp = DateTime.UtcNow,
                 RequestPath = context.Request.Path,
-                UserId = userId,
                 UserEmail = userEmail,
-                UserName = userName,
                 CorrelationId = correlationId,
                 Action = action,
                 Message = message

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("trendyolApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03cbb0bb9a67f84806dc229004c51e28c196a83a")]
 [assembly: System.Reflection.AssemblyProductAttribute("trendyolApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("trendyolApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

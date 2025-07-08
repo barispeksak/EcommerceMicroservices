@@ -6,7 +6,6 @@ using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
 using ApiGatewayMicroservice.Middleware;
 using Serilog;
-
 using ApiGateway.Services;
 
 var builder = WebApplication.CreateBuilder(args);

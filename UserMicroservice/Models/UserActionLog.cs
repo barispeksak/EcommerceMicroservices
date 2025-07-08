@@ -12,9 +12,7 @@ public class UserActionLog
     public string? Level { get; set; }        // "Info", "Error", "Warn" vs.
     public string? Message { get; set; }      
     public string? CorrelationId { get; set; }
-    public string? PerformedById { get; set; }
     public string? PerformedByEmail { get; set; }
-    public string? PerformedByName { get; set; }
     public string? UserId { get; set; }
     public string? UserEmail { get; set; }
     public string? UserName { get; set; }
