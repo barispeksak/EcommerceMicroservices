@@ -15,6 +15,14 @@ namespace ApiGatewayMicroservice.Middleware
         private readonly RequestDelegate _next;
         private readonly IMongoCollection<RequestLog> _logCollection;
 
+        // ► Anonim erişime açık yollar
+        private static readonly HashSet<string> _anonymousPaths = new(StringComparer.OrdinalIgnoreCase)
+        {
+            "/api/auth/login",
+            "/api/auth/register",
+            "/api/auth/refresh-token"
+        };
+
         public GatewayLogMiddleware(RequestDelegate next, IMongoDatabase mongoDatabase)
         {
             _next = next;
@@ -34,7 +42,8 @@ namespace ApiGatewayMicroservice.Middleware
             }
 
             // 2. Token kontrolü ve JWT bilgileri çıkarma
-            var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Replace("Bearer ", "");
+            var token = context.Request.Headers["Authorization"].FirstOrDefault()
+                         ?.Replace("Bearer ", "");
             JwtSecurityToken jwt = null;
             bool tokenValid = false;
 
@@ -52,28 +61,43 @@ namespace ApiGatewayMicroservice.Middleware
                 }
             }
 
+            // ► Anonim yol kontrolü
+            bool isAnonymous = _anonymousPaths
+                .Any(p => context.Request.Path.StartsWithSegments(p, StringComparison.OrdinalIgnoreCase));
+
+            // Anonim isteklerde token zorunlu değil
+            if (isAnonymous)
+            {
+                tokenValid = true;
+            }
+
             var userEmail = jwt?.Claims.FirstOrDefault(c => c.Type == "email")?.Value;
 
-            // 3. User bilgilerini downstream servislere header olarak ekle (isteğe bağlı)
+            // 3. Downstream servisler için header ekle (isteğe bağlı)
             context.Request.Headers["X-User-Email"] = userEmail ?? "";
 
-            // 4. İstek pipeline içinde işleniyor
+            // 4. Pipeline devam
             await _next(context);
 
             stopwatch.Stop();
 
-            // 5. Status kodu ve clusterId bilgisi alma (header üzerinden)
+            // 5. Response bilgileri
             int statusCode = context.Response.StatusCode;
             string clusterId = context.Request.Headers["X-Cluster-Id"].FirstOrDefault() ?? "UnknownCluster";
 
-            // 6. Action ve Message alanlarını duruma göre ayarla
+            // 6. Action & Message
             string action;
             string message;
 
-            if (!tokenValid)
+            if (!tokenValid && !isAnonymous)
             {
                 action = "GeçersizToken";
                 message = $"İstek {context.Request.Method} {context.Request.Path} geçersiz veya eksik token nedeniyle reddedildi.";
+            }
+            else if (isAnonymous)
+            {
+                action = "AnonimErişim";
+                message = $"İstek {context.Request.Method} {context.Request.Path} anonim olarak yönlendirildi.";
             }
             else if (statusCode >= 200 && statusCode < 300)
             {
@@ -91,21 +115,21 @@ namespace ApiGatewayMicroservice.Middleware
                 message = $"İstek {context.Request.Method} {context.Request.Path} hata ile sonuçlandı. Durum kodu: {statusCode}.";
             }
 
-            // 7. Log nesnesi oluştur
+            // 7. Log nesnesi
             var logEntry = new RequestLog
             {
-                Timestamp = DateTime.UtcNow,
-                RequestPath = context.Request.Path,
-                UserEmail = userEmail,
-                CorrelationId = correlationId,
-                Action = action,
-                Message = message
+                Timestamp    = DateTime.UtcNow,
+                RequestPath  = context.Request.Path,
+                UserEmail    = userEmail,
+                CorrelationId= correlationId,
+                Action       = action,
+                Message      = message
             };
 
-            // 8. Logu MongoDB'ye kaydet
+            // 8. MongoDB'ye kaydet
             await _logCollection.InsertOneAsync(logEntry);
 
-            // 9. Logu konsola yazdır (opsiyonel)
+            // 9. Konsola yaz (opsiyonel)
             Console.WriteLine(JsonConvert.SerializeObject(logEntry));
         }
     }
