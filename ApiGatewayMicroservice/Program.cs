@@ -5,6 +5,7 @@ using Yarp.ReverseProxy;
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
 using ApiGatewayMicroservice.Middleware;
+using Serilog;
 
 using ApiGateway.Services;
 
@@ -80,15 +81,32 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-builder.Services.AddSingleton<IMongoDatabase>(sp =>
+builder.Services.AddSingleton<IMongoClient>(sp =>
 {
     var config = sp.GetRequiredService<IConfiguration>();
-    var connectionString = config.GetSection("MongoDb:ConnectionString").Value!;
-    var databaseName = config.GetSection("MongoDb:Database").Value!;
-
-    var client = new MongoClient(connectionString);
-    return client.GetDatabase(databaseName);
+    return new MongoClient(config["MongoDb:ConnectionString"]);   // örn: "mongodb://mongo:27017"
 });
+
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+{
+    var config  = sp.GetRequiredService<IConfiguration>();
+    var client  = sp.GetRequiredService<IMongoClient>();
+    return client.GetDatabase(config["MongoDb:Database"]);       // örn: "ECommerceLogs"
+});
+
+// <–– LogService tüm koleksiyon erişimini kapsülledi ––>
+builder.Services.AddSingleton<LogService>();
+
+// ---------------- Serilog ----------------
+const string serviceName = "ApiGateway";
+
+builder.Host.UseSerilog((ctx, lc) => lc
+    .ReadFrom.Configuration(ctx.Configuration)   // appsettings’teki “Serilog” bölümünü okur
+    .Enrich.FromLogContext()
+    .Enrich.WithProperty("ServiceName", serviceName)
+    // Console sink’i zaten appsettings’te var; burada ekstra eklemek istersen:
+    // .WriteTo.Console()
+);
 
 var app = builder.Build();
 

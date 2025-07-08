@@ -4,6 +4,7 @@ using UserMicroservice.Service.Interfaces;
 using UserMicroservice.Models;
 using UserMicroservice.Service.Services;
 using System.Text.Json;
+using MongoDB.Bson;
 
 namespace UserMicroservice.Api.Controllers;
 
@@ -20,43 +21,53 @@ public class UserController : ControllerBase
         _logService = logService;
     }
 
-    // JWT'den kim, id, email, name çek
+    // ------------ Yardımcılar ------------
+
+    private static BsonDocument WrapString(string msg) =>
+        new() { { "msg", msg } };
+
+    private static BsonDocument WrapObject(object? obj) =>
+        obj is null
+            ? new BsonDocument { { "msg", "null" } }
+            : BsonDocument.Parse(JsonSerializer.Serialize(obj));
+
+    // JWT + Gateway header’dan kim/kimlik bilgisi çek
     private (string id, string email, string name) GetPerformedBy()
     {
-        // Öncelikle Gateway'in gönderdiği header'ları kontrol et
-        var id = HttpContext.Request.Headers["X-User-Id"].FirstOrDefault();
+        var id    = HttpContext.Request.Headers["X-User-Id"].FirstOrDefault();
         var email = HttpContext.Request.Headers["X-User-Email"].FirstOrDefault();
-        var name = HttpContext.Request.Headers["X-User-Name"].FirstOrDefault();
+        var name  = HttpContext.Request.Headers["X-User-Name"].FirstOrDefault();
 
-        // Eğer header yoksa, fallback olarak JWT token içinden al
         if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(email))
         {
-            id = User.Claims.FirstOrDefault(c => c.Type == "id")?.Value ?? "anonymous";
+            id    = User.Claims.FirstOrDefault(c => c.Type == "id")?.Value    ?? "anonymous";
             email = User.Claims.FirstOrDefault(c => c.Type == "email")?.Value ?? "anonymous";
-            name = User.Claims.FirstOrDefault(c => c.Type == "name")?.Value ?? "anonymous";
+            name  = User.Claims.FirstOrDefault(c => c.Type == "name")?.Value  ?? "anonymous";
         }
 
         return (id ?? "anonymous", email ?? "anonymous", name ?? "anonymous");
+
     }
 
+    // ------------ CRUD ------------
 
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
         var users = await _service.GetAllUsersAsync();
-        var (performedById, performedByEmail, performedByName) = GetPerformedBy();
+        var by    = GetPerformedBy();
 
         await _logService.LogAsync(new UserActionLog
         {
-            Action = "GetAll",
-            Level = "Info",
-            Message = "Tüm kullanıcılar listelendi.",
-            CorrelationId = HttpContext.TraceIdentifier,
-            Timestamp = DateTime.UtcNow,
-            Description = $"Toplam kullanıcı sayısı: {users.Count()}",
-            PerformedById = performedById,
-            PerformedByEmail = performedByEmail,
-            PerformedByName = performedByName
+            Action          = "GetAll",
+            Level           = "Info",
+            Message         = "Tüm kullanıcılar listelendi.",
+            CorrelationId   = HttpContext.TraceIdentifier,
+            Timestamp       = DateTime.UtcNow,
+            Description     = WrapString($"Toplam kullanıcı sayısı: {users.Count()}"),
+            PerformedById   = by.id,
+            PerformedByEmail= by.email,
+            PerformedByName = by.name
         });
 
         return Ok(users);
@@ -66,26 +77,26 @@ public class UserController : ControllerBase
     public async Task<IActionResult> Get(int id)
     {
         var user = await _service.GetUserByIdAsync(id);
-        var (performedById, performedByEmail, performedByName) = GetPerformedBy();
+        var by   = GetPerformedBy();
 
         await _logService.LogAsync(new UserActionLog
         {
-            Action = "GetById",
-            Level = user == null ? "Warn" : "Info",
-            Message = user == null ? "Kullanıcı bulunamadı." : "Kullanıcı getirildi.",
+            Action        = "GetById",
+            Level         = user == null ? "Warn" : "Info",
+            Message       = user == null ? "Kullanıcı bulunamadı." : "Kullanıcı getirildi.",
             CorrelationId = HttpContext.TraceIdentifier,
-            Timestamp = DateTime.UtcNow,
-            UserId = (user != null ? user.Id.ToString() : id.ToString()),
-            UserEmail = user?.Email,
-            UserName = user == null ? null : $"{user.Fname} {user.Lname}",
-            UserPhone = user?.Phone,
-            UserDob = user?.Dob,
-            Description = user == null
-                ? $"Id: {id} ile kullanıcı bulunamadı."
-                : $"User: {JsonSerializer.Serialize(user)}",
-            PerformedById = performedById,
-            PerformedByEmail = performedByEmail,
-            PerformedByName = performedByName
+            Timestamp     = DateTime.UtcNow,
+            UserId        = (user != null ? user.Id.ToString() : id.ToString()),
+            UserEmail     = user?.Email,
+            UserName      = user == null ? null : $"{user.Fname} {user.Lname}",
+            UserPhone     = user?.Phone,
+            UserDob       = user?.Dob,
+            Description   = user == null
+                ? WrapString($"Id: {id} ile kullanıcı bulunamadı.")
+                : WrapObject(user),
+            PerformedById   = by.id,
+            PerformedByEmail= by.email,
+            PerformedByName = by.name
         });
 
         return user is null ? NotFound() : Ok(user);
@@ -94,21 +105,25 @@ public class UserController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create(CreateUserDto dto)
     {
-        var (performedById, performedByEmail, performedByName) = GetPerformedBy();
+        var by = GetPerformedBy();
 
         if (!ModelState.IsValid)
         {
             await _logService.LogAsync(new UserActionLog
             {
-                Action = "Create",
-                Level = "Error",
-                Message = "Geçersiz model ile kullanıcı oluşturulmak istendi.",
+                Action   = "Create",
+                Level    = "Error",
+                Message  = "Geçersiz model ile kullanıcı oluşturulmak istendi.",
                 CorrelationId = HttpContext.TraceIdentifier,
-                Timestamp = DateTime.UtcNow,
-                Description = $"ModelState: {JsonSerializer.Serialize(ModelState)} DTO: {JsonSerializer.Serialize(dto)}",
-                PerformedById = performedById,
-                PerformedByEmail = performedByEmail,
-                PerformedByName = performedByName
+                Timestamp     = DateTime.UtcNow,
+                Description   = new BsonDocument
+                {
+                    { "modelState", JsonSerializer.Serialize(ModelState) },
+                    { "dto",        JsonSerializer.Serialize(dto) }
+                },
+                PerformedById   = by.id,
+                PerformedByEmail= by.email,
+                PerformedByName = by.name
             });
             return BadRequest(ModelState);
         }
@@ -119,20 +134,20 @@ public class UserController : ControllerBase
 
             await _logService.LogAsync(new UserActionLog
             {
-                Action = "Create",
-                Level = "Info",
-                Message = "Yeni kullanıcı başarıyla oluşturuldu.",
+                Action        = "Create",
+                Level         = "Info",
+                Message       = "Yeni kullanıcı başarıyla oluşturuldu.",
                 CorrelationId = HttpContext.TraceIdentifier,
-                Timestamp = DateTime.UtcNow,
-                UserId = result.Id.ToString(),
-                UserEmail = result.Email,
-                UserName = $"{result.Fname} {result.Lname}",
-                UserPhone = result.Phone,
-                UserDob = result.Dob,
-                Description = $"User created: {JsonSerializer.Serialize(result)}",
-                PerformedById = performedById,
-                PerformedByEmail = performedByEmail,
-                PerformedByName = performedByName
+                Timestamp     = DateTime.UtcNow,
+                UserId        = result.Id.ToString(),
+                UserEmail     = result.Email,
+                UserName      = $"{result.Fname} {result.Lname}",
+                UserPhone     = result.Phone,
+                UserDob       = result.Dob,
+                Description   = WrapObject(result),
+                PerformedById   = by.id,
+                PerformedByEmail= by.email,
+                PerformedByName = by.name
             });
 
             return Ok(result);
@@ -141,16 +156,20 @@ public class UserController : ControllerBase
         {
             await _logService.LogAsync(new UserActionLog
             {
-                Action = "Create",
-                Level = "Error",
-                Message = "Kullanıcı oluşturulurken hata oluştu.",
+                Action        = "Create",
+                Level         = "Error",
+                Message       = "Kullanıcı oluşturulurken hata oluştu.",
                 CorrelationId = HttpContext.TraceIdentifier,
-                Timestamp = DateTime.UtcNow,
-                UserEmail = dto.Email,
-                Description = $"Exception: {ex.Message}\nStackTrace: {ex.StackTrace}",
-                PerformedById = performedById,
-                PerformedByEmail = performedByEmail,
-                PerformedByName = performedByName
+                Timestamp     = DateTime.UtcNow,
+                UserEmail     = dto.Email,
+                Description   = new BsonDocument
+                {
+                    { "exception",  ex.Message },
+                    { "stackTrace", ex.StackTrace ?? string.Empty }
+                },
+                PerformedById   = by.id,
+                PerformedByEmail= by.email,
+                PerformedByName = by.name
             });
             return StatusCode(500, "Kullanıcı oluşturulurken bir hata oluştu.");
         }
@@ -159,26 +178,30 @@ public class UserController : ControllerBase
     [HttpPut]
     public async Task<IActionResult> Update(UserDto dto)
     {
-        var (performedById, performedByEmail, performedByName) = GetPerformedBy();
+        var by = GetPerformedBy();
 
         if (!ModelState.IsValid)
         {
             await _logService.LogAsync(new UserActionLog
             {
-                Action = "Update",
-                Level = "Error",
-                Message = "Geçersiz model ile kullanıcı güncellemesi denendi.",
+                Action   = "Update",
+                Level    = "Error",
+                Message  = "Geçersiz model ile kullanıcı güncellemesi denendi.",
                 CorrelationId = HttpContext.TraceIdentifier,
-                Timestamp = DateTime.UtcNow,
-                UserId = dto.Id.ToString(),
-                UserEmail = dto.Email,
-                UserName = $"{dto.Fname} {dto.Lname}",
-                UserPhone = dto.Phone,
-                UserDob = dto.Dob,
-                Description = $"ModelState: {JsonSerializer.Serialize(ModelState)} DTO: {JsonSerializer.Serialize(dto)}",
-                PerformedById = performedById,
-                PerformedByEmail = performedByEmail,
-                PerformedByName = performedByName
+                Timestamp     = DateTime.UtcNow,
+                UserId        = dto.Id.ToString(),
+                UserEmail     = dto.Email,
+                UserName      = $"{dto.Fname} {dto.Lname}",
+                UserPhone     = dto.Phone,
+                UserDob       = dto.Dob,
+                Description   = new BsonDocument
+                {
+                    { "modelState", JsonSerializer.Serialize(ModelState) },
+                    { "dto",        JsonSerializer.Serialize(dto) }
+                },
+                PerformedById   = by.id,
+                PerformedByEmail= by.email,
+                PerformedByName = by.name
             });
             return BadRequest(ModelState);
         }
@@ -189,22 +212,22 @@ public class UserController : ControllerBase
 
             await _logService.LogAsync(new UserActionLog
             {
-                Action = "Update",
-                Level = updated ? "Info" : "Warn",
-                Message = updated ? "Kullanıcı başarıyla güncellendi." : "Kullanıcı güncellenemedi.",
+                Action        = "Update",
+                Level         = updated ? "Info" : "Warn",
+                Message       = updated ? "Kullanıcı başarıyla güncellendi." : "Kullanıcı güncellenemedi.",
                 CorrelationId = HttpContext.TraceIdentifier,
-                Timestamp = DateTime.UtcNow,
-                UserId = dto.Id.ToString(),
-                UserEmail = dto.Email,
-                UserName = $"{dto.Fname} {dto.Lname}",
-                UserPhone = dto.Phone,
-                UserDob = dto.Dob,
-                Description = updated
-                    ? $"User updated: {JsonSerializer.Serialize(dto)}"
-                    : $"Kullanıcı bulunamadı veya güncellenemedi. DTO: {JsonSerializer.Serialize(dto)}",
-                PerformedById = performedById,
-                PerformedByEmail = performedByEmail,
-                PerformedByName = performedByName
+                Timestamp     = DateTime.UtcNow,
+                UserId        = dto.Id.ToString(),
+                UserEmail     = dto.Email,
+                UserName      = $"{dto.Fname} {dto.Lname}",
+                UserPhone     = dto.Phone,
+                UserDob       = dto.Dob,
+                Description   = updated
+                    ? WrapObject(dto)
+                    : WrapString("Kullanıcı bulunamadı veya güncellenemedi."),
+                PerformedById   = by.id,
+                PerformedByEmail= by.email,
+                PerformedByName = by.name
             });
 
             return updated ? NoContent() : NotFound();
@@ -213,20 +236,24 @@ public class UserController : ControllerBase
         {
             await _logService.LogAsync(new UserActionLog
             {
-                Action = "Update",
-                Level = "Error",
-                Message = "Kullanıcı güncellenirken hata oluştu.",
+                Action        = "Update",
+                Level         = "Error",
+                Message       = "Kullanıcı güncellenirken hata oluştu.",
                 CorrelationId = HttpContext.TraceIdentifier,
-                Timestamp = DateTime.UtcNow,
-                UserId = dto.Id.ToString(),
-                UserEmail = dto.Email,
-                UserName = $"{dto.Fname} {dto.Lname}",
-                UserPhone = dto.Phone,
-                UserDob = dto.Dob,
-                Description = $"Exception: {ex.Message}\nStackTrace: {ex.StackTrace}",
-                PerformedById = performedById,
-                PerformedByEmail = performedByEmail,
-                PerformedByName = performedByName
+                Timestamp     = DateTime.UtcNow,
+                UserId        = dto.Id.ToString(),
+                UserEmail     = dto.Email,
+                UserName      = $"{dto.Fname} {dto.Lname}",
+                UserPhone     = dto.Phone,
+                UserDob       = dto.Dob,
+                Description   = new BsonDocument
+                {
+                    { "exception",  ex.Message },
+                    { "stackTrace", ex.StackTrace ?? string.Empty }
+                },
+                PerformedById   = by.id,
+                PerformedByEmail= by.email,
+                PerformedByName = by.name
             });
             return StatusCode(500, "Kullanıcı güncellenirken bir hata oluştu.");
         }
@@ -235,31 +262,31 @@ public class UserController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var (performedById, performedByEmail, performedByName) = GetPerformedBy();
+        var by = GetPerformedBy();
 
         try
         {
-            var user = await _service.GetUserByIdAsync(id); // Silinen user bilgisi için!
+            var user   = await _service.GetUserByIdAsync(id); // Silinen user bilgisi!
             var result = await _service.DeleteUserAsync(id);
 
             await _logService.LogAsync(new UserActionLog
             {
-                Action = "Delete",
-                Level = result ? "Info" : "Warn",
-                Message = result ? "Kullanıcı silindi." : "Kullanıcı silinemedi.",
+                Action        = "Delete",
+                Level         = result ? "Info" : "Warn",
+                Message       = result ? "Kullanıcı silindi." : "Kullanıcı silinemedi.",
                 CorrelationId = HttpContext.TraceIdentifier,
-                Timestamp = DateTime.UtcNow,
-                UserId = (user != null ? user.Id.ToString() : id.ToString()),
-                UserEmail = user?.Email,
-                UserName = user == null ? null : $"{user.Fname} {user.Lname}",
-                UserPhone = user?.Phone,
-                UserDob = user?.Dob,
+                Timestamp     = DateTime.UtcNow,
+                UserId        = (user != null ? user.Id.ToString() : id.ToString()),
+                UserEmail     = user?.Email,
+                UserName      = user == null ? null : $"{user.Fname} {user.Lname}",
+                UserPhone     = user?.Phone,
+                UserDob       = user?.Dob,
                 Description = result
-                    ? $"Kullanıcı {id} silindi. User info: {JsonSerializer.Serialize(user)}"
-                    : $"Kullanıcı {id} bulunamadı veya silinemedi.",
-                PerformedById = performedById,
-                PerformedByEmail = performedByEmail,
-                PerformedByName = performedByName
+                    ? WrapObject(user != null ? (object)user : new { Id = id })  // 👈 ikisi de “object”
+                    : WrapString($"Kullanıcı {id} bulunamadı veya silinemedi."),
+                PerformedById   = by.id,
+                PerformedByEmail= by.email,
+                PerformedByName = by.name
             });
 
             return result ? NoContent() : NotFound();
@@ -268,16 +295,20 @@ public class UserController : ControllerBase
         {
             await _logService.LogAsync(new UserActionLog
             {
-                Action = "Delete",
-                Level = "Error",
-                Message = "Kullanıcı silinirken hata oluştu.",
+                Action        = "Delete",
+                Level         = "Error",
+                Message       = "Kullanıcı silinirken hata oluştu.",
                 CorrelationId = HttpContext.TraceIdentifier,
-                Timestamp = DateTime.UtcNow,
-                UserId = id.ToString(),
-                Description = $"Exception: {ex.Message}\nStackTrace: {ex.StackTrace}",
-                PerformedById = performedById,
-                PerformedByEmail = performedByEmail,
-                PerformedByName = performedByName
+                Timestamp     = DateTime.UtcNow,
+                UserId        = id.ToString(),
+                Description   = new BsonDocument
+                {
+                    { "exception",  ex.Message },
+                    { "stackTrace", ex.StackTrace ?? string.Empty }
+                },
+                PerformedById   = by.id,
+                PerformedByEmail= by.email,
+                PerformedByName = by.name
             });
             return StatusCode(500, "Kullanıcı silinirken bir hata oluştu.");
         }

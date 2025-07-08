@@ -21,7 +21,11 @@ builder.Services.AddDbContext<UserDbContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // ---------- Validation ----------
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                    {
+                        options.JsonSerializerOptions.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+                    });
 builder.Services.AddFluentValidationAutoValidation()
                 .AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateUserDtoValidator>();
@@ -65,9 +69,7 @@ builder.Host.UseSerilog((ctx, svc, cfg) => cfg
     .WriteTo.Console());
 
 // ---------- Build ----------
-Console.WriteLine(">>> 1. Program dosyası başladı");
 var app = builder.Build();
-Console.WriteLine(">>> 2. Host build bitti");
 
 // ---------- Pipeline ----------
 app.UseMiddleware<CorrelationIdMiddleware>();

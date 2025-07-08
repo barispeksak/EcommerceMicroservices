@@ -1,46 +1,111 @@
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\appsettings.Development.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\appsettings.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\ApiGatewayMicroservice.staticwebassets.endpoints.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\ApiGatewayMicroservice.exe
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\ApiGatewayMicroservice.deps.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\ApiGatewayMicroservice.runtimeconfig.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\ApiGatewayMicroservice.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\ApiGatewayMicroservice.pdb
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\BCrypt.Net-Next.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Microsoft.OpenApi.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\System.IO.Hashing.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\bin\Debug\net9.0\Yarp.ReverseProxy.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.csproj.AssemblyReference.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\rpswa.dswa.cache.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.AssemblyInfoInputs.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.AssemblyInfo.cs
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.csproj.CoreCompileInputs.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.sourcelink.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\rjimswa.dswa.cache.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\scopedcss\bundle\ApiGatewayMicroservice.styles.css
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\staticwebassets.build.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\staticwebassets.build.json.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\staticwebassets.development.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatew.A45CF366.Up2Date
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\refint\ApiGatewayMicroservice.dll
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.pdb
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ApiGatewayMicroservice.genruntimeconfig.cache
-C:\Users\Mehmet Ali\Desktop\staj\ECommerce\EcommerceMicroservices\ApiGatewayMicroservice\obj\Debug\net9.0\ref\ApiGatewayMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/appsettings.Development.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/appsettings.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.staticwebassets.endpoints.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.exe
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.deps.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.runtimeconfig.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.pdb
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/BCrypt.Net-Next.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.OpenApi.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/System.IO.Hashing.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Yarp.ReverseProxy.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.csproj.AssemblyReference.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/rpswa.dswa.cache.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.AssemblyInfoInputs.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.AssemblyInfo.cs
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.csproj.CoreCompileInputs.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.sourcelink.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/rjimswa.dswa.cache.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/scopedcss/bundle/ApiGatewayMicroservice.styles.css
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets.build.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets.build.json.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets.development.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatew.A45CF366.Up2Date
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/refint/ApiGatewayMicroservice.dll
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.pdb
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.genruntimeconfig.cache
+C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ref/ApiGatewayMicroservice.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.csproj.AssemblyReference.cache
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.GeneratedMSBuildEditorConfig.editorconfig
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.AssemblyInfoInputs.cache
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.AssemblyInfo.cs
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.csproj.CoreCompileInputs.cache
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.MvcApplicationPartsAssemblyInfo.cs
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.MvcApplicationPartsAssemblyInfo.cache
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.sourcelink.json
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/refint/ApiGatewayMicroservice.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.pdb
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/appsettings.Development.json
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/appsettings.json
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.staticwebassets.endpoints.json
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.deps.json
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.runtimeconfig.json
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ApiGatewayMicroservice.pdb
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/DnsClient.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.Extensions.DependencyModel.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Microsoft.OpenApi.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/MongoDB.Bson.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/MongoDB.Driver.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Newtonsoft.Json.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.AspNetCore.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.Extensions.Hosting.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.Extensions.Logging.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.Formatting.Compact.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.Settings.Configuration.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.Sinks.Console.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.Sinks.Debug.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.Sinks.File.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.Sinks.MongoDB.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Serilog.Sinks.PeriodicBatching.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/SharpCompress.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Snappier.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/System.IO.Hashing.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/Yarp.ReverseProxy.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/bin/Debug/net9.0/ZstdSharp.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/scopedcss/bundle/ApiGatewayMicroservice.styles.css
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets.build.json
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets.development.json
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets/msbuild.ApiGatewayMicroservice.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets/msbuild.ApiGatewayMicroservice.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets/msbuild.build.ApiGatewayMicroservice.props
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.ApiGatewayMicroservice.props
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.ApiGatewayMicroservice.props
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/staticwebassets.pack.json
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatew.A45CF366.Up2Date
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ApiGatewayMicroservice.genruntimeconfig.cache
+/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/Debug/net9.0/ref/ApiGatewayMicroservice.dll

@@ -20,6 +20,6 @@ public class UserActionLog
     public string? UserName { get; set; }
     public string? UserPhone { get; set; }
     public DateTime? UserDob { get; set; }
-    public string? Description { get; set; } 
+    public  BsonDocument?  Description { get; set; } 
 }
 

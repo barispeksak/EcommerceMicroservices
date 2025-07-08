@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "HCQ8XSnyZsL/N1gEE5/xq4Ghvx3LWaL60loWcwPgMDw=",
-  "Source": "ApiGateway",
-  "BasePath": "_content/ApiGateway",
+  "Hash": "Og6tJTlUxO3W6vNi1GsK4VImAxyaphMlVTU9VToQDJA=",
+  "Source": "ApiGatewayMicroservice",
+  "BasePath": "_content/ApiGatewayMicroservice",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

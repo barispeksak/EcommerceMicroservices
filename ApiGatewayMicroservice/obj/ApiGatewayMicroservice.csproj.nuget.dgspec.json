@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices\\ApiGatewayMicroservice\\ApiGatewayMicroservice.csproj": {}
+    "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices\\ApiGatewayMicroservice\\ApiGatewayMicroservice.csproj": {
+    "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices\\ApiGatewayMicroservice\\ApiGatewayMicroservice.csproj",
+        "projectUniqueName": "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj",
         "projectName": "ApiGatewayMicroservice",
-        "projectPath": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices\\ApiGatewayMicroservice\\ApiGatewayMicroservice.csproj",
-        "packagesPath": "C:\\Users\\Mehmet Ali\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mehmet Ali\\Desktop\\staj\\ECommerce\\EcommerceMicroservices\\ApiGatewayMicroservice\\obj\\",
+        "projectPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj",
+        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
+        "outputPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mehmet Ali\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,27 +38,51 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "BCrypt.Net-Next": {
-              "target": "Package",
-              "version": "[4.0.3, )"
-            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[8.0.7, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Serilog.Sinks.MongoDB": {
+              "target": "Package",
+              "version": "[5.4.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[9.0.1, )"
             },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
             "Yarp.ReverseProxy": {
               "target": "Package",
-              "version": "[2.3.0, )"
+              "version": "[2.2.0, )"
             }
           },
           "imports": [
@@ -80,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
