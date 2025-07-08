@@ -13,12 +13,15 @@ using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using Serilog;
+using AuthMicroservice.Api;
+using AuthMicroservice.Http;
+using AuthMicroservice.Middleware;
+using MongoDB.Driver;
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container:
 
 // 5️⃣ JWT Authentication
 var jwtKey = builder.Configuration["Jwt:Key"] ?? builder.Configuration["Jwt__Key"] ?? Environment.GetEnvironmentVariable("Jwt__Key");
@@ -69,12 +72,48 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Swagger (dev için)
+// Add in DI
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<AuthMicroservice.Http.CorrelationIdDelegatingHandler>();
+
+/* ---------- Serilog ---------- */
+builder.Host.UseSerilog((ctx, lc) => lc
+    .ReadFrom.Configuration(ctx.Configuration)
+    .Enrich.FromLogContext()
+    .Enrich.WithProperty("ServiceName", "AuthMicroservice")
+    .WriteTo.Console());
+
+/* ---------- MongoDB DI ---------- */
+builder.Services.AddSingleton<IMongoClient>(sp =>
+{
+    var cfg = sp.GetRequiredService<IConfiguration>();
+    var cs  = cfg["MongoDb:ConnectionString"]
+              ?? throw new InvalidOperationException("MongoDb:ConnectionString not found!");
+    return new MongoClient(cs);
+});
+
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+{
+    var cfg = sp.GetRequiredService<IConfiguration>();
+    var db = cfg["MongoDb:Database"]
+              ?? throw new InvalidOperationException("MongoDb:Database not found!");
+    return sp.GetRequiredService<IMongoClient>().GetDatabase(db);
+});
+
+// Eğer HttpClient kullanıyorsan:
+builder.Services.AddHttpClient("SomeService")
+    .AddHttpMessageHandler<AuthMicroservice.Http.CorrelationIdDelegatingHandler>();
+
+
+builder.Services.AddSingleton<AuthLogService>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks();
 
 var app = builder.Build();
+
+app.UseMiddleware<AuthMicroservice.Middleware.CorrelationIdMiddleware>();
 
 // Apply migrations
 using (var scope = app.Services.CreateScope())

@@ -52,6 +52,7 @@ services:
       authservice:
         condition: service_healthy
 
+
   authservice:
     build:
       context: ./AuthMicroservice
@@ -59,9 +60,12 @@ services:
     ports:
       - "5100:8080"
     environment:
-      ASPNETCORE_URLS: "http://+:8080"
-      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
-      Jwt__Key: 'C#fTjWnZr4u7x!A%D*G-KaPdSgVkYp3s'
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456
+      - Jwt__Key=C#fTjWnZr4u7x!A%D*G-KaPdSgVkYp3s
+      - MongoDb__ConnectionString=mongodb://mongo:27017
+      - MongoDb__Database=ECommerceLogs
+
     depends_on:
       postgresql:
         condition: service_healthy
