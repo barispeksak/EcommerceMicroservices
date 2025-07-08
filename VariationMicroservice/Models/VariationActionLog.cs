@@ -1,9 +1,9 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace AddressMicroservice.Models;
+namespace VariationMicroservice.Models;
 
-public class AddressActionLog
+public class VariationActionLog
 {
 
     [BsonId]
@@ -17,10 +17,8 @@ public class AddressActionLog
     public string? PerformedById { get; set; }
     public string? PerformedByEmail { get; set; }
     public string? PerformedByName { get; set; }
-    public string? AddressId { get; set; }
-    public string? UserName { get; set; }
-    public string? UserCity { get; set; }
-    public string? Phone { get; set; }
+    public string? CategoryId { get; set; }
+    public string? Typename { get; set; }
     public BsonDocument? Description { get; set; }
 }
 
