@@ -4,135 +4,302 @@ using PaymentTypeMicroservice.Data.Dtos;
 using PaymentTypeMicroservice.Models;
 using PaymentTypeMicroservice.Services.Logging;
 using PaymentTypeMicroservice.Services.Interfaces;
+using System.Text.Json;
 
-namespace PaymentTypeMicroservice.Api.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class PaymentTypeController : ControllerBase
+namespace PaymentTypeMicroservice.Api.Controllers
 {
-    private readonly IPaymentTypeService _service;
-    private readonly PaymentTypeActionLogger _logger;
-
-    public PaymentTypeController(IPaymentTypeService service, PaymentTypeActionLogger logger)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class PaymentTypeController : ControllerBase
     {
-        _service = service;
-        _logger = logger;
-    }
+        private readonly IPaymentTypeService _service;
+        private readonly PaymentTypeActionLogger _logger;
 
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var result = await _service.GetAllAsync();
-        var cid = Request.Headers["X-Correlation-Id"].FirstOrDefault();
-
-        await _logger.LogAsync(new PaymentTypeActionLog
+        public PaymentTypeController(IPaymentTypeService service, PaymentTypeActionLogger logger)
         {
-            CorrelationId = cid,
-            Action = "GetAll",
-            Timestamp = DateTime.UtcNow,
-            Status = "Success",
-            Message = "Tüm payment type'lar getirildi.",
-            Description = new BsonDocument { { "Count", result.Count() } }
-        });
+            _service = service;
+            _logger = logger;
+        }
 
-        return Ok(result);
-    }
+        // -- Helpers --
+        private static BsonDocument WrapObject(object? obj) =>
+            obj is null
+                ? new BsonDocument { { "msg", "null" } }
+                : BsonDocument.Parse(JsonSerializer.Serialize(obj));
 
-    [HttpGet("{id}")]
-    public async Task<IActionResult> Get(int id)
-    {
-        var result = await _service.GetByIdAsync(id);
-        var cid = Request.Headers["X-Correlation-Id"].FirstOrDefault();
+        private string GetCorrelationId() =>
+            HttpContext.Request.Headers["X-Correlation-Id"].FirstOrDefault() ?? HttpContext.TraceIdentifier;
 
-        if (result == null)
+        private string GetPerformedByEmail() =>
+            HttpContext.Request.Headers["X-User-Email"].FirstOrDefault() ?? "anonymous";
+
+        // -- CRUD Endpoints --
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
         {
+            var result = await _service.GetAllAsync();
+            var cid = GetCorrelationId();
+            var performedBy = GetPerformedByEmail();
+
+            await _logger.LogAsync(new PaymentTypeActionLog
+            {
+                CorrelationId = cid,
+                Action = "GetAll",
+                Timestamp = DateTime.UtcNow,
+                Status = "Success",
+                Message = "Tüm ödeme tipleri listelendi.",
+                PerformedByEmail = performedBy,
+                Description = WrapObject(new {
+                    Count = result.Count(),
+                    PaymentTypes = result
+                })
+            });
+
+            return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var result = await _service.GetByIdAsync(id);
+            var cid = GetCorrelationId();
+            var performedBy = GetPerformedByEmail();
+
+            if (result == null)
+            {
+                string msg = "Girilen id ile ödeme tipi bulunamadı.";
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "GetById",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Fail",
+                    Message = msg,
+                    PerformedByEmail = performedBy,
+                    PaymentTypeId = id,
+                    Description = WrapObject(new { Id = id })
+                });
+
+                return NotFound(new { message = msg });
+            }
+
             await _logger.LogAsync(new PaymentTypeActionLog
             {
                 CorrelationId = cid,
                 Action = "GetById",
                 Timestamp = DateTime.UtcNow,
-                Status = "Fail",
-                Message = "PaymentType bulunamadı.",
-                Description = new BsonDocument { { "Id", id } }
+                Status = "Success",
+                Message = "Ödeme tipi getirildi.",
+                PerformedByEmail = performedBy,
+                PaymentTypeId = result.Id,
+                PaymentType = result.Type,
+                Description = WrapObject(result)
             });
 
-            return NotFound();
+            return Ok(result);
         }
 
-        await _logger.LogAsync(new PaymentTypeActionLog
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreatePaymentTypeDto dto)
         {
-            CorrelationId = cid,
-            Action = "GetById",
-            Timestamp = DateTime.UtcNow,
-            Status = "Success",
-            Message = "PaymentType getirildi.",
-            Description = new BsonDocument { { "Id", id } }
-        });
+            var cid = GetCorrelationId();
+            var performedBy = GetPerformedByEmail();
 
-        return Ok(result);
-    }
+            // Aynı isimde payment type var mı?
+            var exists = await _service.ExistsByNameAsync(dto.Type);
+            if (exists)
+            {
+                string msg = "Aynı isimde bir ödeme tipi zaten mevcut.";
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "Create",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Fail",
+                    Message = msg,
+                    PerformedByEmail = performedBy,
+                    PaymentType = dto.Type,
+                    Description = WrapObject(dto)
+                });
+                return BadRequest(new { message = msg });
+            }
 
-    [HttpPost]
-    public async Task<IActionResult> Create(CreatePaymentTypeDto dto)
-    {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+            try
+            {
+                var created = await _service.CreateAsync(dto);
 
-        var created = await _service.CreateAsync(dto);
-        var cid = Request.Headers["X-Correlation-Id"].FirstOrDefault();
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "Create",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Success",
+                    Message = "Ödeme tipi başarıyla oluşturuldu.",
+                    PerformedByEmail = performedBy,
+                    PaymentTypeId = created.Id,
+                    PaymentType = created.Type,
+                    Description = WrapObject(created)
+                });
 
-        await _logger.LogAsync(new PaymentTypeActionLog
+                return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
+            }
+            catch (Exception ex)
+            {
+                string msg = "Ödeme tipi oluşturulamadı. Sunucu hatası.";
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "Create",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Fail",
+                    Message = msg,
+                    PerformedByEmail = performedBy,
+                    PaymentType = dto.Type,
+                    Description = WrapObject(new { Request = dto, Exception = ex.Message })
+                });
+                return StatusCode(500, new { message = msg });
+            }
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UpdatePaymentTypeDto dto)
         {
-            CorrelationId = cid,
-            Action = "Create",
-            Timestamp = DateTime.UtcNow,
-            Status = "Success",
-            Message = "PaymentType oluşturuldu.",
-            Description = new BsonDocument { { "Type", dto.Type } }
-        });
+            var cid = GetCorrelationId();
+            var performedBy = GetPerformedByEmail();
 
-        return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
-    }
+            if (id != dto.Id)
+            {
+                string msg = "Girilen id ile body id uyuşmuyor.";
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "Update",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Fail",
+                    Message = msg,
+                    PerformedByEmail = performedBy,
+                    PaymentTypeId = id,
+                    Description = WrapObject(new { UrlId = id, BodyId = dto.Id })
+                });
+                return BadRequest(new { message = msg });
+            }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, UpdatePaymentTypeDto dto)
-    {
-        if (id != dto.Id)
-            return BadRequest("ID uyuşmuyor.");
+            var existing = await _service.GetByIdAsync(id);
+            if (existing == null)
+            {
+                string msg = "Güncellenecek ödeme tipi bulunamadı.";
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "Update",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Fail",
+                    Message = msg,
+                    PerformedByEmail = performedBy,
+                    PaymentTypeId = id,
+                    Description = WrapObject(new { Id = id })
+                });
+                return NotFound(new { message = msg });
+            }
 
-        var success = await _service.UpdateAsync(dto);
-        var cid = Request.Headers["X-Correlation-Id"].FirstOrDefault();
+            try
+            {
+                await _service.UpdateAsync(dto);
 
-        await _logger.LogAsync(new PaymentTypeActionLog
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "Update",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Success",
+                    Message = "Ödeme tipi başarıyla güncellendi.",
+                    PerformedByEmail = performedBy,
+                    PaymentTypeId = dto.Id,
+                    PaymentType = dto.Type,
+                    Description = WrapObject(dto)
+                });
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                string msg = "Ödeme tipi güncellenemedi. Sunucu hatası.";
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "Update",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Fail",
+                    Message = msg,
+                    PerformedByEmail = performedBy,
+                    PaymentTypeId = dto.Id,
+                    PaymentType = dto.Type,
+                    Description = WrapObject(new { Request = dto, Exception = ex.Message })
+                });
+                return StatusCode(500, new { message = msg });
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            CorrelationId = cid,
-            Action = "Update",
-            Timestamp = DateTime.UtcNow,
-            Status = success ? "Success" : "Fail",
-            Message = success ? "PaymentType güncellendi." : "PaymentType bulunamadı.",
-            Description = new BsonDocument { { "Id", dto.Id }, { "Type", dto.Type } }
-        });
+            var cid = GetCorrelationId();
+            var performedBy = GetPerformedByEmail();
 
-        return success ? NoContent() : NotFound();
-    }
+            var existing = await _service.GetByIdAsync(id);
+            if (existing == null)
+            {
+                string msg = "Silinecek ödeme tipi bulunamadı.";
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "Delete",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Fail",
+                    Message = msg,
+                    PerformedByEmail = performedBy,
+                    PaymentTypeId = id,
+                    Description = WrapObject(new { Id = id })
+                });
+                return NotFound(new { message = msg });
+            }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
-    {
-        var success = await _service.DeleteAsync(id);
-        var cid = Request.Headers["X-Correlation-Id"].FirstOrDefault();
+            try
+            {
+                await _service.DeleteAsync(id);
 
-        await _logger.LogAsync(new PaymentTypeActionLog
-        {
-            CorrelationId = cid,
-            Action = "Delete",
-            Timestamp = DateTime.UtcNow,
-            Status = success ? "Success" : "Fail",
-            Message = success ? "PaymentType silindi." : "PaymentType bulunamadı.",
-            Description = new BsonDocument { { "Id", id } }
-        });
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "Delete",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Success",
+                    Message = "Ödeme tipi başarıyla silindi.",
+                    PerformedByEmail = performedBy,
+                    PaymentTypeId = existing.Id,
+                    PaymentType = existing.Type,
+                    Description = WrapObject(existing)
+                });
 
-        return success ? NoContent() : NotFound();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                string msg = "Ödeme tipi silinemedi. Sunucu hatası.";
+                await _logger.LogAsync(new PaymentTypeActionLog
+                {
+                    CorrelationId = cid,
+                    Action = "Delete",
+                    Timestamp = DateTime.UtcNow,
+                    Status = "Fail",
+                    Message = msg,
+                    PerformedByEmail = performedBy,
+                    PaymentTypeId = id,
+                    Description = WrapObject(new { Id = id, Exception = ex.Message })
+                });
+                return StatusCode(500, new { message = msg });
+            }
+        }
     }
 }

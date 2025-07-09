@@ -10,5 +10,7 @@ namespace PaymentTypeMicroservice.Data.Repositories
         Task<PaymentType> AddAsync(PaymentType entity);
         Task<bool> UpdateAsync(PaymentType PaymentType);
         Task<bool> DeleteAsync(int id);
+        Task<bool> ExistsByNameAsync(string typeName);
+
     }
 }

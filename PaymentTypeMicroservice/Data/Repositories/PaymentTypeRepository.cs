@@ -42,5 +42,9 @@ namespace PaymentTypeMicroservice.Data.Repositories
             await _context.SaveChangesAsync();
             return true;
         }
+        public async Task<bool> ExistsByNameAsync(string typeName)
+        {
+            return await _context.PaymentTypes.AnyAsync(x => x.Type == typeName);
+        }
     }
 }

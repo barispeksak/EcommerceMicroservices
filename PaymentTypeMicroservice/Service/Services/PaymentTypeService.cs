@@ -46,5 +46,11 @@ namespace PaymentTypeMicroservice.Services
 
         public async Task<bool> DeleteAsync(int id)
             => await _repository.DeleteAsync(id);
+
+        public async Task<bool> ExistsByNameAsync(string typeName)
+        {
+            return await _repository.ExistsByNameAsync(typeName);
+        }
+
     }
 }

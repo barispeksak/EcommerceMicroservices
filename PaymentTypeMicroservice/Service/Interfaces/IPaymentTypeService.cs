@@ -10,5 +10,8 @@ namespace PaymentTypeMicroservice.Services.Interfaces
         Task<PaymentTypeDto> CreateAsync(CreatePaymentTypeDto dto);
         Task<bool> UpdateAsync(UpdatePaymentTypeDto dto);
         Task<bool> DeleteAsync(int id);
+
+        Task<bool> ExistsByNameAsync(string typeName);
+
     }
 }

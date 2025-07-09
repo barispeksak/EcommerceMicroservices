@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace PaymentTypeMicroservice.Migrations
 {
     [DbContext(typeof(PaymentDbContext))]
-    [Migration("20250703124120_InitialMigration")]
+    [Migration("20250709071947_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />

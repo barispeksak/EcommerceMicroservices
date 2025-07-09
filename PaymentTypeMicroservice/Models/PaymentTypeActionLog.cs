@@ -20,8 +20,12 @@ namespace PaymentTypeMicroservice.Models
 
         public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
-        public BsonDocument Description { get; set; } = new BsonDocument();
+        public string? PerformedByEmail { get; set; }  
 
-        public string? PerformedBy { get; set; }  // opsiyonel, kullanıcı oturumu varsa kullanılır
+        public int? PaymentTypeId { get; set; }
+        
+        public string? PaymentType { get; set; }
+
+        public BsonDocument Description { get; set; } = new BsonDocument();
     }
 }
