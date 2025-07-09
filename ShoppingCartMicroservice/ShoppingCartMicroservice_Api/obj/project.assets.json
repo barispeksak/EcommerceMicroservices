@@ -1282,6 +1282,37 @@
           }
         }
       },
+      "Serilog.Sinks.MongoDB/7.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Driver": "3.0.0",
+          "Serilog": "3.1.1",
+          "Serilog.Formatting.Compact": "1.1.0",
+          "Serilog.Sinks.PeriodicBatching": "3.1.0"
+        },
+        "compile": {
+          "lib/net6.0/Serilog.Sinks.MongoDB.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Serilog.Sinks.MongoDB.dll": {}
+        }
+      },
+      "Serilog.Sinks.PeriodicBatching/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Serilog.Sinks.PeriodicBatching.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Serilog.Sinks.PeriodicBatching.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "SharpCompress/0.30.1": {
         "type": "package",
         "compile": {
@@ -4052,6 +4083,44 @@
         "serilog.sinks.file.nuspec"
       ]
     },
+    "Serilog.Sinks.MongoDB/7.0.0": {
+      "sha512": "tb5ODmhabBCnbFDb6AWkdHKnL6sR5Va5SgDG6HiL2IQ2ZVnxI7iVmvQVz7Vb1wRYjVcBUlQBrfoCC5kyhYIBZA==",
+      "type": "package",
+      "path": "serilog.sinks.mongodb/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net472/Serilog.Sinks.MongoDB.dll",
+        "lib/net6.0/Serilog.Sinks.MongoDB.dll",
+        "lib/netstandard2.1/Serilog.Sinks.MongoDB.dll",
+        "serilog-sink-nuget.png",
+        "serilog.sinks.mongodb.7.0.0.nupkg.sha512",
+        "serilog.sinks.mongodb.nuspec"
+      ]
+    },
+    "Serilog.Sinks.PeriodicBatching/3.1.0": {
+      "sha512": "NDWR7m3PalVlGEq3rzoktrXikjFMLmpwF0HI4sowo8YDdU+gqPlTHlDQiOGxHfB0sTfjPA9JjA7ctKG9zqjGkw==",
+      "type": "package",
+      "path": "serilog.sinks.periodicbatching/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net45/Serilog.Sinks.PeriodicBatching.dll",
+        "lib/net45/Serilog.Sinks.PeriodicBatching.xml",
+        "lib/netstandard1.1/Serilog.Sinks.PeriodicBatching.dll",
+        "lib/netstandard1.1/Serilog.Sinks.PeriodicBatching.xml",
+        "lib/netstandard1.2/Serilog.Sinks.PeriodicBatching.dll",
+        "lib/netstandard1.2/Serilog.Sinks.PeriodicBatching.xml",
+        "lib/netstandard2.0/Serilog.Sinks.PeriodicBatching.dll",
+        "lib/netstandard2.0/Serilog.Sinks.PeriodicBatching.xml",
+        "lib/netstandard2.1/Serilog.Sinks.PeriodicBatching.dll",
+        "lib/netstandard2.1/Serilog.Sinks.PeriodicBatching.xml",
+        "serilog.sinks.periodicbatching.3.1.0.nupkg.sha512",
+        "serilog.sinks.periodicbatching.nuspec"
+      ]
+    },
     "SharpCompress/0.30.1": {
       "sha512": "XqD4TpfyYGa7QTPzaGlMVbcecKnXy4YmYLDWrU+JIj7IuRNl7DH2END+Ll7ekWIY8o3dAMWLFDE1xdhfIWD1nw==",
       "type": "package",
@@ -4803,6 +4872,7 @@
       "Serilog.AspNetCore >= 9.0.0",
       "Serilog.Settings.Configuration >= 9.0.0",
       "Serilog.Sinks.Console >= 6.0.0",
+      "Serilog.Sinks.MongoDB >= 7.0.0",
       "ShoppingCartMicroservice_Service >= 1.0.0",
       "Swashbuckle.AspNetCore >= 9.0.1",
       "Swashbuckle.AspNetCore.Annotations >= 9.0.1"
@@ -4904,6 +4974,10 @@
           "Serilog.Sinks.Console": {
             "target": "Package",
             "version": "[6.0.0, )"
+          },
+          "Serilog.Sinks.MongoDB": {
+            "target": "Package",
+            "version": "[7.0.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ki6wOtSIS4M=",
+  "dgSpecHash": "nle52fM8POU=",
   "success": true,
-  "projectFilePath": "/src/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj",
+  "projectFilePath": "/src/ProductItemMicroservice/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj",
   "expectedPackageFiles": [
     "/root/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/root/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",

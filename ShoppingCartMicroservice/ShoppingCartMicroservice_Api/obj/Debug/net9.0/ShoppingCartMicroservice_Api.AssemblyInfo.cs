@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShoppingCartMicroservice_Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+862c27185f36d615e7eaef6a64b9ce24d4ee2ac7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+979e3c5e11eecd02257298bebdde135848e44b0e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShoppingCartMicroservice_Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShoppingCartMicroservice_Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

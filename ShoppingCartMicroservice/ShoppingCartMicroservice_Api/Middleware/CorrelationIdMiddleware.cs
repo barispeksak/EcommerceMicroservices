@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Serilog.Context;
 
-namespace ProductCategoryMicroservice_Api.Middleware
+namespace ShoppingCartMicroservice_Api.Middleware
 {
     public class CorrelationIdMiddleware
     {

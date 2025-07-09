@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/src/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj": {}
+    "/src/ProductItemMicroservice/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj": {}
   },
   "projects": {
-    "/src/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj": {
+    "/src/ProductItemMicroservice/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/src/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj",
+        "projectUniqueName": "/src/ProductItemMicroservice/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj",
         "projectName": "ProductItemMicroservice_Data",
-        "projectPath": "/src/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj",
+        "projectPath": "/src/ProductItemMicroservice/ProductItemMicroservice_Data/ProductItemMicroservice_Data.csproj",
         "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/src/ProductItemMicroservice_Data/obj/",
+        "outputPath": "/src/ProductItemMicroservice/ProductItemMicroservice_Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/root/.nuget/NuGet/NuGet.Config"

@@ -326,3 +326,5 @@
 /Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/obj/Debug/net9.0/ShoppingCartMicroservice_Api.pdb
 /Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/obj/Debug/net9.0/ShoppingCartMicroservice_Api.genruntimeconfig.cache
 /Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/obj/Debug/net9.0/ref/ShoppingCartMicroservice_Api.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/bin/Debug/net9.0/Serilog.Sinks.MongoDB.dll
+/Users/fatmaakyildiz/EcommerceMicroservices/ShoppingCartMicroservice/ShoppingCartMicroservice_Api/bin/Debug/net9.0/Serilog.Sinks.PeriodicBatching.dll

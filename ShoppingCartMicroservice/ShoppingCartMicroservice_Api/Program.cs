@@ -1,66 +1,73 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using StackExchange.Redis;
+using Serilog;
 using ShoppingCartMicroservice_Service.Interfaces;
 using ShoppingCartMicroservice_Service.Services;
-using FluentValidation.AspNetCore;
-using Microsoft.OpenApi.Models;
-using FluentValidation;
 using ShoppingCartMicroservice_Service.Validation;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using ShoppingCartMicroservice_Api.Middleware;   // CorrelationIdMiddleware
+using ShoppingCartMicroservice_Api.Http;         // CorrelationIdDelegatingHandler
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Redis bağlantısı
-builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
-{
-    var configuration = builder.Configuration.GetConnectionString("Redis");
-    if (string.IsNullOrEmpty(configuration))
-        throw new InvalidOperationException("Redis connection string missing!");
+/*──────────────────── Serilog (console) ────────────────────*/
+const string serviceName = "ShoppingCartMicroservice";
+builder.Host.UseSerilog((ctx, lc) => lc
+    .ReadFrom.Configuration(ctx.Configuration)
+    .Enrich.FromLogContext()
+    .Enrich.WithProperty("ServiceName", serviceName)
+    .WriteTo.Console());
 
-    var options = ConfigurationOptions.Parse(configuration);
-    options.AbortOnConnectFail = false;
-    return ConnectionMultiplexer.Connect(options);
+/*──────────────────── Redis (cache) ─────────────────────────*/
+builder.Services.AddSingleton<IConnectionMultiplexer>(_ =>
+    ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("Redis")));
+builder.Services.AddStackExchangeRedisCache(opt =>
+{
+    opt.Configuration = builder.Configuration.GetConnectionString("Redis");
+    opt.InstanceName = "ecom-cart:";
 });
 
-// Redis distributed cache (opsiyonel)
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.Configuration = builder.Configuration.GetConnectionString("Redis");
-    options.InstanceName = "ecom-cart:";
-});
+/*──────────────────── Correlation-Id ───────────────────────*/
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<CorrelationIdDelegatingHandler>();
 
-// HttpClient - ProductClient base adres config’den çekiliyor
-builder.Services.AddHttpClient<ProductClient>(client =>
+/*──────────────────── HttpClient → ProductItem ─────────────*/
+builder.Services.AddHttpClient<ProductClient>(c =>
 {
-    var productItemUrl = builder.Configuration["ServiceUrls:ProductItem"];
-    client.BaseAddress = new Uri(productItemUrl);
-});
+    c.BaseAddress = new Uri(builder.Configuration["ServiceUrls:ProductItem"]);
+}).AddHttpMessageHandler<CorrelationIdDelegatingHandler>();
 
-// Scoped servis
+/*──────────────────── DI + Validation ─────────────────────*/
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
 
-// FluentValidation
 builder.Services.AddControllers();
-builder.Services.AddFluentValidationAutoValidation()
-    .AddFluentValidationClientsideAdapters();
+
+// FluentValidation ayarı - ayrı ayrı çağrılıyor
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateShoppingCartDtoValidator>();
 
-// Swagger
+/*──────────────────── Swagger ──────────────────────────────*/
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+/*──────────────────── Build & Pipeline ────────────────────*/
 var app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
+app.UseMiddleware<CorrelationIdMiddleware>();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
-app.UseAuthorization();
+// Burada Authentication ve Authorization yok çünkü gateway hallediyor
 
 app.MapControllers();
 

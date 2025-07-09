@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CrhZFTs0b3g=",
+  "dgSpecHash": "ilcp50oU6eY=",
   "success": true,
-  "projectFilePath": "/src/ProductItemMicroservice_Service/ProductItemMicroservice_Service.csproj",
+  "projectFilePath": "/src/ProductItemMicroservice/ProductItemMicroservice_Service/ProductItemMicroservice_Service.csproj",
   "expectedPackageFiles": [
     "/root/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/root/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",

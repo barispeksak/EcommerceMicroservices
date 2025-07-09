@@ -21,6 +21,7 @@ public class ProductItemActionLog
     public string? Price { get; set; }
     public string? Currency { get; set; }
     public string? ProductId { get; set; }
+    public BsonDocument? Description { get; set; }
     
 }
 

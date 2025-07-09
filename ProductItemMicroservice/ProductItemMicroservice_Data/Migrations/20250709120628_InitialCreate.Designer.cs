@@ -11,8 +11,8 @@ using ProductItemMicroservice_Data;
 namespace ProductItemMicroservice_Data.Migrations
 {
     [DbContext(typeof(ProductItemDbContext))]
-    [Migration("20250709105426_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20250709120628_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

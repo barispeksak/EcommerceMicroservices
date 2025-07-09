@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1HClmH3mVs4=",
+  "dgSpecHash": "sPzfKzhz8Ps=",
   "success": true,
-  "projectFilePath": "/src/ProductItemMicroservice_Api/ProductItemMicroservice_Api.csproj",
+  "projectFilePath": "/src/ProductItemMicroservice/ProductItemMicroservice_Api/ProductItemMicroservice_Api.csproj",
   "expectedPackageFiles": [
     "/root/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/root/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
