@@ -14,11 +14,8 @@ public class AddressActionLog
     public string? Level { get; set; }        // "Info", "Error", "Warn" vs.
     public string? Message { get; set; }
     public string? CorrelationId { get; set; }
-    public string? PerformedById { get; set; }
     public string? PerformedByEmail { get; set; }
-    public string? PerformedByName { get; set; }
     public string? AddressId { get; set; }
-    public string? UserName { get; set; }
     public string? UserCity { get; set; }
     public string? Phone { get; set; }
     public BsonDocument? Description { get; set; }
