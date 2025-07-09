@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 using Serilog;
 using ShoppingCartMicroservice_Service.Interfaces;
@@ -12,10 +13,9 @@ using ShoppingCartMicroservice_Api.Middleware;   // CorrelationIdMiddleware
 using ShoppingCartMicroservice_Api.Http;         // CorrelationIdDelegatingHandler
 using MongoDB.Driver;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
-/*──────────────────── Serilog (console) ────────────────────*/
+/*──────────────────── Serilog ────────────────────*/
 const string serviceName = "ShoppingCartMicroservice";
 builder.Host.UseSerilog((ctx, lc) => lc
     .ReadFrom.Configuration(ctx.Configuration)
@@ -23,52 +23,50 @@ builder.Host.UseSerilog((ctx, lc) => lc
     .Enrich.WithProperty("ServiceName", serviceName)
     .WriteTo.Console());
 
+/*──────────────────── MongoDB (log) ───────────────*/
+builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDb"));
 
-/*──────────────────── MongoDB (log database) ─────────────────────────*/
 builder.Services.AddSingleton<IMongoClient>(_ =>
-{
-    var connStr = builder.Configuration.GetConnectionString("MongoDb") ?? "mongodb://mongo:27017";
-    return new MongoClient(connStr);
-});
-builder.Services.AddSingleton<IMongoDatabase>(sp =>
-    sp.GetRequiredService<IMongoClient>().GetDatabase("ECommerceLogs"));
+    new MongoClient(builder.Configuration["MongoDb:ConnectionString"]));
 
 builder.Services.AddSingleton<ShoppingCartActionLogger>();
 
-
-/*──────────────────── Redis (cache) ─────────────────────────*/
+/*──────────────────── Redis (cache) ───────────────*/
 builder.Services.AddSingleton<IConnectionMultiplexer>(_ =>
     ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("Redis")));
+
 builder.Services.AddStackExchangeRedisCache(opt =>
 {
     opt.Configuration = builder.Configuration.GetConnectionString("Redis");
-    opt.InstanceName = "ecom-cart:";
+    opt.InstanceName  = "ecom-cart:";
 });
 
-/*──────────────────── Correlation-Id ───────────────────────*/
+/*──────────────────── Correlation-Id ──────────────*/
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<CorrelationIdDelegatingHandler>();
 
-/*──────────────────── HttpClient → ProductItem ─────────────*/
-builder.Services.AddHttpClient<ProductClient>(c =>
-{
-    c.BaseAddress = new Uri(builder.Configuration["ServiceUrls:ProductItem"]);
-}).AddHttpMessageHandler<CorrelationIdDelegatingHandler>();
+/*──────────────────── HttpClients ────────────────*/
+builder.Services.AddHttpClient<ProductItemClient>(c =>
+    c.BaseAddress = new Uri(builder.Configuration["ServiceUrls:ProductItem"]))
+    .AddHttpMessageHandler<CorrelationIdDelegatingHandler>();
 
-/*──────────────────── DI + Validation ─────────────────────*/
+builder.Services.AddHttpClient<ProductClient>(c =>
+    c.BaseAddress = new Uri(builder.Configuration["ServiceUrls:Product"]))
+    .AddHttpMessageHandler<CorrelationIdDelegatingHandler>();
+
+/*──────────────────── DI + Validation ────────────*/
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
-builder.Services.AddSingleton<ShoppingCartActionLogger>();
 
 builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateShoppingCartDtoValidator>();
 
-/*──────────────────── Swagger ──────────────────────────────*/
+/*──────────────────── Swagger ─────────────────────*/
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-/*──────────────────── Build & Pipeline ────────────────────*/
+/*──────────────────── Build & Pipeline ───────────*/
 var app = builder.Build();
 
 app.UseMiddleware<CorrelationIdMiddleware>();
@@ -79,10 +77,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
-// Burada Authentication ve Authorization yok çünkü gateway hallediyor
-
+app.UseHttpsRedirection();   // Auth görevini gateway üstleniyor
 app.MapControllers();
-
 app.Run();
