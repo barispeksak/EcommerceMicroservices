@@ -10,6 +10,12 @@ using FluentValidation.AspNetCore;
 using AutoMapper;
 using PaymentTypeMicroservice.Mapping;
 using Microsoft.Extensions.Configuration;
+using MongoDB.Driver; // * 
+using Serilog; // * 
+using PaymentTypeMicroservice.Middleware; // * 
+using PaymentTypeMicroservice.Http; // * 
+using PaymentTypeMicroservice.Services.Logging; // * 
+using Serilog.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +23,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<PaymentDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Controllers + Validation
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+    }) // *
+    .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Program>());
 
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(PaymentTypeProfile));
@@ -32,13 +45,31 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSingleton<IMongoClient>(sp =>
+    new MongoClient("mongodb://mongo:27017")); // veya "localhost" – Docker ortamına göre değişir
+
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+    sp.GetRequiredService<IMongoClient>().GetDatabase("ECommerceLogs"));
+
+builder.Services.AddSingleton<PaymentTypeActionLogger>();
+
+// Serilog
+const string serviceName = "PaymentTypeTypeMicroservice"; // *
+builder.Host.UseSerilog((ctx, svc, cfg) => cfg // *
+    .ReadFrom.Configuration(ctx.Configuration) // *
+    .Enrich.FromLogContext() // *
+    .Enrich.WithProperty("ServiceName", serviceName) // *
+    .WriteTo.Console()); // *
+
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
+
+
+app.UseMiddleware<CorrelationIdMiddleware>(); // *
+app.UseRouting(); // *
+app.UseSerilogRequestLogging(); // *
 
 app.UseHttpsRedirection();
 app.MapControllers();
