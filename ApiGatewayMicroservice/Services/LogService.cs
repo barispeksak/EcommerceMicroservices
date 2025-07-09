@@ -13,7 +13,7 @@ namespace ApiGateway.Services
         {
             var client = new MongoClient(configuration["MongoDb:ConnectionString"]);
             var database = client.GetDatabase(configuration["MongoDb:Database"]);
-            _logCollection = database.GetCollection<RequestLog>("RequestLogs");
+            _logCollection = database.GetCollection<RequestLog>("GatewayLogs");
         }
 
         public async Task InsertLogAsync(RequestLog log)

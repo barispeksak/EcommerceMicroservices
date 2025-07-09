@@ -15,7 +15,7 @@ namespace ApiGatewayMicroservice.Middleware
         private readonly RequestDelegate _next;
         private readonly IMongoCollection<RequestLog> _logCollection;
 
-        // ► Anonim erişime açık yollar
+        // Anonim erişime açık yollar
         private static readonly HashSet<string> _anonymousPaths = new(StringComparer.OrdinalIgnoreCase)
         {
             "/api/auth/login",
@@ -26,14 +26,14 @@ namespace ApiGatewayMicroservice.Middleware
         public GatewayLogMiddleware(RequestDelegate next, IMongoDatabase mongoDatabase)
         {
             _next = next;
-            _logCollection = mongoDatabase.GetCollection<RequestLog>("RequestLogs");
+            _logCollection = mongoDatabase.GetCollection<RequestLog>("GatewayLogs");
         }
 
         public async Task InvokeAsync(HttpContext context)
         {
             var stopwatch = Stopwatch.StartNew();
 
-            // 1. CorrelationId kontrol / oluştur
+            // 1. CorrelationId
             var correlationId = context.Request.Headers["X-Correlation-Id"].FirstOrDefault();
             if (string.IsNullOrEmpty(correlationId))
             {
@@ -41,11 +41,12 @@ namespace ApiGatewayMicroservice.Middleware
                 context.Request.Headers["X-Correlation-Id"] = correlationId;
             }
 
-            // 2. Token kontrolü ve JWT bilgileri çıkarma
+            // 2. JWT & Token Kontrolü
             var token = context.Request.Headers["Authorization"].FirstOrDefault()
                          ?.Replace("Bearer ", "");
             JwtSecurityToken jwt = null;
             bool tokenValid = false;
+            string userEmail = null;
 
             if (!string.IsNullOrEmpty(token))
             {
@@ -54,6 +55,7 @@ namespace ApiGatewayMicroservice.Middleware
                     var handler = new JwtSecurityTokenHandler();
                     jwt = handler.ReadJwtToken(token);
                     tokenValid = true;
+                    userEmail = jwt?.Claims.FirstOrDefault(c => c.Type == "email")?.Value;
                 }
                 catch
                 {
@@ -61,76 +63,79 @@ namespace ApiGatewayMicroservice.Middleware
                 }
             }
 
-            // ► Anonim yol kontrolü
+            // 3. Anonim Yol Kontrolü
             bool isAnonymous = _anonymousPaths
                 .Any(p => context.Request.Path.StartsWithSegments(p, StringComparison.OrdinalIgnoreCase));
 
-            // Anonim isteklerde token zorunlu değil
             if (isAnonymous)
-            {
-                tokenValid = true;
-            }
+                tokenValid = true; // Auth yolları için token gerekmez
 
-            var userEmail = jwt?.Claims.FirstOrDefault(c => c.Type == "email")?.Value;
-
-            // 3. Downstream servisler için header ekle (isteğe bağlı)
+            // 4. Downstream'e user email ekle
             context.Request.Headers["X-User-Email"] = userEmail ?? "";
 
-            // 4. Pipeline devam
+            // 5. Yetkisiz istek ise pipeline devam etmeden logla & döndür
+            if (!tokenValid && !isAnonymous)
+            {
+                var logEntry = new RequestLog
+                {
+                    Timestamp = DateTime.UtcNow,
+                    RequestPath = context.Request.Path,
+                    UserEmail = userEmail,
+                    CorrelationId = correlationId,
+                    Action = "Unauthorized",
+                    Message = $"[{context.Request.Method}] {context.Request.Path} → İstek reddedildi: Geçersiz veya eksik JWT. Giriş yapmalısın.",
+                };
+                await _logCollection.InsertOneAsync(logEntry);
+                Console.WriteLine(JsonConvert.SerializeObject(logEntry));
+                context.Response.StatusCode = 401;
+                await context.Response.WriteAsync("Unauthorized: JWT is missing or invalid.");
+                return;
+            }
+
+            // 6. İşlem devam
             await _next(context);
 
             stopwatch.Stop();
 
-            // 5. Response bilgileri
+            // 7. Sonuç & Log
             int statusCode = context.Response.StatusCode;
             string clusterId = context.Request.Headers["X-Cluster-Id"].FirstOrDefault() ?? "UnknownCluster";
-
-            // 6. Action & Message
             string action;
             string message;
 
-            if (!tokenValid && !isAnonymous)
+            if (isAnonymous)
             {
-                action = "GeçersizToken";
-                message = $"İstek {context.Request.Method} {context.Request.Path} geçersiz veya eksik token nedeniyle reddedildi.";
-            }
-            else if (isAnonymous)
-            {
-                action = "AnonimErişim";
-                message = $"İstek {context.Request.Method} {context.Request.Path} anonim olarak yönlendirildi.";
+                action = "AnonymousAccess";
+                message = $"[{context.Request.Method}] {context.Request.Path} → Anonim erişim. Oturum gerekmedi.";
             }
             else if (statusCode >= 200 && statusCode < 300)
             {
-                action = "Yönlendirildi";
-                message = $"İstek {context.Request.Method} {context.Request.Path} başarıyla '{clusterId}' cluster'ına yönlendirildi.";
+                action = "Success";
+                message = $"[{context.Request.Method}] {context.Request.Path} → Başarılı istek. Yönlendirildi: {clusterId}. Status: {statusCode}";
             }
             else if (statusCode == 401 || statusCode == 403)
             {
-                action = "Yetkisiz";
-                message = $"İstek {context.Request.Method} {context.Request.Path} yetkisiz. Durum kodu: {statusCode}.";
+                action = "Forbidden";
+                message = $"[{context.Request.Method}] {context.Request.Path} → Yetkisiz erişim. Status: {statusCode}";
             }
             else
             {
-                action = "Reddedildi";
-                message = $"İstek {context.Request.Method} {context.Request.Path} hata ile sonuçlandı. Durum kodu: {statusCode}.";
+                action = "Failed";
+                message = $"[{context.Request.Method}] {context.Request.Path} → Hatalı veya reddedildi. Status: {statusCode}";
             }
 
-            // 7. Log nesnesi
-            var logEntry = new RequestLog
+            var successLog = new RequestLog
             {
-                Timestamp    = DateTime.UtcNow,
-                RequestPath  = context.Request.Path,
-                UserEmail    = userEmail,
-                CorrelationId= correlationId,
-                Action       = action,
-                Message      = message
+                Timestamp = DateTime.UtcNow,
+                RequestPath = context.Request.Path,
+                UserEmail = userEmail,
+                CorrelationId = correlationId,
+                Action = action,
+                Message = message
             };
 
-            // 8. MongoDB'ye kaydet
-            await _logCollection.InsertOneAsync(logEntry);
-
-            // 9. Konsola yaz (opsiyonel)
-            Console.WriteLine(JsonConvert.SerializeObject(logEntry));
+            await _logCollection.InsertOneAsync(successLog);
+            Console.WriteLine(JsonConvert.SerializeObject(successLog));
         }
     }
 }
