@@ -4,6 +4,34 @@
         <name>VariationOptionMicroservice</name>
     </assembly>
     <members>
+<<<<<<< Updated upstream
+=======
+        <member name="M:VariationOptionMicroservice.Api.Controllers.VariationOptionController.TumSecenekleriGetir">
+            <summary>
+            Tüm varyasyon seçeneklerini getirir.
+            </summary>
+        </member>
+        <member name="M:VariationOptionMicroservice.Api.Controllers.VariationOptionController.SecenekGetir(System.Int32)">
+            <summary>
+            Belirli bir ID'ye sahip varyasyon seçeneğini getirir.
+            </summary>
+        </member>
+        <member name="M:VariationOptionMicroservice.Api.Controllers.VariationOptionController.VaryasyonSecenegiOlustur(VariationOptionMicroservice.Service.DTOs.CreateVariationOptionDto)">
+            <summary>
+            Yeni bir varyasyon seçeneği oluşturur.
+            </summary>
+        </member>
+        <member name="M:VariationOptionMicroservice.Api.Controllers.VariationOptionController.SecenekGuncelle(System.Int32,VariationOptionMicroservice.Service.DTOs.UpdateVariationOptionDto)">
+            <summary>
+            Varyasyon seçeneğini günceller.
+            </summary>
+        </member>
+        <member name="M:VariationOptionMicroservice.Api.Controllers.VariationOptionController.SecenekSil(System.Int32)">
+            <summary>
+            Belirli bir varyasyon seçeneğini siler.
+            </summary>
+        </member>
+>>>>>>> Stashed changes
         <member name="T:VariationOptionMicroservice.Migrations.InitialMigration">
             <inheritdoc />
         </member>

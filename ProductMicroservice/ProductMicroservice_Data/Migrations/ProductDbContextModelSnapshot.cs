@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using ProductMicroservice.Data;
+using ProductMicroservice_Data;
 
 #nullable disable
 
@@ -22,7 +22,7 @@ namespace ProductMicroservice_Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ProductMicroservice.Data.Entities.Product", b =>
+            modelBuilder.Entity("ProductMicroservice_Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

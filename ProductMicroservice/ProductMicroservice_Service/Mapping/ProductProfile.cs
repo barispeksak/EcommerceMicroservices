@@ -1,8 +1,8 @@
 using AutoMapper;
-using ProductMicroservice.Service.DTOs;
-using ProductMicroservice.Data.Entities;
+using ProductMicroservice_Service.DTOs;
+using ProductMicroservice_Data.Entities;
 
-namespace ProductMicroservice.Service.Mapping;
+namespace ProductMicroservice_Service.Mapping;
 
 /// <summary>
 /// Product ↔ DTO dönüşüm kuralları.

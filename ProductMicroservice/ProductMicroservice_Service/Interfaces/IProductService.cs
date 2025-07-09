@@ -1,6 +1,6 @@
-using ProductMicroservice.Service.DTOs;
+using ProductMicroservice_Service.DTOs;
 
-namespace ProductMicroservice.Service.Interfaces;
+namespace ProductMicroservice_Service.Interfaces;
 
 /// <summary>
 /// Ürünlere ait iş kurallarını dış katmanlara sunan sözleşme.

@@ -1,6 +1,6 @@
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace ProductMicroservice.Service.DTOs;
+namespace ProductMicroservice_Service.DTOs;
 
 /// <remarks>HTTP PUT isteğinde kullanılır.  
 /// Null gelen alanlar değiştirilmeyecek (AutoMapper `Condition` kuralı ile).</remarks>

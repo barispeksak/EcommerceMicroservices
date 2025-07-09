@@ -1,7 +1,7 @@
 using FluentValidation;
-using ProductMicroservice.Service.DTOs;
+using ProductMicroservice_Service.DTOs;
 
-namespace ProductMicroservice.Service.Validation;
+namespace ProductMicroservice_Service.Validation;
 
 /// <summary>
 /// POST isteklerinde gelen CreateProductDto’nun kurallarını kontrol eder.

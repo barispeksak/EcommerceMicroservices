@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using ProductMicroservice.Service.DTOs;
-using ProductMicroservice.Service.Interfaces;
+using ProductMicroservice_Service.DTOs;
+using ProductMicroservice_Service.Interfaces;
 
-namespace ProductMicroservice.Api.Controllers;
+namespace ProductMicroservice_Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

@@ -1,7 +1,7 @@
 using FluentValidation;
-using ProductMicroservice.Service.DTOs;
+using ProductMicroservice_Service.DTOs;
 
-namespace ProductMicroservice.Service.Validation;
+namespace ProductMicroservice_Service.Validation;
 
 /// <summary>
 /// PUT isteklerinde gelen UpdateProductDto’nun opsiyonel alanlarını kontrol eder.

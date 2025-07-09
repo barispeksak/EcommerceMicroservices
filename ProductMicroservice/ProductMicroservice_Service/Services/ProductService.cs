@@ -1,11 +1,11 @@
 using AutoMapper;
 using FluentValidation;
-using ProductMicroservice.Data.Entities;
-using ProductMicroservice.Data.Repositories;
-using ProductMicroservice.Service.DTOs;
-using ProductMicroservice.Service.Interfaces;
+using ProductMicroservice_Data.Entities;
+using ProductMicroservice_Data.Repositories;
+using ProductMicroservice_Service.DTOs;
+using ProductMicroservice_Service.Interfaces;
 
-namespace ProductMicroservice.Service.Services;
+namespace ProductMicroservice_Service.Services;
 
 public sealed class ProductService : IProductService
 {

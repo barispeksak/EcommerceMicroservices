@@ -1,6 +1,6 @@
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace ProductMicroservice.Service.DTOs;
+namespace ProductMicroservice_Service.DTOs;
 
 /// <remarks>HTTP POST isteğinde kullanılır.</remarks>
 [SwaggerSchema(Description = "Yeni ürün eklemek için gönderilen model.")]

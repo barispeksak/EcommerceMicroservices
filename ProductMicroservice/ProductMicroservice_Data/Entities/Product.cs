@@ -1,4 +1,4 @@
-namespace ProductMicroservice.Data.Entities;
+namespace ProductMicroservice_Data.Entities;
 
 public class Product
 {

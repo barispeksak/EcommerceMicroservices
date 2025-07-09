@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using ProductMicroservice.Data;
+using ProductMicroservice_Data;
 
 #nullable disable
 
 namespace ProductMicroservice_Data.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20250703113939_InitProductSchema")]
-    partial class InitProductSchema
+    [Migration("20250709072247_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace ProductMicroservice_Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ProductMicroservice.Data.Entities.Product", b =>
+            modelBuilder.Entity("ProductMicroservice_Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using ProductMicroservice.Data.Entities;
+using ProductMicroservice_Data.Entities;
 
-namespace ProductMicroservice.Data.Repositories;
+namespace ProductMicroservice_Data.Repositories;
 
 public class ProductRepository : IProductRepository
 {

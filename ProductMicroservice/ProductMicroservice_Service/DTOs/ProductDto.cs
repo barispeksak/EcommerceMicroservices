@@ -1,7 +1,7 @@
 using Swashbuckle.AspNetCore.Annotations;
 
 
-namespace ProductMicroservice.Service.DTOs;
+namespace ProductMicroservice_Service.DTOs;
 
 /// <remarks>HTTP GET / GET ALL için dönüş modelidir.</remarks>
 [SwaggerSchema(Description = "Ürün bilgilerini temsil eder (response).")]

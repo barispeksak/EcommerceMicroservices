@@ -1,46 +1,131 @@
+/*****************************************************
+ *  Product Microservice – Program.cs (FULL)
+ ****************************************************/
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
+using Serilog;
+using MongoDB.Driver;
+
 using FluentValidation;
-using Swashbuckle.AspNetCore.Annotations;
-using ProductMicroservice.Data;
-using ProductMicroservice.Data.Repositories;
-using ProductMicroservice.Service.Mapping;
-using ProductMicroservice.Service.Services;
-using ProductMicroservice.Service.Validation;
-using ProductMicroservice.Service.Interfaces;
+using FluentValidation.AspNetCore;
+
+using ProductMicroservice_Data;
+using ProductMicroservice_Data.Repositories;
+using ProductMicroservice_Service.Interfaces;
+using ProductMicroservice_Service.Services;
+using ProductMicroservice_Service.Mapping;
+using ProductMicroservice_Service.Validation;
+
+using ProductMicroservice_Api.Http;        // CorrelationIdDelegatingHandler
+using ProductMicroservice_Api.Middleware;  // CorrelationIdMiddleware
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHttpClient<CategoryApiClient>();
+/*──────────────────────────────────────────────
+  1. Serilog
+  ─────────────────────────────────────────────*/
+const string serviceName = "ProductMicroservice";
+builder.Host.UseSerilog((ctx, lc) => lc
+    .ReadFrom.Configuration(ctx.Configuration)           // appsettings*.json
+    .Enrich.FromLogContext()
+    .Enrich.WithProperty("ServiceName", serviceName)
+    .WriteTo.Console());
 
-/* ---------- DbContext ---------- */
+/*──────────────────────────────────────────────
+  2. MongoDB – (HTTP + iş mantığı log’ları)
+  ─────────────────────────────────────────────*/
+builder.Services.AddSingleton<IMongoClient>(_ =>
+    new MongoClient("mongodb://mongo:27017"));           // docker-compose’da “mongo”
+
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+    sp.GetRequiredService<IMongoClient>()
+      .GetDatabase("ECommerceLogs"));
+
+builder.Services.AddSingleton<ProductActionLogger>();    // kendi log sınıfınız
+
+/*──────────────────────────────────────────────
+  3. Correlation-Id altyapısı
+  ─────────────────────────────────────────────*/
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<CorrelationIdDelegatingHandler>();
+
+/* Variation / Category servislerine giden isteklerde Id taşımak için örnek */
+builder.Services.AddHttpClient<CategoryApiClient>()
+                .AddHttpMessageHandler<CorrelationIdDelegatingHandler>();
+
+/*──────────────────────────────────────────────
+  4. Entity Framework (Core) – PostgreSQL
+  ─────────────────────────────────────────────*/
 builder.Services.AddDbContext<ProductDbContext>(opt =>
-    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    opt.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly("ProductMicroservice_Data")));
 
-/* ---------- DI bağlamaları ---------- */
+/*──────────────────────────────────────────────
+  5. DI – Repositories & Services
+  ─────────────────────────────────────────────*/
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService,    ProductService>();
 
-/* ---------- AutoMapper & FluentValidation ---------- */
-builder.Services.AddAutoMapper(typeof(ProductProfile).Assembly);
+/*──────────────────────────────────────────────
+  6. AutoMapper & FluentValidation
+  ─────────────────────────────────────────────*/
+builder.Services.AddAutoMapper(typeof(ProductProfile));
+
+builder.Services
+        .AddFluentValidationAutoValidation()
+        .AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateProductDtoValidator>();
 
-/* ---------- Swagger ---------- */
+/*──────────────────────────────────────────────
+  7. Controllers / JSON
+  ─────────────────────────────────────────────*/
+builder.Services.AddControllers()
+    .AddJsonOptions(o =>
+    {
+        o.JsonSerializerOptions.ReferenceHandler       = ReferenceHandler.IgnoreCycles;
+        o.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    });
+
+/*──────────────────────────────────────────────
+  8. Swagger
+  ─────────────────────────────────────────────*/
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(o =>
 {
     o.EnableAnnotations();
     o.CustomSchemaIds(t => t.Name.Replace("Dto", ""));   // ProductDto → Product
 });
 
-/* ---------- MVC ---------- */
-builder.Services.AddControllers();
-
+/*──────────────────────────────────────────────
+  9. Build & Middleware Pipeline
+  ─────────────────────────────────────────────*/
 var app = builder.Build();
 
-/* ---------- HTTP pipeline ---------- */
-app.UseHttpsRedirection();
+app.UseMiddleware<CorrelationIdMiddleware>();            // Correlation-Id
 
-app.UseSwagger();
-app.UseSwaggerUI();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
+if (!app.Environment.IsDevelopment())
+    app.UseHttpsRedirection();
+
+app.UseSerilogRequestLogging();                          // HTTP log’ları
 app.MapControllers();
+
+/*──────────────────────────────────────────────
+  10. Otomatik EF Migration (opsiyonel)
+  ─────────────────────────────────────────────*/
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ProductDbContext>();
+    if (db.Database.GetPendingMigrations().Any())
+        db.Database.Migrate();
+}
+
 app.Run();
