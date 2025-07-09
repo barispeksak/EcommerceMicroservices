@@ -11,7 +11,7 @@ using ProductMicroservice_Data;
 namespace ProductMicroservice_Data.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20250709072247_InitialMigration")]
+    [Migration("20250709103234_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace ProductMicroservice_Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("product")
-                .HasAnnotation("ProductVersion", "9.0.6")
+                .HasAnnotation("ProductVersion", "9.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);

@@ -9,10 +9,10 @@ namespace ProductMicroservice_Service.Services;
 
 public sealed class ProductService : IProductService
 {
-    private readonly IProductRepository           _repo;
+    private readonly IProductRepository _repo;
     private readonly IValidator<CreateProductDto> _createVal;
     private readonly IValidator<UpdateProductDto> _updateVal;
-    private readonly IMapper                      _mapper;
+    private readonly IMapper _mapper;
     private readonly CategoryApiClient _categoryApiClient;
 
     public ProductService(
@@ -78,4 +78,10 @@ public sealed class ProductService : IProductService
         await _repo.DeleteAsync(entity);
         await _repo.SaveAsync();
     }
+    
+    public async Task<bool> CategoryExistsAsync(int categoryId)
+    {
+        return await _categoryApiClient.CategoryExists(categoryId);
+    }
+
 }

@@ -7,6 +7,8 @@ namespace ProductMicroservice_Service.DTOs;
 [SwaggerSchema(Description = "Ürünü güncellemek için gönderilen model.")]
 public sealed record UpdateProductDto
 {
+    public int Id { get; set; }  // Buraya ekle
+
     [SwaggerSchema("Yeni kategori kimliği (opsiyonel)")]
     public int? CategoryId { get; init; }
 

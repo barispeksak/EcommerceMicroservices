@@ -17,11 +17,12 @@ public class ProductActionLog
     public string? CorrelationId { get; set; }
     public string? PerformedByEmail { get; set; }
     public string? ProductCategoryId { get; set; }
-    public string? CategoryId { get; set; }
     public string? Name { get; set; }
-    public BsonDocument? Description { get; set; }
     public string? Image { get; set; }
     public string? Brand { get; set; }
+    
+    public BsonDocument? Description { get; set; }
+   
     
 }
 

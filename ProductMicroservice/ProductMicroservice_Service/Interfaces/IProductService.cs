@@ -22,4 +22,7 @@ public interface IProductService
 
     /// <summary>Ürünü siler.</summary>
     Task DeleteAsync(int id);
+
+    Task<bool> CategoryExistsAsync(int categoryId);
+
 }
