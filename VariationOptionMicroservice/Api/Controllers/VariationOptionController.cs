@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
+using System.Text.Json;
+using VariationOptionMicroservice.Models;
 using VariationOptionMicroservice.Service.DTOs;
-using VariationOptionMicroservice.Service.Interfaces;
+using VariationOptionMicroservice.Service.Services;
+using VariationOptionMicroservice.Service.Interfaces; // CategoryApiClient burada!
 
 namespace VariationOptionMicroservice.Api.Controllers
 {
@@ -8,102 +12,293 @@ namespace VariationOptionMicroservice.Api.Controllers
     [ApiController]
     public class VariationOptionController : ControllerBase
     {
-        private readonly IVariationOptionService _variationOptionService;
-    
+        private readonly IVariationOptionService _service;
+        private readonly CategoryApiClient _variationApiClient;
+        private readonly VariationOptionActionLogger _logger;
 
-        public VariationOptionController(IVariationOptionService variationOptionService)
+        public VariationOptionController(
+            IVariationOptionService service,
+            CategoryApiClient variationApiClient,
+            VariationOptionActionLogger logger)
         {
-            _variationOptionService = variationOptionService;
+            _service = service;
+            _variationApiClient = variationApiClient;
+            _logger = logger;
         }
 
-        /// <summary>
-        /// Tüm varyasyon seçeneklerini getirir.
-        /// </summary>
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<VariationOptionDto>>> TumSecenekleriGetir()
-        {
-            var options = await _variationOptionService.GetAllAsync();
-            return Ok(options);
-        }
+        private static BsonDocument WrapObject(object? obj) =>
+            obj is null
+                ? new BsonDocument { { "msg", "null" } }
+                : BsonDocument.Parse(JsonSerializer.Serialize(obj));
 
-        /// <summary>
-        /// Belirli bir ID'ye sahip varyasyon seçeneğini getirir.
-        /// </summary>
+        private string GetCorrelationId() =>
+            HttpContext.Request.Headers["X-Correlation-Id"].FirstOrDefault() ?? HttpContext.TraceIdentifier;
+
+        private string GetPerformedByEmail() =>
+            HttpContext.Request.Headers["X-User-Email"].FirstOrDefault() ?? "anonymous";
+
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<VariationOptionDto>> SecenekGetir(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var option = await _variationOptionService.GetAsync(id);
-            
+            var cid = GetCorrelationId();
+            var performedBy = GetPerformedByEmail();
+
+            var option = await _service.GetAsync(id);
+
             if (option == null)
-                return NotFound("Varyasyon seçeneği bulunamadı.");
+            {
+                string msg = "Girilen id ile varyasyon seçeneği bulunamadı.";
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "GetById",
+                    Level = "Warn",
+                    Message = msg,
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = id.ToString(),
+                    Description = WrapObject(new { Id = id })
+                });
+                return NotFound(new { message = msg });
+            }
+
+            await _logger.LogAsync(new VariationOptionActionLog
+            {
+                Action = "GetById",
+                Level = "Info",
+                Message = "Varyasyon seçeneği getirildi.",
+                CorrelationId = cid,
+                Timestamp = DateTime.UtcNow,
+                PerformedByEmail = performedBy,
+                VariationId = option.VariationId.ToString(),
+                Value = option.Value,
+                Description = WrapObject(option)
+            });
 
             return Ok(option);
         }
 
-        /// <summary>
-        /// Yeni bir varyasyon seçeneği oluşturur.
-        /// </summary>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<VariationOptionDto>> VaryasyonSecenegiOlustur([FromBody] CreateVariationOptionDto dto)
+        public async Task<ActionResult<VariationOptionDto>> Create([FromBody] CreateVariationOptionDto dto)
         {
+            var cid = GetCorrelationId();
+            var performedBy = GetPerformedByEmail();
+
+            // VariationId check - CategoryApiClient üzerinden!
+            var variationExists = await _variationApiClient.VariationExists(dto.VariationId);
+            if (!variationExists)
+            {
+                string msg = "Girilen VariationId bulunamadı.";
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Create",
+                    Level = "Warn",
+                    Message = msg,
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = dto.VariationId.ToString(),
+                    Description = WrapObject(dto)
+                });
+                return BadRequest(new { message = msg });
+            }
 
             try
             {
-                var option = await _variationOptionService.CreateAsync(dto);
-                return CreatedAtAction(nameof(SecenekGetir), new { id = option.Id }, option);
+                var option = await _service.CreateAsync(dto);
+
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Create",
+                    Level = "Info",
+                    Message = "Varyasyon seçeneği başarıyla oluşturuldu.",
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = option.VariationId.ToString(),
+                    Value = option.Value,
+                    Description = WrapObject(option)
+                });
+
+                return CreatedAtAction(nameof(GetById), new { id = option.Id }, option);
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
-                return BadRequest(new { message = ex.Message });
+                string msg = "Varyasyon seçeneği oluşturulamadı. Sunucu hatası.";
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Create",
+                    Level = "Error",
+                    Message = msg,
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = dto.VariationId.ToString(),
+                    Description = WrapObject(new { Request = dto, Exception = ex.Message })
+                });
+
+                return StatusCode(500, new { message = msg });
             }
         }
 
-                /// <summary>
-        /// Varyasyon seçeneğini günceller.
-        /// </summary>
         [HttpPut("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> SecenekGuncelle(int id, [FromBody] UpdateVariationOptionDto secenek)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateVariationOptionDto dto)
         {
-            if (id != secenek.Id)
-                return BadRequest("ID'ler uyuşmuyor.");
+            var cid = GetCorrelationId();
+            var performedBy = GetPerformedByEmail();
+
+            if (id != dto.Id)
+            {
+                string msg = "Girilen id ile body id uyuşmuyor.";
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Update",
+                    Level = "Error",
+                    Message = msg,
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = dto.VariationId.ToString(),
+                    Description = WrapObject(new { UrlId = id, BodyId = dto.Id })
+                });
+                return BadRequest(new { message = msg });
+            }
+
+            var existing = await _service.GetAsync(id);
+            if (existing == null)
+            {
+                string msg = "Güncellenecek varyasyon seçeneği bulunamadı.";
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Update",
+                    Level = "Warn",
+                    Message = msg,
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = dto.VariationId.ToString(),
+                    Description = WrapObject(new { Id = id })
+                });
+                return NotFound(new { message = msg });
+            }
+
+            // VariationId check - CategoryApiClient üzerinden!
+            var variationExists = await _variationApiClient.VariationExists(dto.VariationId);
+            if (!variationExists)
+            {
+                string msg = "Girilen VariationId bulunamadı.";
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Update",
+                    Level = "Warn",
+                    Message = msg,
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = dto.VariationId.ToString(),
+                    Description = WrapObject(dto)
+                });
+                return BadRequest(new { message = msg });
+            }
 
             try
             {
-                var result = await _variationOptionService.UpdateAsync(id, secenek);
-                
-                if (!result)
-                    return NotFound("Varyasyon seçeneği güncellenemedi çünkü mevcut değil.");
+                await _service.UpdateAsync(id, dto);
+
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Update",
+                    Level = "Info",
+                    Message = "Varyasyon seçeneği başarıyla güncellendi.",
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = dto.VariationId.ToString(),
+                    Value = dto.Value,
+                    Description = WrapObject(dto)
+                });
 
                 return NoContent();
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
-                return BadRequest(new { message = ex.Message });
+                string msg = "Varyasyon seçeneği güncellenemedi. Sunucu hatası.";
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Update",
+                    Level = "Error",
+                    Message = msg,
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = dto.VariationId.ToString(),
+                    Description = WrapObject(new { Request = dto, Exception = ex.Message })
+                });
+
+                return StatusCode(500, new { message = msg });
             }
         }
 
-        /// <summary>
-        /// Belirli bir varyasyon seçeneğini siler.
-        /// </summary>
         [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> SecenekSil(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var result = await _variationOptionService.DeleteAsync(id);
-            
-            if (!result)
-                return NotFound("Silinecek varyasyon seçeneği bulunamadı.");
+            var cid = GetCorrelationId();
+            var performedBy = GetPerformedByEmail();
 
-            return NoContent();
+            var option = await _service.GetAsync(id);
+            if (option == null)
+            {
+                string msg = "Silinecek varyasyon seçeneği bulunamadı.";
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Delete",
+                    Level = "Warn",
+                    Message = msg,
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = id.ToString(),
+                    Description = WrapObject(new { Id = id })
+                });
+                return NotFound(new { message = msg });
+            }
+
+            try
+            {
+                await _service.DeleteAsync(id);
+
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Delete",
+                    Level = "Info",
+                    Message = "Varyasyon seçeneği başarıyla silindi.",
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = option.VariationId.ToString(),
+                    Value = option.Value,
+                    Description = WrapObject(option)
+                });
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                string msg = "Varyasyon seçeneği silinemedi. Sunucu hatası.";
+                await _logger.LogAsync(new VariationOptionActionLog
+                {
+                    Action = "Delete",
+                    Level = "Error",
+                    Message = msg,
+                    CorrelationId = cid,
+                    Timestamp = DateTime.UtcNow,
+                    PerformedByEmail = performedBy,
+                    VariationId = id.ToString(),
+                    Description = WrapObject(new { Id = id, Exception = ex.Message })
+                });
+
+                return StatusCode(500, new { message = msg });
+            }
         }
     }
 }

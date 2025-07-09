@@ -11,7 +11,7 @@ using VariationOptionMicroservice.Data;
 namespace VariationOptionMicroservice.Migrations
 {
     [DbContext(typeof(VariationOptionDbContext))]
-    [Migration("20250708134005_InitialMigration")]
+    [Migration("20250709061651_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />

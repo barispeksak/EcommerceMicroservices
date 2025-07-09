@@ -14,10 +14,9 @@ public class VariationOptionActionLog
     public string? Level { get; set; }        // "Info", "Error", "Warn" vs.
     public string? Message { get; set; }
     public string? CorrelationId { get; set; }
-    public string? PerformedById { get; set; }
     public string? PerformedByEmail { get; set; }
-    public string? PerformedByName { get; set; }
     public string? VariationId { get; set; }
     public string? Value { get; set; }
+    public BsonDocument? Description { get; set; }
 }
 

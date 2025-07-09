@@ -317,3 +317,11 @@
 /Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
 /Users/fatmaakyildiz/EcommerceMicroservices/UserMicroservice/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/src/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/src/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/src/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
