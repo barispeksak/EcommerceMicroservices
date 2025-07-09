@@ -12,12 +12,26 @@ using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
+using MongoDB.Driver; // * 
+using Serilog; // * 
+using UserAddressMicroservice.Middleware; // * 
+using UserAddressMicroservice.Http; // * 
+using UserAddressMicroservice.Service.Logging; // * 
+using Serilog.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDbContext<UserAddressDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Controllers + Validation
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+    }) // *
+    .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Program>());
 
 builder.Services.AddScoped<IUserAddressRepository, UserAddressRepository>();
 builder.Services.AddScoped<IUserAddressService, UserAddressService>();
@@ -40,13 +54,30 @@ builder.Services.AddHttpClient("AddressService", c =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSingleton<IMongoClient>(sp =>
+    new MongoClient("mongodb://mongo:27017")); // veya "localhost" – Docker ortamına göre değişir
+
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+    sp.GetRequiredService<IMongoClient>().GetDatabase("ECommerceLogs"));
+
+builder.Services.AddSingleton<UserAddressActionLogger>();
+
+// Serilog
+const string serviceName = "UserAddressTypeMicroservice"; // *
+builder.Host.UseSerilog((ctx, svc, cfg) => cfg // *
+    .ReadFrom.Configuration(ctx.Configuration) // *
+    .Enrich.FromLogContext() // *
+    .Enrich.WithProperty("ServiceName", serviceName) // *
+    .WriteTo.Console()); // *
+
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
+
+app.UseMiddleware<CorrelationIdMiddleware>(); // *
+app.UseRouting(); // *
+app.UseSerilogRequestLogging(); // *
 
 //app.UseHttpsRedirection();
 app.MapControllers();
