@@ -10,6 +10,8 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using ShoppingCartMicroservice_Api.Middleware;   // CorrelationIdMiddleware
 using ShoppingCartMicroservice_Api.Http;         // CorrelationIdDelegatingHandler
+using MongoDB.Driver;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +22,19 @@ builder.Host.UseSerilog((ctx, lc) => lc
     .Enrich.FromLogContext()
     .Enrich.WithProperty("ServiceName", serviceName)
     .WriteTo.Console());
+
+
+/*──────────────────── MongoDB (log database) ─────────────────────────*/
+builder.Services.AddSingleton<IMongoClient>(_ =>
+{
+    var connStr = builder.Configuration.GetConnectionString("MongoDb") ?? "mongodb://mongo:27017";
+    return new MongoClient(connStr);
+});
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+    sp.GetRequiredService<IMongoClient>().GetDatabase("ECommerceLogs"));
+
+builder.Services.AddSingleton<ShoppingCartActionLogger>();
+
 
 /*──────────────────── Redis (cache) ─────────────────────────*/
 builder.Services.AddSingleton<IConnectionMultiplexer>(_ =>
@@ -42,10 +57,9 @@ builder.Services.AddHttpClient<ProductClient>(c =>
 
 /*──────────────────── DI + Validation ─────────────────────*/
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
+builder.Services.AddSingleton<ShoppingCartActionLogger>();
 
 builder.Services.AddControllers();
-
-// FluentValidation ayarı - ayrı ayrı çağrılıyor
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateShoppingCartDtoValidator>();
