@@ -10,5 +10,6 @@ namespace ShoppingCartMicroservice_Service.Interfaces
         Task AddOrUpdateItemAsync(string userId, CreateShoppingCartDto dto);
         Task RemoveItemAsync(string userId, int productItemId);
         Task ClearAsync(string userId);
+        
     }
 }
