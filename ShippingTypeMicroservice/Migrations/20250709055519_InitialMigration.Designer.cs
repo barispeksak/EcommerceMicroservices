@@ -11,8 +11,8 @@ using ShippingTypeMicroservice.Data;
 namespace ShippingTypeMicroservice.Migrations
 {
     [DbContext(typeof(ShippingDbContext))]
-    [Migration("20250708130433_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250709055519_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
