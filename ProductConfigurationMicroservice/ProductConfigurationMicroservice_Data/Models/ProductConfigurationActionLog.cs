@@ -18,6 +18,7 @@ public class ProductConfigurationActionLog
     public string? PerformedByEmail { get; set; }
     public string? ProductItemId { get; set; }
     public string? VariationOptionId { get; set; }
-    
+    public BsonDocument? Description { get; set; }
+
 }
 

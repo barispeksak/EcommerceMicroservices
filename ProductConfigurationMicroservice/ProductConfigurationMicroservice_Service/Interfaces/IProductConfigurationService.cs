@@ -22,5 +22,9 @@ namespace ProductConfigurationMicroservice_Service.Interfaces
 
         /// <summary>Konfigürasyonu siler.</summary>
         Task DeleteAsync(int id);
+
+
+        Task<(bool exists, string sku)> ProductItemExistsAsync(int productItemId);
+        Task<(bool exists, string value)> VariationOptionExistsAsync(int optionId);
     }
 }

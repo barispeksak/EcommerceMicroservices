@@ -107,14 +107,4 @@ if (!app.Environment.IsDevelopment())
 app.UseSerilogRequestLogging();                            // HTTP log’ları
 app.MapControllers();
 
-/*──────────────────────────────────────────────
- 10. Otomatik EF Migration (opsiyonel)
- ─────────────────────────────────────────────*/
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<ProductConfigurationDbContext>();
-    if (db.Database.GetPendingMigrations().Any())
-        db.Database.Migrate();
-}
-
 app.Run();

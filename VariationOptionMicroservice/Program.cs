@@ -155,16 +155,5 @@ app.UseSerilogRequestLogging();                 // ❷ HTTP log’ları
 app.UseAuthorization();
 app.MapControllers();
 
-/*──────────────────────────────────────────────
-  10. Uygulama başlarken otomatik migration
-  ─────────────────────────────────────────────*/
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<VariationOptionDbContext>();
-
-    // YALNIZCA bekleyen migration varsa çalıştır
-    if (db.Database.GetPendingMigrations().Any())
-        db.Database.Migrate();
-}
 
 app.Run();

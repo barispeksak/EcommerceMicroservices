@@ -14,17 +14,17 @@ namespace ProductConfigurationMicroservice_Service.Services;
 public class ProductConfigurationService : IProductConfigurationService
 {
     private readonly IProductConfigurationRepository _repo;
-    private readonly ProductItemApiClient            _itemApi;
-    private readonly VariationOptionApiClient        _optApi;
+    private readonly ProductItemApiClient _itemApi;
+    private readonly VariationOptionApiClient _optApi;
 
     public ProductConfigurationService(
         IProductConfigurationRepository repo,
         ProductItemApiClient itemApi,
         VariationOptionApiClient optApi)
     {
-        _repo    = repo;
+        _repo = repo;
         _itemApi = itemApi;
-        _optApi  = optApi;
+        _optApi = optApi;
     }
 
     /* ───────────── LISTE ───────────── */
@@ -34,11 +34,11 @@ public class ProductConfigurationService : IProductConfigurationService
         int[]? variationOptionIds)
     {
         var entities = await _repo.GetAllAsync(productItemIds, variationOptionIds);
-        var list     = new List<ProductConfigurationDto>();
+        var list = new List<ProductConfigurationDto>();
 
         foreach (var pc in entities)
         {
-            var (_, sku)  = await _itemApi.TryGetAsync(pc.ProductItemId);
+            var (_, sku) = await _itemApi.TryGetAsync(pc.ProductItemId);
             var (_, name) = await _optApi.TryGetAsync(pc.VariationOptionId);
 
             list.Add(new ProductConfigurationDto(
@@ -58,7 +58,7 @@ public class ProductConfigurationService : IProductConfigurationService
         var pc = await _repo.GetByIdAsync(id);
         if (pc is null) return null;
 
-        var (_, sku)  = await _itemApi.TryGetAsync(pc.ProductItemId);
+        var (_, sku) = await _itemApi.TryGetAsync(pc.ProductItemId);
         var (_, name) = await _optApi.TryGetAsync(pc.VariationOptionId);
 
         return new ProductConfigurationDto(
@@ -75,13 +75,13 @@ public class ProductConfigurationService : IProductConfigurationService
     {
         var entity = new ProductConfiguration
         {
-            ProductItemId     = dto.ProductItemId,
+            ProductItemId = dto.ProductItemId,
             VariationOptionId = dto.VariationOptionId
         };
         await _repo.AddAsync(entity);
         await _repo.SaveAsync();
 
-        var (_, sku)  = await _itemApi.TryGetAsync(entity.ProductItemId);
+        var (_, sku) = await _itemApi.TryGetAsync(entity.ProductItemId);
         var (_, name) = await _optApi.TryGetAsync(entity.VariationOptionId);
 
         return new ProductConfigurationDto(
@@ -99,7 +99,7 @@ public class ProductConfigurationService : IProductConfigurationService
         var entity = await _repo.GetByIdAsync(dto.Id)
                      ?? throw new KeyNotFoundException($"Config {dto.Id} not found");
 
-        entity.ProductItemId     = dto.ProductItemId;
+        entity.ProductItemId = dto.ProductItemId;
         entity.VariationOptionId = dto.VariationOptionId;
 
         await _repo.UpdateAsync(entity);
@@ -116,4 +116,10 @@ public class ProductConfigurationService : IProductConfigurationService
         await _repo.RemoveAsync(pc);
         await _repo.SaveAsync();
     }
+    
+    public async Task<(bool exists, string sku)> ProductItemExistsAsync(int productItemId)
+        => await _itemApi.TryGetAsync(productItemId);
+
+    public async Task<(bool exists, string value)> VariationOptionExistsAsync(int optionId)
+        => await _optApi.TryGetAsync(optionId);
 }

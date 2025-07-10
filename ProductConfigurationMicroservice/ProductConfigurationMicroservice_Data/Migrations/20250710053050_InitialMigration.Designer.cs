@@ -11,7 +11,7 @@ using ProductConfigurationMicroservice_Data;
 namespace ProductConfigurationMicroservice_Data.Migrations
 {
     [DbContext(typeof(ProductConfigurationDbContext))]
-    [Migration("20250709113610_InitialMigration")]
+    [Migration("20250710053050_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
