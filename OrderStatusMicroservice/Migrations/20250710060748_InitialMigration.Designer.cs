@@ -11,7 +11,7 @@ using OrderStatusMicroservice.Data;
 namespace OrderStatusMicroservice.Migrations
 {
     [DbContext(typeof(OrderStatusDbContext))]
-    [Migration("20250703123549_InitialMigration")]
+    [Migration("20250710060748_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />

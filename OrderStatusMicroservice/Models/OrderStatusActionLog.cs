@@ -7,21 +7,21 @@ namespace OrderStatusMicroservice.Models
     public class OrderStatusActionLog
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)] 
+        [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
-
-        public string CorrelationId { get; set; }
-
-        public string Action { get; set; }
-
-        public string Status { get; set; }  // "Success" | "Fail"
-
-        public string Message { get; set; }
 
         public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
-        public BsonDocument Description { get; set; } = new BsonDocument();
+        public string? CorrelationId { get; set; }
 
-        public string? PerformedBy { get; set; }  // opsiyonel, kullanıcı oturumu varsa kullanılır
+        public string? Action { get; set; }
+
+        public string? Status { get; set; } // "Success", "Fail" vb.
+
+        public string? Message { get; set; }
+
+        public string? PerformedByEmail { get; set; } // kullanıcı maili, opsiyonel
+
+        public BsonDocument? Description { get; set; } // Ekstra log verisi (istek/gelen data/detaylar)
     }
 }
