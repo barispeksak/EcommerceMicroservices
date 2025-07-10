@@ -17,11 +17,12 @@ namespace ShopOrderMicroservice.Models
         public string Status { get; set; }  // "Success" | "Fail"
 
         public string Message { get; set; }
+        
+        public string? PerformedByEmail { get; set; }  // opsiyonel, kullanıcı oturumu varsa kullanılır
 
         public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
         public BsonDocument Description { get; set; } = new BsonDocument();
 
-        public string? PerformedBy { get; set; }  // opsiyonel, kullanıcı oturumu varsa kullanılır
     }
 }

@@ -4,8 +4,9 @@ using UserAddressMicroservice.Service.Interfaces;
 using UserAddressMicroservice.Service.Logging;
 using UserAddressMicroservice.Models;
 using MongoDB.Bson;
-using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text.Json;
+using System.Security.Claims;
 
 namespace UserAddressMicroservice.Api.Controllers;
 
@@ -14,30 +15,50 @@ namespace UserAddressMicroservice.Api.Controllers;
 public class UserAddressController : ControllerBase
 {
     private readonly IUserAddressService _service;
-    private readonly IHttpClientFactory _httpClientFactory;
+    private readonly IHttpClientFactory  _http;
     private readonly UserAddressActionLogger _logger;
 
-    public UserAddressController(IUserAddressService service, IHttpClientFactory httpClientFactory, UserAddressActionLogger logger)
+    public UserAddressController(
+        IUserAddressService service,
+        IHttpClientFactory  httpClientFactory,
+        UserAddressActionLogger logger)
     {
         _service = service;
-        _httpClientFactory = httpClientFactory;
-        _logger = logger;
+        _http    = httpClientFactory;
+        _logger  = logger;
     }
+
+    /* ─────────────── Yardımcılar ─────────────── */
+
+    private static BsonDocument Wrap(object? o) =>
+        o is null
+            ? new BsonDocument { { "msg", "null" } }
+            : BsonDocument.Parse(JsonSerializer.Serialize(o));
+
+    private string CorrelationId() =>
+        HttpContext.Request.Headers["X-Correlation-Id"].FirstOrDefault()
+        ?? HttpContext.TraceIdentifier;
+
+    private string PerformedBy() =>
+        HttpContext.Request.Headers["X-User-Email"].FirstOrDefault()
+        ?? User?.FindFirst(ClaimTypes.Email)?.Value
+        ?? "anonymous";
+
+    /* ─────────────── ENDPOINTS ─────────────── */
 
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
         var result = await _service.GetAllAsync();
-        var cid = Request.Headers["X-Correlation-Id"].FirstOrDefault();
 
         await _logger.LogAsync(new UserAddressActionLog
         {
-            CorrelationId = cid,
-            Action = "GetAll",
-            Timestamp = DateTime.UtcNow,
-            Status = "Success",
-            Message = "Tüm kullanıcı-adres bağlantıları getirildi.",
-            Description = new BsonDocument { { "Count", result.Count() } }
+            CorrelationId    = CorrelationId(),
+            Action           = "GetAll",
+            Status           = "Success",
+            Message          = "Tüm kullanıcı-adres bağlantıları getirildi.",
+            PerformedByEmail = PerformedBy(),
+            Description      = Wrap(new { Count = result.Count() })
         });
 
         return Ok(result);
@@ -46,161 +67,136 @@ public class UserAddressController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create(CreateUserAddressDto dto)
     {
-        var cid = Request.Headers["X-Correlation-Id"].FirstOrDefault();
-
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var userClient = _httpClientFactory.CreateClient("UserService");
-        var userResponse = await userClient.GetAsync($"api/user/{dto.UserId}");
+        var userClient    = _http.CreateClient("UserService");
+        var addressClient = _http.CreateClient("AddressService");
 
-        if (!userResponse.IsSuccessStatusCode)
+        var userOk    = (await userClient.GetAsync($"api/user/{dto.UserId}")).IsSuccessStatusCode;
+        var addressOk = (await addressClient.GetAsync($"api/address/{dto.AddressId}")).IsSuccessStatusCode;
+
+        if (!userOk || !addressOk)
         {
+            var failMsg = !userOk
+                ? $"Kullanıcı {dto.UserId} bulunamadı."
+                : $"Adres {dto.AddressId} bulunamadı.";
+
             await _logger.LogAsync(new UserAddressActionLog
             {
-                CorrelationId = cid,
-                Action = "Create",
-                Timestamp = DateTime.UtcNow,
-                Status = "Fail",
-                Message = $"Kullanıcı {dto.UserId} bulunamadı.",
+                CorrelationId    = CorrelationId(),
+                Action           = "Create",
+                Status           = "Fail",
+                Message          = failMsg,
+                PerformedByEmail = PerformedBy(),
+                Description      = Wrap(dto)
             });
 
-            return BadRequest($"Kullanıcı {dto.UserId} bulunamadı (User mikroservis).");
-        }
-
-        var addressClient = _httpClientFactory.CreateClient("AddressService");
-        var addressResponse = await addressClient.GetAsync($"api/address/{dto.AddressId}");
-
-        if (!addressResponse.IsSuccessStatusCode)
-        {
-            await _logger.LogAsync(new UserAddressActionLog
-            {
-                CorrelationId = cid,
-                Action = "Create",
-                Timestamp = DateTime.UtcNow,
-                Status = "Fail",
-                Message = $"Adres {dto.AddressId} bulunamadı.",
-            });
-
-            return BadRequest($"Adres {dto.AddressId} bulunamadı (Address mikroservis).");
+            return BadRequest(failMsg);
         }
 
         var created = await _service.CreateAsync(dto);
 
         await _logger.LogAsync(new UserAddressActionLog
         {
-            CorrelationId = cid,
-            Action = "Create",
-            Timestamp = DateTime.UtcNow,
-            Status = "Success",
-            Message = "User-Address bağlantısı oluşturuldu.",
-            Description = new BsonDocument
-            {
-                { "UserId", dto.UserId },
-                { "AddressId", dto.AddressId }
-            }
+            CorrelationId    = CorrelationId(),
+            Action           = "Create",
+            Status           = "Success",
+            Message          = "User-Address bağlantısı oluşturuldu.",
+            PerformedByEmail = PerformedBy(),
+            Description      = Wrap(dto)
         });
 
         return Ok(created);
     }
 
-    [HttpDelete("{userId}/{addressId}")]
+    [HttpDelete("{userId:int}/{addressId:int}")]
     public async Task<IActionResult> Delete(int userId, int addressId)
     {
         var success = await _service.DeleteAsync(userId, addressId);
-        var cid = Request.Headers["X-Correlation-Id"].FirstOrDefault();
 
         await _logger.LogAsync(new UserAddressActionLog
         {
-            CorrelationId = cid,
-            Action = "Delete",
-            Timestamp = DateTime.UtcNow,
-            Status = success ? "Success" : "Fail",
-            Message = success ? "User-Address bağlantısı silindi." : "User-Address bağlantısı bulunamadı.",
-            Description = new BsonDocument { { "UserId", userId }, { "AddressId", addressId } }
+            CorrelationId    = CorrelationId(),
+            Action           = "Delete",
+            Status           = success ? "Success" : "Fail",
+            Message          = success
+                               ? "User-Address bağlantısı silindi."
+                               : "User-Address bağlantısı bulunamadı.",
+            PerformedByEmail = PerformedBy(),
+            Description      = Wrap(new { UserId = userId, AddressId = addressId })
         });
 
         return success ? NoContent() : NotFound();
     }
 
-    [HttpGet("{userId}/with-addresses")]
+    [HttpGet("{userId:int}/with-addresses")]
     public async Task<IActionResult> GetUserWithAddresses(int userId)
     {
-        var cid = Request.Headers["X-Correlation-Id"].FirstOrDefault();
-        var all = await _service.GetAllAsync();
-        var userAddresses = all.Where(x => x.UserId == userId).ToList();
+        var links = (await _service.GetAllAsync())
+                    .Where(x => x.UserId == userId)
+                    .ToList();
 
-        if (!userAddresses.Any())
+        if (!links.Any())
         {
             await _logger.LogAsync(new UserAddressActionLog
             {
-                CorrelationId = cid,
-                Action = "GetUserWithAddresses",
-                Timestamp = DateTime.UtcNow,
-                Status = "Fail",
-                Message = "Kullanıcının adresi bulunamadı.",
-                Description = new BsonDocument { { "UserId", userId } }
+                CorrelationId    = CorrelationId(),
+                Action           = "GetUserWithAddresses",
+                Status           = "Fail",
+                Message          = "Kullanıcının adresi bulunamadı.",
+                PerformedByEmail = PerformedBy(),
+                Description      = Wrap(new { UserId = userId })
             });
-
             return NotFound("Kullanıcının adresi bulunamadı.");
         }
 
-        var client = _httpClientFactory.CreateClient("AddressService");
-        var addressTasks = userAddresses.Select(x =>
-            client.GetFromJsonAsync<object>($"api/address/{x.AddressId}")
-        );
-
-        var addresses = await Task.WhenAll(addressTasks);
+        var addressClient = _http.CreateClient("AddressService");
+        var tasks = links.Select(l => addressClient.GetFromJsonAsync<object>($"api/address/{l.AddressId}"));
+        var addresses = await Task.WhenAll(tasks);
 
         await _logger.LogAsync(new UserAddressActionLog
         {
-            CorrelationId = cid,
-            Action = "GetUserWithAddresses",
-            Timestamp = DateTime.UtcNow,
-            Status = "Success",
-            Message = "Kullanıcının adresleri getirildi.",
-            Description = new BsonDocument { { "UserId", userId }, { "AddressCount", addresses.Length } }
+            CorrelationId    = CorrelationId(),
+            Action           = "GetUserWithAddresses",
+            Status           = "Success",
+            Message          = "Kullanıcının adresleri getirildi.",
+            PerformedByEmail = PerformedBy(),
+            Description      = Wrap(new { UserId = userId, AddressCount = addresses.Length })
         });
 
         return Ok(new
         {
-            UserId = userId,
+            UserId       = userId,
             AddressCount = addresses.Length,
-            Addresses = addresses
+            Addresses    = addresses
         });
     }
 
-    [HttpPut("{userId}/update-address/{addressId}")]
-    public async Task<IActionResult> UpdateUserAddress(int userId, int addressId, UpdateUserAddressDto updatedUserAddressDto)
+    [HttpPut("{userId:int}/update-address/{addressId:int}")]
+    public async Task<IActionResult> UpdateUserAddress(
+        int userId, int addressId, UpdateUserAddressDto dto)
     {
-        var cid = Request.Headers["X-Correlation-Id"].FirstOrDefault();
+        var userClient    = _http.CreateClient("UserService");
+        var addressClient = _http.CreateClient("AddressService");
 
-        var userClient = _httpClientFactory.CreateClient("UserService");
-        var userResponse = await userClient.GetAsync($"api/user/{userId}");
-        if (!userResponse.IsSuccessStatusCode)
+        if (!(await userClient.GetAsync($"api/user/{userId}")).IsSuccessStatusCode)
             return NotFound($"Kullanıcı {userId} bulunamadı.");
 
-        var link = await _service.GetAsync(userId, addressId);
-        if (link == null)
-            return BadRequest($"Kullanıcının {addressId} ID'li adresi bulunmamaktadır.");
+        if (await _service.GetAsync(userId, addressId) == null)
+            return BadRequest($"Kullanıcının {addressId} ID'li adresi yok.");
 
-        var addressClient = _httpClientFactory.CreateClient("AddressService");
-        var response = await addressClient.PutAsJsonAsync($"api/address/{addressId}", updatedUserAddressDto);
-
-        var success = response.IsSuccessStatusCode;
+        var response = await addressClient.PutAsJsonAsync($"api/address/{addressId}", dto);
+        var success  = response.IsSuccessStatusCode;
 
         await _logger.LogAsync(new UserAddressActionLog
         {
-            CorrelationId = cid,
-            Action = "UpdateUserAddress",
-            Timestamp = DateTime.UtcNow,
-            Status = success ? "Success" : "Fail",
-            Message = success ? "Adres güncellendi." : "Adres güncellenemedi.",
-            Description = new BsonDocument
-            {
-                { "UserId", userId },
-                { "AddressId", addressId }
-            }
+            CorrelationId    = CorrelationId(),
+            Action           = "UpdateUserAddress",
+            Status           = success ? "Success" : "Fail",
+            Message          = success ? "Adres güncellendi." : "Adres güncellenemedi.",
+            PerformedByEmail = PerformedBy(),
+            Description      = Wrap(new { UserId = userId, AddressId = addressId })
         });
 
         return success ? NoContent() : BadRequest("Adres güncellenemedi.");

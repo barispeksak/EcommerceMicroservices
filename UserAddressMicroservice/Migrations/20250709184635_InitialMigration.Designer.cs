@@ -11,7 +11,7 @@ using UserAddressMicroservice.Data;
 namespace UserAddressMicroservice.Migrations
 {
     [DbContext(typeof(UserAddressDbContext))]
-    [Migration("20250703183803_InitialMigration")]
+    [Migration("20250709184635_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
