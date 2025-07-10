@@ -104,11 +104,6 @@ if (!app.Environment.IsDevelopment())
 app.UseSerilogRequestLogging();                    // HTTP log’ları
 app.MapControllers();
 
-/* Opsiyonel: otomatik migration */
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<CategoryDbContext>();
-    db.Database.Migrate();
-}
+
 
 app.Run();

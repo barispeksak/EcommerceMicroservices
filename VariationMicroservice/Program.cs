@@ -150,13 +150,5 @@ app.UseSerilogRequestLogging();      // ❷ Serilog HTTP request log’u
 app.UseAuthorization();
 app.MapControllers();
 
-/*──────────────────────────────────────────────
-  10. Uygulama başlarken otomatik migration
-  ─────────────────────────────────────────────*/
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<VariationDbContext>();
-    db.Database.Migrate();
-}
 
 app.Run();
