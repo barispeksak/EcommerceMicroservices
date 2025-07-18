@@ -23,40 +23,36 @@ namespace PaymentTypeMicroservice.Consumers
             _logger = logger;
         }
 
-        // ... mevcut kod ...
         public async Task Consume(ConsumeContext<ProcessPaymentRequested> context)
         {
-            _logger.LogInformation("ProcessPaymentRequested received. OrderId: {OrderId}, Amount: {Amount}, CorrelationId: {CorrelationId}",
-                context.Message.OrderId, context.Message.Amount, context.Message.CorrelationId);
+            _logger.LogInformation("ProcessPaymentRequested received. OrderId: {OrderId}, Amount: {Amount}, CorrelationId: {CorrelationId}, PaymentTypeId: {PaymentTypeId}",
+                context.Message.OrderId, context.Message.Amount, context.Message.CorrelationId, context.Message.PaymentTypeId);
 
             try
             {
-                // 1. Payment nesnesini oluştur
-                var payment = new Payment
+                // Simple direct validation - PaymentTypeId must be between 1 and 3
+                bool isPaymentTypeValid = context.Message.PaymentTypeId >= 1 && context.Message.PaymentTypeId <= 3;
+                
+                if (isPaymentTypeValid)
                 {
-                    Id = Guid.NewGuid(),
-                    CartId = context.Message.CartId,
-                    OrderId = context.Message.OrderId,
-                    Amount = context.Message.Amount,
-                    PaymentTypeId = context.Message.PaymentTypeId,
-                    Status = "Processing",
-                    CorrelationId = context.Message.CorrelationId,
-                    CreatedAt = DateTime.UtcNow
-                };
+                    _logger.LogInformation("Payment type {PaymentTypeId} is valid", context.Message.PaymentTypeId);
 
-                // 2. Veritabanına kaydet
-                _dbContext.Payments.Add(payment);
-                await _dbContext.SaveChangesAsync();
-
-                // 3. Gerçek ödeme işlemini simüle et
-                var isPaymentSuccessful = await ProcessPaymentAsync(payment);
-
-                if (isPaymentSuccessful)
-                {
-                    // 4. Başarılıysa güncelle
-                    payment.Status = "Completed";
-                    payment.TransactionId = Guid.NewGuid().ToString("N")[..16];
-                    payment.ProcessedAt = DateTime.UtcNow;
+                    // Create a simple payment record for reference
+                    var payment = new Payment
+                    {
+                        Id = Guid.NewGuid(),
+                        CartId = context.Message.CartId,
+                        OrderId = context.Message.OrderId,
+                        Amount = context.Message.Amount,
+                        PaymentTypeId = context.Message.PaymentTypeId,
+                        Status = "Approved",
+                        TransactionId = Guid.NewGuid().ToString("N")[..16],
+                        CreatedAt = DateTime.UtcNow,
+                        ProcessedAt = DateTime.UtcNow
+                    };
+                    
+                    // Still save to database for audit/tracking
+                    _dbContext.Payments.Add(payment);
                     await _dbContext.SaveChangesAsync();
 
                     await _publishEndpoint.Publish(new PaymentProcessed
@@ -71,22 +67,35 @@ namespace PaymentTypeMicroservice.Consumers
                 }
                 else
                 {
-                    // 5. Başarısızsa güncelle
-                    payment.Status = "Failed";
+                    _logger.LogWarning("Invalid payment type: {PaymentTypeId}", context.Message.PaymentTypeId);
+                    
+                    // Create a record for failed payments too
+                    var payment = new Payment
+                    {
+                        Id = Guid.NewGuid(),
+                        CartId = context.Message.CartId,
+                        OrderId = context.Message.OrderId,
+                        Amount = context.Message.Amount,
+                        PaymentTypeId = context.Message.PaymentTypeId,
+                        Status = "Rejected",
+                        CreatedAt = DateTime.UtcNow,
+                    };
+                    
+                    _dbContext.Payments.Add(payment);
                     await _dbContext.SaveChangesAsync();
 
                     await _publishEndpoint.Publish(new PaymentFailed
                     {
                         CartId = context.Message.CartId,
                         OrderId = context.Message.OrderId,
-                        Reason = "Payment gateway declined the transaction",
+                        Reason = $"Invalid payment type ID: {context.Message.PaymentTypeId}",
                         CorrelationId = context.Message.CorrelationId
                     });
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error processing payment for OrderId: {OrderId}", context.Message.OrderId);
+                _logger.LogError(ex, "Error processing payment type for OrderId: {OrderId}", context.Message.OrderId);
 
                 await _publishEndpoint.Publish(new PaymentFailed
                 {
@@ -96,15 +105,6 @@ namespace PaymentTypeMicroservice.Consumers
                     CorrelationId = context.Message.CorrelationId
                 });
             }
-        }
-
-        private async Task<bool> ProcessPaymentAsync(Payment payment)
-        {
-            // Simulate payment gateway processing
-            await Task.Delay(100); // Simulate network call
-
-            // Simple mock logic: fail payments over $1000, succeed others
-            return payment.Amount <= 1000m;
         }
     }
 }

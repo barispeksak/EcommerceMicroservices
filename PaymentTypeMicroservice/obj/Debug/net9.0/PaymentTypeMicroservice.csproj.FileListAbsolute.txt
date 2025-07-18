@@ -547,3 +547,4 @@ C:/Users/Mehmet Ali/Desktop/staj/ECommerce/EcommerceMicroservices-main/PaymentTy
 /Users/barispeksak/EcommerceMicroservices/PaymentTypeMicroservice/obj/Debug/net9.0/PaymentT.571B6B48.Up2Date
 /Users/barispeksak/EcommerceMicroservices/PaymentTypeMicroservice/obj/Debug/net9.0/PaymentTypeMicroservice.genruntimeconfig.cache
 /Users/barispeksak/EcommerceMicroservices/PaymentTypeMicroservice/obj/Debug/net9.0/ref/PaymentTypeMicroservice.dll
+/Users/barispeksak/EcommerceMicroservices/PaymentTypeMicroservice/bin/Debug/net9.0/System.Text.Json.dll

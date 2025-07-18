@@ -19,6 +19,8 @@ using PaymentTypeMicroservice.Services.Logging; // *
 using Serilog.AspNetCore;
 using MassTransit;
 using PaymentTypeMicroservice.Consumers;
+using System;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -100,11 +102,32 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-
 app.UseMiddleware<CorrelationIdMiddleware>(); // *
 app.UseRouting(); // *
 app.UseSerilogRequestLogging(); // *
 
 app.UseHttpsRedirection();
 app.MapControllers();
+
+// Apply migrations on startup - matching the same approach as ShopOrderMicroservice
+using (var scope = app.Services.CreateScope())
+{
+    if (app.Environment.IsDevelopment() || Environment.GetEnvironmentVariable("APPLY_MIGRATIONS") == "true")
+    {
+        try
+        {
+            var paymentDbContext = scope.ServiceProvider.GetRequiredService<PaymentDbContext>();
+            paymentDbContext.Database.Migrate();
+            
+            var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+            logger.LogInformation("Database migrations applied successfully");
+        }
+        catch (Exception ex)
+        {
+            var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "An error occurred while applying migrations");
+        }
+    }
+}
+
 app.Run();

@@ -158,6 +158,7 @@ services:
       - "5008:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      APPLY_MIGRATIONS: "true"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
       RabbitMQ__Host: rabbitmq
       RabbitMQ__Username: guest
