@@ -1,0 +1,31 @@
+{
+  "ConnectionStrings": {
+    "Redis": "redis:6379"
+  },
+  "MongoDb": {
+  "ConnectionString": "mongodb://mongo:27017",
+  "Database": "ECommerceLogs",
+  "collectionName": "ShoppingCartLogs"
+  },
+
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.MongoDB" ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "System":   "Warning"
+      }
+    }
+  },
+  "ServiceUrls": {
+    "ProductItem": "http://productitemmicroservice:8080",
+    "Product": "http://productmicroservice:8080"
+  },
+  "RabbitMQ": {
+  "Host": "rabbitmq",
+  "Username": "guest",
+  "Password": "guest"
+  },
+  "AllowedHosts": "*"
+}

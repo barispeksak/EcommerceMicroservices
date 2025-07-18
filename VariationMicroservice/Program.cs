@@ -16,7 +16,8 @@ using VariationMicroservice.Service.Services;
 using VariationMicroservice.Service.Mapping;
 using VariationMicroservice.Service.Validation;      // örnek validator’lar
 using VariationMicroservice.Http;                   // CorrelationIdDelegatingHandler
-using VariationMicroservice.Middleware;            // CorrelationIdMiddleware
+using VariationMicroservice.Middleware;  
+using MassTransit;          // CorrelationIdMiddleware
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,24 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
 // Address tarafındaki “AddressActionLogger” benzeri bir sınıfınız varsa:
 builder.Services.AddSingleton<VariationActionLogger>();
 
+var config   = builder.Configuration;      // ① DI dışı yedek referans
+
+builder.Services.AddMassTransit(x =>
+{
+    // x.AddConsumer<...>();   // varsa consumer kayıtları
+
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");   // ② ayarları buradan oku
+        busCfg.Host(rmq["Host"], "/", h =>
+        {
+            h.Username(rmq["Username"]);
+            h.Password(rmq["Password"]);
+        });
+
+        busCfg.ConfigureEndpoints(ctx);            // ③ queue’lar otomatik
+    });
+});
 /*──────────────────────────────────────────────
   3. Entity Framework – PostgreSQL
   ─────────────────────────────────────────────*/

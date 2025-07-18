@@ -8,6 +8,6 @@ namespace ShopOrderMicroservice.Models
         public int Id { get; set; }
 
         [Required]
-        public string Method { get; set; } 
+        public required string Method { get; set; } 
     }
 }

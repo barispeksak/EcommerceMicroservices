@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit"          Version="8.5.0" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.6">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -14,11 +16,12 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.1" />
+    <ProjectReference Include="..\..\Common.Contracts\Common.Contracts.csproj" />
 
-    <PackageReference Include="Serilog.AspNetCore"              Version="9.0.0" />
-    <PackageReference Include="Serilog.Settings.Configuration"  Version="9.0.0" />
-    <PackageReference Include="Serilog.Sinks.Console"           Version="6.0.0" />
-    <PackageReference Include="Serilog.Sinks.MongoDB"           Version="7.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="9.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.MongoDB" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>

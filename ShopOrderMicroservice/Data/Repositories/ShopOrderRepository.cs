@@ -1,12 +1,15 @@
-using Microsoft.EntityFrameworkCore;
-using ShopOrderMicroservice.Data;
-using ShopOrderMicroservice.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ShopOrderMicroservice.Data;
+using ShopOrderMicroservice.Models;
 
-namespace ShopOrderMicroservice.Repositories
+// Use an alias to avoid ambiguity
+using EntityShopOrder = ShopOrderMicroservice.Data.Entities.ShopOrder;
+
+namespace ShopOrderMicroservice.Data.Repositories
 {
     public class ShopOrderRepository : IShopOrderRepository
     {
@@ -17,19 +20,19 @@ namespace ShopOrderMicroservice.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<ShopOrder>> GetAllAsync()
+        public async Task<IEnumerable<EntityShopOrder>> GetAllAsync()
             => await _context.ShopOrders.ToListAsync();
 
-        public async Task<ShopOrder?> GetByIdAsync(int id)
+        public async Task<EntityShopOrder?> GetByIdAsync(int id)
             => await _context.ShopOrders.FindAsync(id);
 
-        public async Task AddAsync(ShopOrder order)
+        public async Task AddAsync(EntityShopOrder order)
         {
             _context.ShopOrders.Add(order);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> UpdateAsync(ShopOrder updatedOrder)
+        public async Task<bool> UpdateAsync(EntityShopOrder updatedOrder)
         {
             _context.ShopOrders.Update(updatedOrder);
             return await _context.SaveChangesAsync() > 0;
@@ -45,17 +48,15 @@ namespace ShopOrderMicroservice.Repositories
             return true;
         }
 
-        //  Kullanıcıya göre siparişler
-        public async Task<IEnumerable<ShopOrder>> GetByUserIdAsync(int userId)
+        public async Task<IEnumerable<EntityShopOrder>> GetByUserIdAsync(int userId)
             => await _context.ShopOrders
-                             .Where(o => o.UserId == userId)
-                             .ToListAsync();
+                            .Where(o => o.UserId == userId)
+                            .ToListAsync();
 
-        //  Tarih aralığına göre siparişler
-        public async Task<IEnumerable<ShopOrder>> GetByDateRangeAsync(DateTime start, DateTime end)
+        public async Task<IEnumerable<EntityShopOrder>> GetByDateRangeAsync(DateTime start, DateTime end)
             => await _context.ShopOrders
-                             .Where(o => o.OrderDate >= start && o.OrderDate <= end)
-                             .ToListAsync();
+                            .Where(o => o.OrderDate >= start && o.OrderDate <= end)
+                            .ToListAsync();
 
     }
 }

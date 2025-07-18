@@ -1,0 +1,17 @@
+@OrderSagaOrchestrator_HostAddress = http://localhost:5010
+
+### Place Order
+POST {{OrderSagaOrchestrator_HostAddress}}/api/saga/place-order
+Content-Type: application/json
+
+{
+  "cartId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "items": [
+    "3fa85f64-5717-4562-b3fc-2c963f66afa7",
+    "3fa85f64-5717-4562-b3fc-2c963f66afa8"
+  ]
+}
+
+### GET Weather (default template)
+GET {{OrderSagaOrchestrator_HostAddress}}/weatherforecast/
+Accept: application/json

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ShopOrderMicroservice.Data.Entities;
 
 namespace ShopOrderMicroservice.Models
 {
@@ -23,6 +24,6 @@ namespace ShopOrderMicroservice.Models
         public decimal Price { get; set; }
 
         // 🔗 Navigation property'ler
-        public ShopOrder ShopOrder { get; set; }
+        public required ShopOrder ShopOrder { get; set; }
     }
 }

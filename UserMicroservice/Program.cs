@@ -14,6 +14,7 @@ using UserMicroservice.Api;
 using UserMicroservice.Http;
 using UserMicroservice.Middleware;
 using MongoDB.Driver; // <-- Ekle!
+using MassTransit;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,25 @@ builder.Services.AddFluentValidationAutoValidation()
                 .AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateUserDtoValidator>();
 builder.Services.AddScoped<IValidator<UserDto>, UserDtoValidator>();
+var config   = builder.Configuration;      // ① DI dışı yedek referans
+
+builder.Services.AddMassTransit(x =>
+{
+    // x.AddConsumer<...>();   // varsa consumer kayıtları
+
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");   // ② ayarları buradan oku
+        busCfg.Host(rmq["Host"], "/", h =>
+        {
+            h.Username(rmq["Username"]);
+            h.Password(rmq["Password"]);
+        });
+
+        busCfg.ConfigureEndpoints(ctx);            // ③ queue’lar otomatik
+    });
+});
+
 
 // ---------- AutoMapper ----------
 builder.Services.AddAutoMapper(typeof(UserProfile));

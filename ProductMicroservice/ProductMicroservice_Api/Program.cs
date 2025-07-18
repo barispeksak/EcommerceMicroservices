@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 using Serilog;
 using MongoDB.Driver;
+using MassTransit;
 
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -42,6 +43,25 @@ builder.Services.AddSingleton<IMongoClient>(_ =>
 builder.Services.AddSingleton<IMongoDatabase>(sp =>
     sp.GetRequiredService<IMongoClient>()
       .GetDatabase("ECommerceLogs"));
+
+var config   = builder.Configuration;      // ① DI dışı yedek referans
+
+builder.Services.AddMassTransit(x =>
+{
+    // x.AddConsumer<...>();   // varsa consumer kayıtları
+
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");   // ② ayarları buradan oku
+        busCfg.Host(rmq["Host"], "/", h =>
+        {
+            h.Username(rmq["Username"]);
+            h.Password(rmq["Password"]);
+        });
+
+        busCfg.ConfigureEndpoints(ctx);            // ③ queue’lar otomatik
+    });
+});
 
 builder.Services.AddSingleton<ProductActionLogger>();    // kendi log sınıfınız
 

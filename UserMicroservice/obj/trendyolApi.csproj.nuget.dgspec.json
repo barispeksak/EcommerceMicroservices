@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/src/trendyolApi.csproj": {}
+    "/Users/barispeksak/EcommerceMicroservices/UserMicroservice/trendyolApi.csproj": {}
   },
   "projects": {
-    "/src/trendyolApi.csproj": {
+    "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/src/trendyolApi.csproj",
-        "projectName": "trendyolApi",
-        "projectPath": "/src/trendyolApi.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/src/obj/",
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj",
+        "projectName": "Common.Contracts",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -44,6 +44,79 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "MassTransit.Abstractions": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/barispeksak/EcommerceMicroservices/UserMicroservice/trendyolApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/UserMicroservice/trendyolApi.csproj",
+        "projectName": "trendyolApi",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/UserMicroservice/trendyolApi.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/UserMicroservice/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj": {
+                "projectPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
@@ -51,6 +124,10 @@
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.3.1, )"
+            },
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.5.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -110,7 +187,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

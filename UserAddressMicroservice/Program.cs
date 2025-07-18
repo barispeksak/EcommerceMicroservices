@@ -18,6 +18,7 @@ using UserAddressMicroservice.Middleware; // *
 using UserAddressMicroservice.Http; // * 
 using UserAddressMicroservice.Service.Logging; // * 
 using Serilog.AspNetCore;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,33 @@ builder.Services.AddControllers()
 
 builder.Services.AddScoped<IUserAddressRepository, UserAddressRepository>();
 builder.Services.AddScoped<IUserAddressService, UserAddressService>();
+
+var config   = builder.Configuration;      // ① DI dışı yedek referans
+
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");
+        string host = rmq["Host"] ?? "rabbitmq"; // Add default value
+        string username = rmq["Username"] ?? "guest"; // Add default value
+        string password = rmq["Password"] ?? "guest"; // Add default value
+        
+        busCfg.Host(host, "/", h =>
+        {
+            h.Username(username);
+            h.Password(password);
+        });
+        
+        // Configure prefetch count to avoid overloading
+        busCfg.PrefetchCount = 10;
+        
+        // Configure retry policy
+        busCfg.UseMessageRetry(r => r.Interval(3, 1000));
+        
+        busCfg.ConfigureEndpoints(ctx);
+    });
+});
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddControllers()

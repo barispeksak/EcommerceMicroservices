@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopOrderMicroservice.Data.Entities
 {
-    [Table("shop_order")]
     public class ShopOrder
     {
         [Key]

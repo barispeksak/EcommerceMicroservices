@@ -1,24 +1,25 @@
-# ASP.NET Core SDK imajını kullanarak uygulamayı derle
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# Çözüm dosyasını ve tüm proje dosyalarını kopyala
-COPY "ShoppingCartMicroservice.sln" .
-COPY "ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj" "ShoppingCartMicroservice_Api/"
-COPY "ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj" "ShoppingCartMicroservice_Service/"
+# Copy csproj files first - CORRECTED PATHS
+COPY ["ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj", "ShoppingCartMicroservice/ShoppingCartMicroservice_Api/"]
+COPY ["ShoppingCartMicroservice/ShoppingCartMicroservice_Service/ShoppingCartMicroservice_Service.csproj", "ShoppingCartMicroservice/ShoppingCartMicroservice_Service/"]
+COPY ["Common.Contracts/Common.Contracts.csproj", "Common.Contracts/"]
 
-# NuGet paketlerini geri yükle
-RUN dotnet restore "ShoppingCartMicroservice.sln"
+# Restore dependencies with correct project path
+RUN dotnet restore "ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj"
 
-# Geri kalan tüm kaynak kodunu kopyala
-COPY . .
+# Copy full source code
+COPY ["ShoppingCartMicroservice/ShoppingCartMicroservice_Api/", "ShoppingCartMicroservice/ShoppingCartMicroservice_Api/"]
+COPY ["ShoppingCartMicroservice/ShoppingCartMicroservice_Service/", "ShoppingCartMicroservice/ShoppingCartMicroservice_Service/"]
+COPY ["Common.Contracts/", "Common.Contracts/"]
 
-# Uygulamayı yayınla
-RUN dotnet publish "ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj" -c Release -o /app/publish
+# Build with correct project path
+WORKDIR /src
+RUN dotnet publish "ShoppingCartMicroservice/ShoppingCartMicroservice_Api/ShoppingCartMicroservice_Api.csproj" -c Release -o /app/publish
 
-# --- İkinci Aşama: Çalıştırma Ortamı ---
+# Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-EXPOSE 8080
 ENTRYPOINT ["dotnet", "ShoppingCartMicroservice_Api.dll"]

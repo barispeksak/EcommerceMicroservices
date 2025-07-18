@@ -5,7 +5,7 @@ using ProductCategoryMicroservice_Service.Interfaces;
 using ProductCategoryMicroservice_Service.Services;
 using ProductCategoryMicroservice_Service.Mapping;
 using ProductCategoryMicroservice_Service.Validation;
-
+using MassTransit;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 
@@ -37,6 +37,24 @@ builder.Services.AddSingleton<IMongoClient>(_ =>
 builder.Services.AddSingleton<IMongoDatabase>(sp =>
     sp.GetRequiredService<IMongoClient>()
       .GetDatabase("ECommerceLogs"));                    // aynı veritabanı
+var config   = builder.Configuration;      // ① DI dışı yedek referans
+
+builder.Services.AddMassTransit(x =>
+{
+    // x.AddConsumer<...>();   // varsa consumer kayıtları
+
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");   // ② ayarları buradan oku
+        busCfg.Host(rmq["Host"], "/", h =>
+        {
+            h.Username(rmq["Username"]);
+            h.Password(rmq["Password"]);
+        });
+
+        busCfg.ConfigureEndpoints(ctx);            // ③ queue’lar otomatik
+    });
+});
 
 builder.Services.AddSingleton<ProductCategoryActionLogger>();;   // ← eğer böyle bir sınıfınız varsa
 

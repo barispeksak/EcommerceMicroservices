@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShopOrderMicroservice.Data;
-using ShopOrderMicroservice.Repositories;
+using ShopOrderMicroservice.Data.Repositories;
 using ShopOrderMicroservice.Services.Interfaces;
 using ShopOrderMicroservice.Services;
 using MongoDB.Driver; // * 
@@ -10,8 +10,11 @@ using ShopOrderMicroservice.Http; // *
 using ShopOrderMicroservice.Services.Logging; // * 
 using Serilog.AspNetCore;
 using FluentValidation.AspNetCore;
+using MassTransit;
+using ShopOrderMicroservice.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
+Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development");
 
 // DbContext (PostgreSQL örneği, connection string appsettings.json'dan alınır)
 builder.Services.AddDbContext<ShopOrderDbContext>(options =>
@@ -31,10 +34,32 @@ builder.Services.AddSingleton<IMongoClient>(sp =>
 builder.Services.AddSingleton<IMongoDatabase>(sp =>
     sp.GetRequiredService<IMongoClient>().GetDatabase("ECommerceLogs")); // *
 builder.Services.AddSingleton<ShopOrderActionLogger>(); // *
+var config   = builder.Configuration;      // ① DI dışı yedek referans
 
+builder.Services.AddMassTransit(x =>
+{
+    // x.AddConsumer<...>();   // varsa consumer kayıtları
+    x.AddConsumer<CreateOrderRequestedConsumer>();
+    x.AddConsumer<CancelOrderConsumer>(); // Add compensation consumer
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");
+        busCfg.Host(rmq["Host"] ?? "rabbitmq", "/", h =>
+        {
+            h.Username(rmq["Username"] ?? "guest");
+            h.Password(rmq["Password"] ?? "guest");
+        });
+
+        // This will automatically use Common.Contracts.Commands:CreateOrderRequested exchange
+        busCfg.ConfigureEndpoints(ctx);
+    });
+});
 // Repository ve Service
 builder.Services.AddScoped<IShopOrderRepository, ShopOrderRepository>();
 builder.Services.AddScoped<IShopOrderService, ShopOrderService>();
+
+//Inactivate the other microservices.
+builder.Services.AddTransient<IHttpClientFactory>(provider => provider.GetRequiredService<IHttpClientFactory>());
 
 // HttpClient (diğer mikroservisler için)
 builder.Services.AddHttpClient("UserService", c =>
@@ -83,4 +108,22 @@ app.UseRouting(); // *
 app.UseSerilogRequestLogging(); // *
 app.UseAuthorization();
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    if (app.Environment.IsDevelopment() || Environment.GetEnvironmentVariable("APPLY_MIGRATIONS") == "true")
+    {
+        try
+        {
+            var shopOrderContext = scope.ServiceProvider.GetRequiredService<ShopOrderDbContext>();
+            shopOrderContext.Database.Migrate();
+            
+            app.Logger.LogInformation("Database migrations applied successfully");
+        }
+        catch (Exception ex)
+        {
+            app.Logger.LogError(ex, "An error occurred while applying migrations");
+        }
+    }
+}
 app.Run();

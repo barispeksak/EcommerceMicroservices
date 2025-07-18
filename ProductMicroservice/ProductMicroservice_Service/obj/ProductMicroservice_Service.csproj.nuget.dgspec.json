@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/src/ProductMicroservice_Service/ProductMicroservice_Service.csproj": {}
+    "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Service/ProductMicroservice_Service.csproj": {}
   },
   "projects": {
-    "/src/ProductMicroservice_Data/ProductMicroservice_Data.csproj": {
+    "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Data/ProductMicroservice_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/src/ProductMicroservice_Data/ProductMicroservice_Data.csproj",
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Data/ProductMicroservice_Data.csproj",
         "projectName": "ProductMicroservice_Data",
-        "projectPath": "/src/ProductMicroservice_Data/ProductMicroservice_Data.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/src/ProductMicroservice_Data/obj/",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Data/ProductMicroservice_Data.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -75,21 +75,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/src/ProductMicroservice_Service/ProductMicroservice_Service.csproj": {
+    "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Service/ProductMicroservice_Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/src/ProductMicroservice_Service/ProductMicroservice_Service.csproj",
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Service/ProductMicroservice_Service.csproj",
         "projectName": "ProductMicroservice_Service",
-        "projectPath": "/src/ProductMicroservice_Service/ProductMicroservice_Service.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/src/ProductMicroservice_Service/obj/",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Service/ProductMicroservice_Service.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Service/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -101,8 +101,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/src/ProductMicroservice_Data/ProductMicroservice_Data.csproj": {
-                "projectPath": "/src/ProductMicroservice_Data/ProductMicroservice_Data.csproj"
+              "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Data/ProductMicroservice_Data.csproj": {
+                "projectPath": "/Users/barispeksak/EcommerceMicroservices/ProductMicroservice/ProductMicroservice_Data/ProductMicroservice_Data.csproj"
               }
             }
           }
@@ -131,6 +131,10 @@
               "target": "Package",
               "version": "[12.0.0, )"
             },
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -156,7 +160,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

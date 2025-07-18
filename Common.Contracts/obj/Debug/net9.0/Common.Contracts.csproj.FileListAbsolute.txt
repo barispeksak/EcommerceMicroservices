@@ -1,0 +1,13 @@
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/bin/Debug/net9.0/Common.Contracts.deps.json
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/bin/Debug/net9.0/Common.Contracts.dll
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/bin/Debug/net9.0/Common.Contracts.pdb
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/Debug/net9.0/Common.Contracts.csproj.AssemblyReference.cache
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/Debug/net9.0/Common.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/Debug/net9.0/Common.Contracts.AssemblyInfoInputs.cache
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/Debug/net9.0/Common.Contracts.AssemblyInfo.cs
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/Debug/net9.0/Common.Contracts.csproj.CoreCompileInputs.cache
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/Debug/net9.0/Common.Contracts.sourcelink.json
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/Debug/net9.0/Common.Contracts.dll
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/Debug/net9.0/refint/Common.Contracts.dll
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/Debug/net9.0/Common.Contracts.pdb
+/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/Debug/net9.0/ref/Common.Contracts.dll

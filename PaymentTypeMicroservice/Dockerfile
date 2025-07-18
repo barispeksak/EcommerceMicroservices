@@ -1,18 +1,23 @@
-# ASP.NET Core SDK imajını kullanarak uygulamayı derle
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# NuGet paketlerini geri yüklemek için yalnızca .csproj dosyasını kopyala
-COPY "PaymentTypeMicroservice.csproj" .
-RUN dotnet restore "./PaymentTypeMicroservice.csproj"
+# Copy the solution file if you have one
+COPY *.sln ./
 
-# Geri kalan tüm kaynak kodunu kopyala
-COPY . .
+# Copy both project files first (for efficient caching)
+COPY Common.Contracts/*.csproj Common.Contracts/
+COPY PaymentTypeMicroservice/*.csproj PaymentTypeMicroservice/
 
-# Uygulamayı yayınla
-RUN dotnet publish "PaymentTypeMicroservice.csproj" -c Release -o /app/publish
+# Restore packages
+RUN dotnet restore PaymentTypeMicroservice/PaymentTypeMicroservice.csproj
 
-# --- İkinci Aşama: Çalıştırma Ortamı ---
+# Copy the entire source code
+COPY Common.Contracts/. Common.Contracts/
+COPY PaymentTypeMicroservice/. PaymentTypeMicroservice/
+
+# Build and publish
+RUN dotnet publish PaymentTypeMicroservice/PaymentTypeMicroservice.csproj -c Release -o /app/publish
+
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .

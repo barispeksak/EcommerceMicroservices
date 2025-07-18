@@ -35,6 +35,16 @@ services:
       - mongo-data:/data/db 
     environment:
       - TZ=Europe/Istanbul
+      
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
 
   addressservice:
     build:
@@ -65,10 +75,14 @@ services:
       - Jwt__Key=C#fTjWnZr4u7x!A%D*G-KaPdSgVkYp3s
       - MongoDb__ConnectionString=mongodb://mongo:27017
       - MongoDb__Database=ECommerceLogs
-
+      - RabbitMQ__Host=rabbitmq
+      - RabbitMQ__Username=guest
+      - RabbitMQ__Password=guest
     depends_on:
       postgresql:
         condition: service_healthy
+      rabbitmq:
+        condition: service_started
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8080/healthz || exit 1"]
       interval: 10s
@@ -118,8 +132,8 @@ services:
 
   orderstatusmicroservice:
     build:
-      context: ./OrderStatusMicroservice
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: OrderStatusMicroservice/Dockerfile
     ports:
       - "5002:8080"
     environment:
@@ -130,21 +144,36 @@ services:
         condition: service_healthy
       authservice:
         condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '128M'
 
   paymenttypemicroservice:
     build:
-      context: ./PaymentTypeMicroservice
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: PaymentTypeMicroservice/Dockerfile
     ports:
-      - "5003:8080"
+      - "5008:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
+      RabbitMQ__Host: rabbitmq
+      RabbitMQ__Username: guest
+      RabbitMQ__Password: guest
     depends_on:
       postgresql:
         condition: service_healthy
       authservice:
         condition: service_healthy
+      rabbitmq:
+        condition: service_started
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '128M'
 
   productcategorymicroservice:
     build:
@@ -208,8 +237,8 @@ services:
 
   shippingtypemicroservice:
     build:
-      context: ./ShippingTypeMicroservice
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ShippingTypeMicroservice/Dockerfile
     ports:
       - "5008:8080"
     environment:
@@ -220,42 +249,62 @@ services:
         condition: service_healthy
       authservice:
         condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '128M'
 
   shopordermicroservice:
     build:
-      context: ./ShopOrderMicroservice
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ShopOrderMicroservice/Dockerfile
     ports:
       - "5009:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
       ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=trendyolDb;Username=postgres;Password=123456"
+      RabbitMQ__Host: rabbitmq
+      RabbitMQ__Username: guest
+      RabbitMQ__Password: guest
     depends_on:
       postgresql:
         condition: service_healthy
       authservice:
         condition: service_healthy
+      rabbitmq:
+        condition: service_started
 
   shoppingcartmicroservice:
     build:
-      context: ./ShoppingCartMicroservice
-      dockerfile: ShoppingCartMicroservice_Api/Dockerfile
+      context: .
+      dockerfile: ShoppingCartMicroservice/ShoppingCartMicroservice_Api/Dockerfile
     ports:
-      - "5010:8080"
+      - "5020:8080"
     environment:
       ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=ShoppingCartDb;Username=postgres;Password=123456"
       ConnectionStrings__Redis: "redis:6379"
+      ProductItemApi__BaseUrl: "http://productitemmicroservice:8080"
+      RabbitMQ__Host: rabbitmq
+      RabbitMQ__Username: guest
+      RabbitMQ__Password: guest
     depends_on:
       authservice:
         condition: service_healthy
       redis:
         condition: service_healthy
-
+      postgresql:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      productitemmicroservice:
+        condition: service_started
 
   useraddressmicroservice:
     build:
-      context: ./UserAddressMicroservice
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: UserAddressMicroservice/Dockerfile
     ports:
       - "5011:8080"
     environment:
@@ -266,6 +315,11 @@ services:
         condition: service_healthy
       authservice:
         condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '128M'
 
   usermicroservice:
     build:
@@ -312,6 +366,48 @@ services:
         condition: service_healthy
       authservice:
         condition: service_healthy
+
+  ordersagaorchestrator:
+    build:
+      context: .
+      dockerfile: OrderSagaOrchestrator/Dockerfile
+    ports:
+      - "5010:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=SagaDb;Username=postgres;Password=123456"
+      RabbitMQ__Host: rabbitmq
+      RabbitMQ__Username: guest
+      RabbitMQ__Password: guest
+    depends_on:
+      rabbitmq:
+        condition: service_started
+      postgresql:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    restart: unless-stopped
+
+  testpublisher:
+    build:
+      context: .
+      dockerfile: TestPublisher/Dockerfile
+    environment:
+      RabbitMQ__Host: rabbitmq
+      RabbitMQ__Username: guest
+      RabbitMQ__Password: guest
+    depends_on:
+      rabbitmq:
+        condition: service_started
+    profiles:
+      - test
+    restart: "no"
 
         
 volumes:

@@ -11,6 +11,7 @@ using Serilog;
 using MongoDB.Driver; 
 using AddressMicroservice.Middleware;
 using AddressMicroservice.Http;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,6 +67,32 @@ builder.Services.AddCors(options =>
         policy => policy.AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader());
+});
+
+var config = builder.Configuration;      // ① DI dışı yedek referans
+
+builder.Services.AddMassTransit(x =>
+{
+    // x.AddConsumer<...>();   // varsa consumer kayıtları
+
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");   // ② ayarları buradan oku
+        busCfg.Host(rmq["Host"], "/", h =>
+        {
+            // Null kontrolü ile güvenli atama
+            var username = rmq["Username"];
+            var password = rmq["Password"];
+            
+            if (!string.IsNullOrEmpty(username))
+                h.Username(username);
+            
+            if (!string.IsNullOrEmpty(password))
+                h.Password(password);
+        });
+
+        busCfg.ConfigureEndpoints(ctx);            // ③ queue'lar otomatik
+    });
 });
 
 var app = builder.Build();

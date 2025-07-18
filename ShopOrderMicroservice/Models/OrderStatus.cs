@@ -6,7 +6,7 @@ namespace ShopOrderMicroservice.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Status { get; set; }
-        public string City { get; set; }
+        public required string Status { get; set; }
+        public required string City { get; set; }
     }
 }

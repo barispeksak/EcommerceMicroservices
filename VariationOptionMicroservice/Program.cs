@@ -8,6 +8,7 @@ using Serilog;
 using MongoDB.Driver;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using MassTransit;
 
 using VariationOptionMicroservice.Data;
 using VariationOptionMicroservice.Data.Repositories;
@@ -40,6 +41,24 @@ builder.Services.AddSingleton<IMongoClient>(_ =>
 builder.Services.AddSingleton<IMongoDatabase>(sp =>
     sp.GetRequiredService<IMongoClient>()
       .GetDatabase("ECommerceLogs"));
+var config   = builder.Configuration;      // ① DI dışı yedek referans
+
+builder.Services.AddMassTransit(x =>
+{
+    // x.AddConsumer<...>();   // varsa consumer kayıtları
+
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");   // ② ayarları buradan oku
+        busCfg.Host(rmq["Host"], "/", h =>
+        {
+            h.Username(rmq["Username"]);
+            h.Password(rmq["Password"]);
+        });
+
+        busCfg.ConfigureEndpoints(ctx);            // ③ queue’lar otomatik
+    });
+});
 
 // Eğer Address/Variation tarafındaki gibi özel log sınıfınız varsa
 builder.Services.AddSingleton<VariationOptionActionLogger>();

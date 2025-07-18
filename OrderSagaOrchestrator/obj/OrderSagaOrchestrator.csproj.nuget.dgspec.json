@@ -1,0 +1,179 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/barispeksak/EcommerceMicroservices/OrderSagaOrchestrator/OrderSagaOrchestrator.csproj": {}
+  },
+  "projects": {
+    "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj",
+        "projectName": "Common.Contracts",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "MassTransit.Abstractions": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/barispeksak/EcommerceMicroservices/OrderSagaOrchestrator/OrderSagaOrchestrator.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/OrderSagaOrchestrator/OrderSagaOrchestrator.csproj",
+        "projectName": "OrderSagaOrchestrator",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/OrderSagaOrchestrator/OrderSagaOrchestrator.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/OrderSagaOrchestrator/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj": {
+                "projectPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
+            "MassTransit.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.7, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ using MongoDB.Driver;
 using ApiGatewayMicroservice.Middleware;
 using Serilog;
 using ApiGateway.Services;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,25 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("JwtPolicy", policy =>
     {
         policy.RequireAuthenticatedUser();
+    });
+});
+
+var config = builder.Configuration;
+
+builder.Services.AddMassTransit(x =>
+{
+    // x.AddConsumer<...>();
+
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");
+        busCfg.Host(rmq["Host"], "/", h =>
+        {
+            h.Username(rmq["Username"]);
+            h.Password(rmq["Password"]);
+        });
+
+        busCfg.ConfigureEndpoints(ctx);
     });
 });
 

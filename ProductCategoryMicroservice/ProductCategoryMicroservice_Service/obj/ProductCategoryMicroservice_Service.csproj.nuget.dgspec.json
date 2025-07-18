@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/src/ProductCategoryMicroservice_Service/ProductCategoryMicroservice_Service.csproj": {}
+    "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Service/ProductCategoryMicroservice_Service.csproj": {}
   },
   "projects": {
-    "/src/ProductCategoryMicroservice_Data/ProductCategoryMicroservice_Data.csproj": {
+    "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Data/ProductCategoryMicroservice_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/src/ProductCategoryMicroservice_Data/ProductCategoryMicroservice_Data.csproj",
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Data/ProductCategoryMicroservice_Data.csproj",
         "projectName": "ProductCategoryMicroservice_Data",
-        "projectPath": "/src/ProductCategoryMicroservice_Data/ProductCategoryMicroservice_Data.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/src/ProductCategoryMicroservice_Data/obj/",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Data/ProductCategoryMicroservice_Data.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -44,6 +44,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -69,21 +73,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/src/ProductCategoryMicroservice_Service/ProductCategoryMicroservice_Service.csproj": {
+    "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Service/ProductCategoryMicroservice_Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/src/ProductCategoryMicroservice_Service/ProductCategoryMicroservice_Service.csproj",
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Service/ProductCategoryMicroservice_Service.csproj",
         "projectName": "ProductCategoryMicroservice_Service",
-        "projectPath": "/src/ProductCategoryMicroservice_Service/ProductCategoryMicroservice_Service.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/src/ProductCategoryMicroservice_Service/obj/",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Service/ProductCategoryMicroservice_Service.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Service/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -95,8 +99,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/src/ProductCategoryMicroservice_Data/ProductCategoryMicroservice_Data.csproj": {
-                "projectPath": "/src/ProductCategoryMicroservice_Data/ProductCategoryMicroservice_Data.csproj"
+              "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Data/ProductCategoryMicroservice_Data.csproj": {
+                "projectPath": "/Users/barispeksak/EcommerceMicroservices/ProductCategoryMicroservice/ProductCategoryMicroservice_Data/ProductCategoryMicroservice_Data.csproj"
               }
             }
           }
@@ -125,6 +129,10 @@
               "target": "Package",
               "version": "[12.0.0, )"
             },
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -150,7 +158,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

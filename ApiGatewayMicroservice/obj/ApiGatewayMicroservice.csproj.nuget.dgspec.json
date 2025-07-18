@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj": {}
+    "/Users/barispeksak/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj": {}
   },
   "projects": {
-    "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj": {
+    "/Users/barispeksak/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj",
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj",
         "projectName": "ApiGatewayMicroservice",
-        "projectPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj",
-        "packagesPath": "/Users/fatmaakyildiz/.nuget/packages/",
-        "outputPath": "/Users/fatmaakyildiz/EcommerceMicroservices/ApiGatewayMicroservice/obj/",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/ApiGatewayMicroservice/ApiGatewayMicroservice.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/ApiGatewayMicroservice/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/fatmaakyildiz/.nuget/NuGet/NuGet.Config"
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -25,7 +25,11 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj": {
+                "projectPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -38,12 +42,16 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.7, )"
@@ -104,7 +112,76 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj",
+        "projectName": "Common.Contracts",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "MassTransit.Abstractions": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

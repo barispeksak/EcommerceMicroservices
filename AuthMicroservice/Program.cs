@@ -19,6 +19,7 @@ using AuthMicroservice.Http;
 using AuthMicroservice.Middleware;
 using MongoDB.Driver;
 using Microsoft.Extensions.Configuration;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,6 +71,27 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(keyBytes)
     };
+});
+
+var config   = builder.Configuration;      // ① DI dışı yedek referans
+
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = builder.Configuration.GetSection("RabbitMQ");
+        string host = rmq["Host"] ?? "rabbitmq"; // Default if null
+        string username = rmq["Username"] ?? "guest"; // Default if null
+        string password = rmq["Password"] ?? "guest"; // Default if null
+        
+        busCfg.Host(host, "/", h =>
+        {
+            h.Username(username);
+            h.Password(password);
+        });
+
+        busCfg.ConfigureEndpoints(ctx);
+    });
 });
 
 // Add in DI

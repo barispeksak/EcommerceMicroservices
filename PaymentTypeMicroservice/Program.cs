@@ -6,6 +6,7 @@ using PaymentTypeMicroservice.Data;
 using PaymentTypeMicroservice.Data.Repositories;
 using PaymentTypeMicroservice.Services.Interfaces;
 using PaymentTypeMicroservice.Services;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using AutoMapper;
 using PaymentTypeMicroservice.Mapping;
@@ -16,6 +17,8 @@ using PaymentTypeMicroservice.Middleware; // *
 using PaymentTypeMicroservice.Http; // * 
 using PaymentTypeMicroservice.Services.Logging; // * 
 using Serilog.AspNetCore;
+using MassTransit;
+using PaymentTypeMicroservice.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,15 +28,46 @@ builder.Services.AddDbContext<PaymentDbContext>(options =>
 
 // Controllers + Validation
 builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
+    .AddJsonOptions(options => {
         options.JsonSerializerOptions.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-    }) // *
-    .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Program>());
+    })
+    .AddFluentValidation(config => {
+        config.RegisterValidatorsFromAssemblyContaining<Program>();
+    });
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining(typeof(Program));
 
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(PaymentTypeProfile));
 
+var config   = builder.Configuration;      // ① DI dışı yedek referans
+
+builder.Services.AddMassTransit(x =>
+{
+    // Add the payment consumer
+    x.AddConsumer<ProcessPaymentRequestedConsumer>();
+    
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");
+        string host = rmq["Host"] ?? "rabbitmq";
+        string username = rmq["Username"] ?? "guest";  
+        string password = rmq["Password"] ?? "guest";
+        
+        busCfg.Host(host, "/", h =>
+        {
+            h.Username(username);
+            h.Password(password);
+        });
+        
+        busCfg.PrefetchCount = 10;
+        busCfg.UseMessageRetry(r => r.Interval(3, 1000));
+        
+        busCfg.ConfigureEndpoints(ctx);
+    });
+});
 // Services
 builder.Services.AddScoped<IPaymentTypeService, PaymentTypeService>();
 builder.Services.AddScoped<IPaymentTypeRepository, PaymentTypeRepository>();

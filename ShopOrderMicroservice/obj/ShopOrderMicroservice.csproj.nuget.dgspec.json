@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/src/ShopOrderMicroservice.csproj": {}
+    "/Users/barispeksak/EcommerceMicroservices/ShopOrderMicroservice/ShopOrderMicroservice.csproj": {}
   },
   "projects": {
-    "/src/ShopOrderMicroservice.csproj": {
+    "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/src/ShopOrderMicroservice.csproj",
-        "projectName": "ShopOrderMicroservice",
-        "projectPath": "/src/ShopOrderMicroservice.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/src/obj/",
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj",
+        "projectName": "Common.Contracts",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -44,6 +44,79 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "MassTransit.Abstractions": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/barispeksak/EcommerceMicroservices/ShopOrderMicroservice/ShopOrderMicroservice.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/barispeksak/EcommerceMicroservices/ShopOrderMicroservice/ShopOrderMicroservice.csproj",
+        "projectName": "ShopOrderMicroservice",
+        "projectPath": "/Users/barispeksak/EcommerceMicroservices/ShopOrderMicroservice/ShopOrderMicroservice.csproj",
+        "packagesPath": "/Users/barispeksak/.nuget/packages/",
+        "outputPath": "/Users/barispeksak/EcommerceMicroservices/ShopOrderMicroservice/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/barispeksak/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj": {
+                "projectPath": "/Users/barispeksak/EcommerceMicroservices/Common.Contracts/Common.Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
@@ -52,15 +125,27 @@
               "target": "Package",
               "version": "[11.3.1, )"
             },
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[9.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -79,6 +164,14 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Sinks.MongoDB": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -104,7 +197,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

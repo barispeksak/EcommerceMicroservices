@@ -1,18 +1,23 @@
-# ASP.NET Core SDK imajını kullanarak uygulamayı derle
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# NuGet paketlerini geri yüklemek için yalnızca .csproj dosyasını kopyala
-COPY "ShippingTypeMicroservice.csproj" .
-RUN dotnet restore "./ShippingTypeMicroservice.csproj"
+# Copy the solution file if you have one
+COPY *.sln ./
 
-# Geri kalan tüm kaynak kodunu kopyala
-COPY . .
+# Copy both project files first (for efficient caching)
+COPY Common.Contracts/*.csproj Common.Contracts/
+COPY ShippingTypeMicroservice/*.csproj ShippingTypeMicroservice/
 
-# Uygulamayı yayınla
-RUN dotnet publish "ShippingTypeMicroservice.csproj" -c Release -o /app/publish
+# Restore packages
+RUN dotnet restore ShippingTypeMicroservice/ShippingTypeMicroservice.csproj
 
-# --- İkinci Aşama: Çalıştırma Ortamı ---
+# Copy the entire source code
+COPY Common.Contracts/. Common.Contracts/
+COPY ShippingTypeMicroservice/. ShippingTypeMicroservice/
+
+# Build and publish
+RUN dotnet publish ShippingTypeMicroservice/ShippingTypeMicroservice.csproj -c Release -o /app/publish
+
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .

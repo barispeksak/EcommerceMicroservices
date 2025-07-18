@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 using Serilog;
 using MongoDB.Driver;
+using MassTransit;
 
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -42,7 +43,26 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
     sp.GetRequiredService<IMongoClient>()
       .GetDatabase("ECommerceLogs"));
 
-builder.Services.AddSingleton<ProductItemActionLogger>();   // kendi log sınıfınız
+builder.Services.AddSingleton<ProductItemActionLogger>(); 
+
+var config   = builder.Configuration;      // ① DI dışı yedek referans
+
+builder.Services.AddMassTransit(x =>
+{
+    // x.AddConsumer<...>();   // varsa consumer kayıtları
+
+    x.UsingRabbitMq((ctx, busCfg) =>
+    {
+        var rmq = config.GetSection("RabbitMQ");   // ② ayarları buradan oku
+        busCfg.Host(rmq["Host"], "/", h =>
+        {
+            h.Username(rmq["Username"]);
+            h.Password(rmq["Password"]);
+        });
+
+        busCfg.ConfigureEndpoints(ctx);            // ③ queue’lar otomatik
+    });
+});
 
 /*──────────────────────────────────────────────
   3. Correlation-Id altyapısı
@@ -101,6 +121,53 @@ builder.Services.AddSwaggerGen(o =>
   9. Build & Middleware Pipeline
   ─────────────────────────────────────────────*/
 var app = builder.Build();
+
+// Initialize the database with migrations
+try
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<ProductItemDbContext>();
+        dbContext.Database.Migrate();
+        
+        // Seed test data if needed
+        if (!dbContext.ProductItems.Any())
+        {
+            dbContext.ProductItems.AddRange(
+                new ProductItemMicroservice_Data.Entities.ProductItem 
+                { 
+                    Sku = "PROD-001", 
+                    QuantityInStock = 10, 
+                    Price = 100m, 
+                    Currency = "TRY", 
+                    ProductId = 1 
+                },
+                new ProductItemMicroservice_Data.Entities.ProductItem 
+                { 
+                    Sku = "PROD-002", 
+                    QuantityInStock = 20, 
+                    Price = 150m, 
+                    Currency = "TRY", 
+                    ProductId = 2 
+                },
+                new ProductItemMicroservice_Data.Entities.ProductItem 
+                { 
+                    Sku = "PROD-003", 
+                    QuantityInStock = 30, 
+                    Price = 200m, 
+                    Currency = "TRY", 
+                    ProductId = 3 
+                }
+            );
+            dbContext.SaveChanges();
+        }
+    }
+    Log.Information("Database initialized successfully with migrations");
+}
+catch (Exception ex)
+{
+    Log.Error(ex, "An error occurred while initializing the database with migrations");
+}
 
 app.UseMiddleware<CorrelationIdMiddleware>();              // Correlation-Id
 
